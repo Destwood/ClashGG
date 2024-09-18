@@ -15,20 +15,24 @@ const buttonStyles: Record<ButtonProps["type"], SxProps<Theme>> = {
   contained: {
     ...commonButtonStyles,
     backgroundColor: "#2f384c",
+
     "&:hover": {
       backgroundColor: "#4a556d",
     },
   },
+
   filled: {
     ...commonButtonStyles,
     backgroundColor: "#fff",
     color: "#000",
+
     "&:hover": {
       color: "#fff",
       border: "1px solid #fff",
       backgroundColor: "transparent",
     },
   },
+
   outlined: {
     ...commonButtonStyles,
   },
