@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import style from "./Header.module.scss";
-import Button from "../../components/Button";
+import Button from "../../components/Button/Button";
 import logo from "../../../assets/logo.webp";
 import { Link } from "react-router-dom";
-import Input from "../../components/Input";
+import Input from "../../components/Input/Input";
+import { useAppDispatch } from "../../hooks/redux";
+import { togglePopup } from "../../../store/slices/AuthModalSlice";
 
 function Header() {
-  const [searchValue, setSearchValue] = useState("");
+  const dispatch = useAppDispatch();
+  const [searchValue, setSearchValue] = useState<string>("");
 
   const handleChange = (newValue: string) => {
     setSearchValue(newValue);
+  };
+
+  const handleLoginClick = () => {
+    dispatch(togglePopup({ isOpen: true, typeOfModal: "LogIn" }));
+  };
+  const handleSignUpClick = () => {
+    dispatch(togglePopup({ isOpen: true, typeOfModal: "SignUp" }));
   };
 
   return (
@@ -28,8 +38,12 @@ function Header() {
         />
       </div>
       <div className="">
-        <Button type="contained">Log In</Button>
-        <Button type="filled">Sign Up</Button>
+        <Button type="contained" onClick={() => handleLoginClick()}>
+          Log In
+        </Button>
+        <Button type="filled" onClick={() => handleSignUpClick()}>
+          Sign Up
+        </Button>
       </div>
     </div>
   );

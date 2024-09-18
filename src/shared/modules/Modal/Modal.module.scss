@@ -1,0 +1,64 @@
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.492);
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  position: relative;
+  background-color: #1f2633;
+  border-radius: 0.8rem;
+  padding: 3.2rem;
+  width: fit-content;
+  margin: auto;
+  color: #fff;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #95acda;
+  font-size: 1.3rem;
+  border: none;
+  background-color: transparent;
+  &:hover {
+    cursor: pointer;
+    color: #fff;
+  }
+}
+
+// TODO
+// .icon {
+//   height: 1rem;
+// }
+
+// .linkButton {
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 1rem;
+//   border: none;
+//   border-radius: 2rem;
+//   color: #fff;
+//   margin-bottom: 0.5rem;
+//   text-transform: uppercase;
+// }
+
+// .discordButton {
+//   background-color: #434de4;
+// }
+// .twitchButton {
+//   background-color: #6e31df;
+// }
+// .facebookButton {
+//   background-color: #1876f2;
+// }

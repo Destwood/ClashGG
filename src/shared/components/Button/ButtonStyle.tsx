@@ -1,17 +1,11 @@
-import React from "react";
-import MuiButton from "@mui/material/Button";
 import { SxProps } from "@mui/system";
 import { Theme } from "@mui/material/styles";
-
-interface ButtonProps {
-  children: string;
-  type: "contained" | "filled" | "outlined";
-}
+import { ButtonProps } from "../../../types";
 
 const commonButtonStyles: SxProps<Theme> = {
   borderRadius: "1rem",
   fontSize: "0.75rem",
-  textTransform: "capitalize",
+  textTransform: "uppercase",
   border: "1px solid #2f384c",
   transition: "0.1s",
   margin: "0 0.5rem",
@@ -40,15 +34,4 @@ const buttonStyles: Record<ButtonProps["type"], SxProps<Theme>> = {
   },
 };
 
-const Button: React.FC<ButtonProps> = ({ children, type }) => {
-  return (
-    <MuiButton
-      sx={buttonStyles[type]}
-      variant={type === "outlined" ? "outlined" : "contained"}
-    >
-      {children}
-    </MuiButton>
-  );
-};
-
-export default Button;
+export default buttonStyles;
