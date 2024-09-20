@@ -15,8 +15,11 @@ const modalSlice = createSlice({
     initialState,
     reducers: {
         togglePopup(state, action: PayloadAction<ModalState>) {
-            state.isOpen = action.payload.isOpen
-            state.typeOfModal = action.payload.typeOfModal
+           return {
+               ...state,
+               isOpen: action.payload.isOpen,
+               typeOfModal: action.payload.typeOfModal
+           }
         },
     },
 });

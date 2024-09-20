@@ -1,7 +1,7 @@
 import React from "react";
 import MuiButton from "@mui/material/Button";
+import { ButtonProps } from "types";
 import buttonStyle from "./ButtonStyle";
-import { ButtonProps } from "../../../types";
 
 const Button: React.FC<ButtonProps> = ({ children, type, onClick }) => {
   return (
