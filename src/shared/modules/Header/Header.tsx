@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAppDispatch } from "shared/hooks";
 import logo from "../../../assets/logo.webp";
-import { togglePopup } from "../../../store/slices/AuthModalSlice";
+import { setAuthType } from "../../../store/slices";
+import { togglePopup } from "../../../store/slices/ModalSlice";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
-import { useAppDispatch } from "../../hooks/redux";
 import style from "./Header.module.scss";
 
 const Header = () => {
@@ -16,11 +17,17 @@ const Header = () => {
   };
 
   const handleLoginClick = () => {
-    dispatch(togglePopup({ isOpen: true, typeOfModal: "LogIn" }));
+    dispatch(setAuthType({ typeOfModal: "logIn" }));
+    openPopup()
   };
   const handleSignUpClick = () => {
-    dispatch(togglePopup({ isOpen: true, typeOfModal: "SignUp" }));
+    dispatch(setAuthType({ typeOfModal: "signUp" }));
+    openPopup()
   };
+
+  const openPopup = () => {
+    dispatch(togglePopup({ isOpen: true }));
+  }
 
   return (
     <div className={style.header}>

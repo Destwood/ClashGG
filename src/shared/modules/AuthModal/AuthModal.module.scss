@@ -1,0 +1,48 @@
+ .icon {
+   height: 1rem;
+ }
+
+ .heading {
+   margin-bottom: 1rem;
+ }
+
+
+ .title {
+   font-size: 3rem;
+   font-weight: 700;
+ }
+
+ .subTitle {
+   color: #95ACDA;
+ }
+ .altButton {
+   color: #16B2CA;
+   &:hover {
+     cursor: pointer;
+     opacity:.7;
+   }
+
+ }
+
+ .linkButton {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 1rem;
+   border: none;
+   border-radius: 2rem;
+   color: #fff;
+   margin-bottom: 0.5rem;
+   text-transform: uppercase;
+ }
+
+ .discordButton {
+   background-color: #434de4;
+ }
+ .twitchButton {
+   background-color: #6e31df;
+ }
+ .facebookButton {
+   background-color: #1876f2;
+ }
