@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
+import { Theme } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import { SxProps } from "@mui/system";
-import { Theme } from "@mui/material/styles";
 import commonInputStyles from "./InputStyle";
 
 interface InputProps {

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import style from "./Header.module.scss";
-import Button from "../../components/Button/Button";
-import logo from "../../../assets/logo.webp";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../../assets/logo.webp";
+import { togglePopup } from "../../../store/slices/AuthModalSlice";
+import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import { useAppDispatch } from "../../hooks/redux";
-import { togglePopup } from "../../../store/slices/AuthModalSlice";
+import style from "./Header.module.scss";
 
-function Header() {
+const Header = () => {
   const dispatch = useAppDispatch();
   const [searchValue, setSearchValue] = useState<string>("");
 
@@ -25,7 +25,7 @@ function Header() {
   return (
     <div className={style.header}>
       <div className="">
-        <Link to={"/"}>
+        <Link to="/">
           <img className={style.logo} src={logo} alt="logo" />
         </Link>
       </div>

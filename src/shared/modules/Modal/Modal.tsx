@@ -1,15 +1,15 @@
 import React from "react";
-import style from "./Modal.module.scss";
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { togglePopup } from "../../../store/slices/AuthModalSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import style from "./Modal.module.scss";
 
 // import discord from "../../../assets/discord.svg";
 // import twitch from "../../../assets/twitch.svg";
 // import facebook from "../../../assets/facebook.svg";
 
-type Props = {};
 
-export default function AuthModal({}: Props) {
+
+ const AuthModal = () => {
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector((state) => state.authModal.isOpen);
 
@@ -49,3 +49,4 @@ export default function AuthModal({}: Props) {
     </div>
   );
 }
+export default AuthModal;

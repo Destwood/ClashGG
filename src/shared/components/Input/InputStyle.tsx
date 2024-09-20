@@ -1,5 +1,5 @@
-import { SxProps } from "@mui/system";
 import { Theme } from "@mui/material/styles";
+import { SxProps } from "@mui/system";
 
 const commonInputStyles: SxProps<Theme> = {
   bgcolor: "#2F384C",

@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-
 import AuthModalSlice from "./slices/AuthModalSlice";
 
 const store = configureStore({
@@ -11,4 +10,4 @@ const store = configureStore({
 export default store;
 
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDisppatch = typeof store.dispatch;
+export type AppDispatch = typeof store.dispatch;
