@@ -26,7 +26,7 @@ const Sidebar: React.FC<Props> = () => {
 
     // TODO
     // const API_URL = 'https://api.challengermode.com/graphql'; // Replace with actual API URL
-    // const API_KEY = 'a3dae610-1ac2-43dd-981a-08dcdb714858';
+    // const API_KEY = '';
     //
     // const fetchTournaments = async () => {
     //     const query = `
