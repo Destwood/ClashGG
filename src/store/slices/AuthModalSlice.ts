@@ -1,25 +1,22 @@
-
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface ModalState {
-    typeOfModal: "logIn" | "signUp";
-}
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ModalState } from 'types/auth';
+import { Auth } from 'utils/enums/auth';
 
 const initialState: ModalState = {
-    typeOfModal: "logIn",
-}
+	typeOfModal: Auth.logIn,
+};
 
 const modalSlice = createSlice({
-    name: "modalAuth",
-    initialState,
-    reducers: {
-        setAuthType(state, action: PayloadAction<ModalState>) {
-            return {
-                ...state,
-                typeOfModal: action.payload.typeOfModal,
-            }
-        },
-    },
+	name: 'modalAuth',
+	initialState,
+	reducers: {
+		setAuthType(state, action: PayloadAction<Auth>) {
+			return {
+				...state,
+				typeOfModal: action.payload,
+			};
+		},
+	},
 });
 
 export const { setAuthType } = modalSlice.actions;

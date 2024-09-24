@@ -1,24 +1,24 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 interface ModalState {
-    isOpen: boolean
+	isOpen: boolean;
 }
 
 const initialState: ModalState = {
-    isOpen: false,
-}
+	isOpen: false,
+};
 
 const modalSlice = createSlice({
-    name: "modal",
-    initialState,
-    reducers: {
-        togglePopup(state, action: PayloadAction<ModalState>) {
-            return {
-                ...state,
-                isOpen: action.payload.isOpen,
-            }
-        },
-    },
+	name: 'modal',
+	initialState,
+	reducers: {
+		togglePopup(state) {
+			return {
+				...state,
+				isOpen: !state.isOpen,
+			};
+		},
+	},
 });
 
 export const { togglePopup } = modalSlice.actions;
