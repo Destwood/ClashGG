@@ -8,7 +8,7 @@ const initialState: ModalState = {
 	isOpen: false,
 };
 
-const modalSlice = createSlice({
+export const modalSlice = createSlice({
 	name: 'modal',
 	initialState,
 	reducers: {
@@ -22,5 +22,5 @@ const modalSlice = createSlice({
 });
 
 export const { togglePopup } = modalSlice.actions;
-export default modalSlice.reducer;
+export const modalReducer = modalSlice.reducer;
 export type State = ModalState;

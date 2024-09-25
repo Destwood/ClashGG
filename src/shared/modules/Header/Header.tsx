@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from 'assets/logo.webp';
+import { Button, Input, Modal } from 'shared/components';
 import { useAppDispatch } from 'shared/hooks';
-import { togglePopup } from 'store/slices/ModalSlice';
+import { togglePopup } from 'store/Modal';
 import AuthModalOptions from 'utils/constants/AuthModalOptions';
-import Button from '../../components/Button/Button';
-import Input from '../../components/Input/Input';
-import Modal from '../../components/Modal/Modal';
 import style from './Header.module.scss';
 
 const Header = () => {

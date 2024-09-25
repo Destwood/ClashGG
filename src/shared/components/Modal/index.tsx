@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Dialog, DialogTitle, IconButton, Typography } from '@mui/material';
-import { useAppDispatch, useAppSelector } from 'shared/hooks/reduxHook';
-import { togglePopup } from 'store/slices/ModalSlice';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { togglePopup } from 'store/Modal';
 
 export interface ModalProps<T> {
 	title?: string;
@@ -11,10 +12,11 @@ export interface ModalProps<T> {
 	children?: ReactNode;
 }
 
-const Modal = <T,>({ title, subtitle, onSubmit, onClose, children }: ModalProps<T>) => {
+export const Modal = <T,>({ title, subtitle, onSubmit, onClose, children }: ModalProps<T>) => {
 	const dispatch = useAppDispatch();
 	// TODO
 	const isOpen = useAppSelector((state) => state.modal.isOpen);
+	const { t } = useTranslation();
 
 	const handleClose = () => {
 		dispatch(togglePopup());
@@ -47,7 +49,9 @@ const Modal = <T,>({ title, subtitle, onSubmit, onClose, children }: ModalProps<
 					alignItems: 'center',
 				}}
 			>
-				<span>{title}</span>
+				<span>
+					{title} and {t('welcome_message')}
+				</span>
 				<IconButton
 					onClick={handleClose}
 					sx={{
@@ -71,5 +75,3 @@ const Modal = <T,>({ title, subtitle, onSubmit, onClose, children }: ModalProps<
 		</Dialog>
 	);
 };
-
-export default Modal;

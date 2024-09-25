@@ -1,8 +1,9 @@
-import React from 'react';
 import discord from 'assets/discord.svg';
 import facebook from 'assets/facebook.svg';
 import twitch from 'assets/twitch.svg';
-import Modal from 'shared/components/Modal/Modal';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { Modal } from 'shared/component';
 import { useAppDispatch, useAppSelector } from 'shared/hooks';
 import { setAuthType } from 'store/slices/AuthModalSlice';
 import AuthModalOptions from 'utils/constants/AuthModalOptions';
@@ -12,7 +13,7 @@ import style from './AuthModal.module.scss';
 const AuthModal = () => {
 	const dispatch = useAppDispatch();
 	const type = useAppSelector((state) => state.authModal.typeOfModal);
-	console.log(type);
+
 	const textData = AuthModalOptions.signUp;
 	const changeAuthType = () => {
 		const modalToDisplay = type === Auth.signUp ? Auth.logIn : Auth.signUp;
