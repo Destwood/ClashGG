@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from 'assets/logo.webp';
 import { Button, Input, Modal } from 'shared/components';
-import { useAppDispatch } from 'shared/hooks';
+import { useAppDispatch } from 'store/hooks';
 import { togglePopup } from 'store/Modal';
 import AuthModalOptions from 'utils/constants/AuthModalOptions';
 import style from './Header.module.scss';

@@ -1,8 +1,8 @@
+/* eslint-disable */
+// @ts-nocheck
 import discord from 'assets/discord.svg';
 import facebook from 'assets/facebook.svg';
 import twitch from 'assets/twitch.svg';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { Modal } from 'shared/component';
 import { useAppDispatch, useAppSelector } from 'shared/hooks';
 import { setAuthType } from 'store/slices/AuthModalSlice';

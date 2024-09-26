@@ -1,4 +1,4 @@
-import { Themes } from '../../utils/enums';
+import { Themes } from 'utils/enums';
 import darkTheme from './darkTheme';
 import lightTheme from './lightTheme';
 
