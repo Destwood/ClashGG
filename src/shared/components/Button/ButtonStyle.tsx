@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material/styles";
 import { SxProps } from "@mui/system";
-import { ButtonProps } from "../../../types/types";
+import { ButtonProps } from "types";
 
 const commonButtonStyles: SxProps<Theme> = {
   borderRadius: "1rem",
