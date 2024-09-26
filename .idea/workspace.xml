@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d74e4fae-dc4e-4c61-880e-7ab429a08d04" name="Changes" comment="" />
+    <list default="true" id="d74e4fae-dc4e-4c61-880e-7ab429a08d04" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/modules/Sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/modules/Sidebar/Sidebar.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +54,7 @@
     "npm.start.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "E:\\Front-End\\Practice\\ClashGG\\node_modules\\prettier",
     "settings.editor.selected.configurable": "editor.preferences.completion",
-    "ts.external.directory.path": "E:\\WebStorm 2024.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "E:\\Front-End\\Practice\\ClashGG\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -110,6 +113,7 @@
       <workItem from="1727079234762" duration="94000" />
       <workItem from="1727079345256" duration="2100000" />
       <workItem from="1727081465365" duration="5616000" />
+      <workItem from="1727347496764" duration="1179000" />
     </task>
     <servers />
   </component>

@@ -5,8 +5,8 @@ import { createTheme } from '@mui/material/styles';
 import Header from 'shared/modules/Header/Header';
 import { getTheme } from 'shared/theme/themes';
 import { Themes } from 'utils/enums';
-import Sidebar from "./shared/modules/Sidebar/Sidebar";
 import 'i18n';
+import Sidebar from "./shared/modules/Sidebar/Sidebar";
 import './App.scss';
 
 const App = () => {
