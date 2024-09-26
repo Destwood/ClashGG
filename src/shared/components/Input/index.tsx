@@ -9,7 +9,7 @@ interface InputProps {
 	onChange: (value: string) => void;
 	placeholder?: string;
 	type: React.HTMLInputTypeAttribute;
-	variant: TextFieldVariants;
+	variant?: TextFieldVariants;
 }
 
 const inputStyle: Record<TextFieldVariants, SxProps<Theme>> = {

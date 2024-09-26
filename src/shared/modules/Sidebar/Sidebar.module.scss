@@ -1,0 +1,17 @@
+.sidebar {
+  background-color: #0E121B;
+  height: 100%;
+  padding: .2rem 0;
+}
+
+.icon {
+  display: block;
+  height: 2.5rem;
+  margin: .5rem;
+  border-radius: .5rem;
+
+  &:hover {
+    cursor: pointer;
+    opacity: .8;
+  }
+}
