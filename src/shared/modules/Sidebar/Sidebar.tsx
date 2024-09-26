@@ -2,8 +2,8 @@ import React from 'react';
 import LoL from 'assets/temp/LoL.svg';
 import RocketLeague from 'assets/temp/RocketLeague.svg';
 import tft from 'assets/temp/tft.webp';
+import { setActiveGame } from 'store/ActiveGame/Slice';
 import { useAppDispatch } from 'store/hooks';
-import { setActiveGame } from 'store/slices/activeGameSlice';
 import style from './Sidebar.module.scss';
 
 // TODO

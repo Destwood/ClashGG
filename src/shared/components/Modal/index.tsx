@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Dialog, DialogTitle, IconButton, Typography } from '@mui/material';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { togglePopup } from 'store/Modal';
+import { selectIsModalOpen, togglePopup } from 'store/Modal';
 
 export interface ModalProps<T> {
 	title?: string;
@@ -15,7 +15,7 @@ export interface ModalProps<T> {
 export const Modal = <T,>({ title, subtitle, onSubmit, onClose, children }: ModalProps<T>) => {
 	const dispatch = useAppDispatch();
 	// TODO
-	const isOpen = useAppSelector((state) => state.modal.isOpen);
+	const isOpen = useAppSelector(selectIsModalOpen);
 	const { t } = useTranslation();
 
 	const handleClose = () => {

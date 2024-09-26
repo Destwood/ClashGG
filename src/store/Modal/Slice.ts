@@ -23,4 +23,3 @@ export const modalSlice = createSlice({
 
 export const { togglePopup } = modalSlice.actions;
 export const modalReducer = modalSlice.reducer;
-export type State = ModalState;
