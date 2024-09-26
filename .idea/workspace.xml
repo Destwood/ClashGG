@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d74e4fae-dc4e-4c61-880e-7ab429a08d04" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/shared/modules/Sidebar/Sidebar.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/modules/Sidebar/Sidebar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/slices/activeGameSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
-    </list>
+    <list default="true" id="d74e4fae-dc4e-4c61-880e-7ab429a08d04" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,10 +37,10 @@
     "Node.js.Sidebar.ts.executor": "Run",
     "Node.js.start.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev__sidebar",
+    "git-widget-placeholder": "dev__sidebar__main",
     "ignore.virus.scanning.warn.message": "true",
     "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "E:/Front-End/Practice/ClashGG/public/index.html",
+    "last_opened_file_path": "E:/Front-End/Practice/ClashGG",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -59,7 +51,7 @@
     "npm.start.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "E:\\Front-End\\Practice\\ClashGG\\node_modules\\prettier",
     "settings.editor.selected.configurable": "editor.preferences.completion",
-    "ts.external.directory.path": "E:\\Front-End\\Practice\\ClashGG\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "E:\\WebStorm 2024.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -139,16 +131,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/shared/theme/index.ts</url>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/shared/components/Input/Input.tsx</url>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/shared/components/Input/InputStyle.tsx</url>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/shared/modules/AuthModal/AuthModal.tsx</url>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

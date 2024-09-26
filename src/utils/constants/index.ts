@@ -1,1 +1,2 @@
-export * from './ModalOptions'
+export * from './AuthModalOptions'
+
