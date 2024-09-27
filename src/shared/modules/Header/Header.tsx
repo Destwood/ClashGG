@@ -1,30 +1,44 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { Divider } from '@mui/material';
 import logo from 'assets/logo.webp';
-import { Button, Input, Modal } from 'shared/components';
+import { ErrorMessage, Field, Formik, FormikHelpers } from 'formik';
+import { Button, Input, LogInForm, Modal, SignUpForm } from 'shared/components';
+import { AuthButtons } from 'shared/components/AuthButtons';
 import { useAppDispatch } from 'store/hooks';
 import { togglePopup } from 'store/Modal';
 import AuthModalOptions from 'utils/constants/AuthModalOptions';
+import { logInScheme, signUpScheme } from 'utils/schemas';
 import style from './Header.module.scss';
+
+interface authFormValues {
+	email: string;
+	password: string;
+	username?: string;
+	confirmPassword?: string;
+}
 
 const Header = () => {
 	const dispatch = useAppDispatch();
+	const { t } = useTranslation();
 	const [isLogin, setIsLogin] = useState<boolean>(true);
 	const [searchValue, setSearchValue] = useState<string>('');
-	// const textData = AuthModalOptions;
+	const initLogInValues: authFormValues = { email: '', password: '' };
+	const initSignUpValues: authFormValues = {
+		email: '',
+		username: '',
+		password: '',
+		confirmPassword: '',
+	};
 
 	const handleChange = (newValue: string) => {
 		setSearchValue(newValue);
 	};
 
-	const handleLoginClick = () => {
-		setIsLogin(true);
+	const handleAuthClick = (isLoginProps: boolean) => {
+		setIsLogin(isLoginProps);
 		// dispatch(setAuthType('logIn'));
-		openPopup();
-	};
-	const handleSignUpClick = () => {
-		setIsLogin(false);
-		// dispatch(setAuthType('signUp'));
 		openPopup();
 	};
 
@@ -33,8 +47,9 @@ const Header = () => {
 	};
 
 	// modal
-	const handleSubmit = () => {
-		console.log('handleSubmit');
+	const handleSubmit = (values: authFormValues, actions: FormikHelpers<authFormValues>) => {
+		alert(JSON.stringify(values, null, 2));
+		actions.resetForm();
 	};
 
 	const handleClose = () => {
@@ -52,32 +67,29 @@ const Header = () => {
 				<Input value={searchValue} onChange={handleChange} placeholder="Search..." type="outlined" />
 			</div>
 			<div className="">
-				<Button type="contained" onClick={() => handleLoginClick()}>
-					Log In
-				</Button>
-				<Button type="filled" onClick={() => handleSignUpClick()}>
-					Sign Up
-				</Button>
+				<div className={style.authButtons}>
+					<Button type="contained" onClick={() => handleAuthClick(true)}>
+						{t('auth.login.title')}
+					</Button>
+					<Button type="filled" onClick={() => handleAuthClick(false)}>
+						{t('auth.signUp.title')}
+					</Button>
+				</div>
 			</div>
-
 			{/* modal here will have childs */}
-			{isLogin ? (
-				<Modal
-					title={AuthModalOptions.logIn.title}
-					subtitle={AuthModalOptions.logIn.subTitle}
-					onClose={handleClose}
-					onSubmit={handleSubmit}
-				/>
-			) : (
-				<Modal
-					title={AuthModalOptions.signUp.title}
-					subtitle={AuthModalOptions.signUp.subTitle}
-					onClose={handleClose}
-					onSubmit={handleSubmit}
-				/>
-			)}
+			<Modal
+				initialValues={isLogin ? initLogInValues : initSignUpValues}
+				title={isLogin ? t('auth.login.title') : t('auth.signUp.title')}
+				subtitle={isLogin ? t('auth.login.alreadyHaveAccount') : t('auth.signUp.dontHaveAccount')}
+				onClose={handleClose}
+				validationScheme={isLogin ? logInScheme : signUpScheme}
+				onSubmit={handleSubmit}
+			>
+				<AuthButtons name="aaa" />
 
-			{/*	Auth modal is not used, saved just to move styles later*/}
+				<Divider variant="middle" />
+				{isLogin ? <LogInForm /> : <SignUpForm />}
+			</Modal>
 		</div>
 	);
 };
