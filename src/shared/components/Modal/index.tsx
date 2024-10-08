@@ -1,30 +1,36 @@
 import { ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Dialog, DialogTitle, IconButton, Typography } from '@mui/material';
+import { Button as MUIButton, Dialog, IconButton, Typography } from '@mui/material';
+import { Form, Formik, FormikHelpers } from 'formik';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { selectIsModalOpen, togglePopup } from 'store/Modal';
+import { AnyObject, Schema } from 'yup';
 
-export interface ModalProps<T> {
+export interface ModalProps<T extends AnyObject> {
+	initialValues: T;
 	title?: string;
 	subtitle?: string;
-	onSubmit?: (values: T) => void;
+	onSubmit: (values: T, actions: FormikHelpers<T>) => void;
 	onClose: () => void;
-	children?: ReactNode;
+	// help
+	validationScheme: Schema<T>;
+	children: ReactNode;
 }
 
-export const Modal = <T,>({ title, subtitle, onSubmit, onClose, children }: ModalProps<T>) => {
+export const Modal = <T extends AnyObject>({
+	initialValues,
+	title,
+	subtitle,
+	onSubmit,
+	onClose,
+	validationScheme,
+	children,
+}: ModalProps<T>) => {
 	const dispatch = useAppDispatch();
-	// TODO
 	const isOpen = useAppSelector(selectIsModalOpen);
-	const { t } = useTranslation();
 
 	const handleClose = () => {
 		dispatch(togglePopup());
 		onClose();
-	};
-
-	const handleSubmit = () => {
-		handleClose();
 	};
 
 	return (
@@ -32,7 +38,6 @@ export const Modal = <T,>({ title, subtitle, onSubmit, onClose, children }: Moda
 			open={isOpen}
 			onClose={handleClose}
 			sx={{
-				// TODO STYLES
 				'& .MuiDialog-paper': {
 					backgroundColor: '#1f2633',
 					borderRadius: '0.8rem',
@@ -42,36 +47,38 @@ export const Modal = <T,>({ title, subtitle, onSubmit, onClose, children }: Moda
 				},
 			}}
 		>
-			<DialogTitle
+			<IconButton
+				onClick={handleClose}
 				sx={{
-					display: 'flex',
-					justifyContent: 'space-between',
-					alignItems: 'center',
+					position: 'absolute',
+					top: '0.5rem',
+					right: '0.5rem',
+					color: '#95acda',
+					fontSize: '1.5rem',
 				}}
 			>
-				<span>
-					{title} and {t('welcome_message')}
-				</span>
-				<IconButton
-					onClick={handleClose}
-					sx={{
-						position: 'absolute',
-						top: '0.5rem',
-						right: '0.5rem',
-						color: '#95acda',
-						fontSize: '1.5rem',
-						'&:hover': {
-							height: 'fit-content',
-						},
+				&#10006;
+			</IconButton>
+			<Typography id="modal-modal-title" variant="h6" component="h2">
+				{title}
+			</Typography>
+			<Typography id="modal-modal-description">{subtitle}</Typography>
+			<div style={{ padding: '1rem' }}>
+				<Formik
+					initialValues={initialValues}
+					validationSchema={validationScheme}
+					onSubmit={(values, actions) => {
+						onSubmit(values, actions);
 					}}
 				>
-					&#10006;
-				</IconButton>
-			</DialogTitle>
-			<Typography variant="body2" sx={{ padding: '1rem' }}>
-				{subtitle}
-			</Typography>
-			<div style={{ padding: '1rem' }}>{children}</div>
+					<Form>
+						{children}
+						<MUIButton type="submit" variant="contained" sx={{ marginTop: '1rem' }}>
+							Submit
+						</MUIButton>
+					</Form>
+				</Formik>
+			</div>
 		</Dialog>
 	);
 };
