@@ -1,14 +1,39 @@
-/* variables.scss */
-
 :root {
-  --primary-color: #1976d2;
-  --primary-light: #63a4ff;
-  --primary-dark: #115293;
-  --secondary-color: #dc004e;
-  --secondary-light: #ff5c8d;
-  --secondary-dark: #9a0036;
-  --background-default: #ffffff;
-  --background-paper: #f5f5f5;
-  --text-primary: #000000;
-  --text-secondary: #555555;
+  --primary-main: #16B2CA;
+  --primary-light: #11899c;
+  --primary-dark: #171C26;
+  --secondary-main: #364259;
+  --secondary-light: #2F384C;
+  --secondary-dark: #0E121B;
+  --background-default: #1F2633;
+  --background-paper: #2F384C;
+  --text-primary: rgba(255, 255, 255, 1);
+  --text-secondary: #95ACDA;
+  --header: #171c26;
+
+  --not-red: #FF00FF;
+  --not-green: #FF0000;
+
+  --cm-colors-bg0: #0E121B;
+  --cm-colors-bg1: #171C26;
+  --cm-colors-bg2: #1F2633;
+  --cm-colors-bg3: #2F384C;
+  --cm-colors-bg4: #364259;
+  --cm-colors-fg1: rgba(255, 255, 255, 1);
+  --cm-colors-fg2: #95ACDA;
+  --cm-colors-fg3: #60759F;
+  --cm-colors-accent: #16B2CA;
+  --cm-colors-divider: #2F384C;
+  --cm-colors-heading-text: rgba(255, 255, 255, 1);
+  --cm-colors-body-text: rgba(255, 255, 255, 1);
+  --cm-colors-button-primary-background: #16B2CA;
+  --cm-colors-button-primary-hover-background: #11899c;
+  --cm-colors-button-primary-text: rgba(255, 255, 255, 1);
+  --cm-colors-button-secondary-background: #2F384C;
+  --cm-colors-button-secondary-hover-background: #364259;
+  --cm-colors-button-secondary-text: rgba(255, 255, 255, 1);
+  --cm-link-primary-color: #16B2CA;
+  --cm-link-primary-hover-color: #11899c;
+  --cm-colors-scrollbar-background: rgba(96, 117, 159, .4) transparent;
+  --cm-colors-scrollbar-hover-background: rgba(96, 117, 159, .6) transparent;
 }

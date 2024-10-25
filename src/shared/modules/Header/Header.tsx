@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Divider } from '@mui/material';
+import { Box, Divider } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import logo from 'assets/logo.webp';
-import { ErrorMessage, Field, Formik, FormikHelpers } from 'formik';
+import { FormikHelpers } from 'formik';
 import { Button, Input, LogInForm, Modal, SignUpForm } from 'shared/components';
 import { AuthButtons } from 'shared/components/AuthButtons';
+import { headerStyle } from 'shared/theme/components';
 import { useAppDispatch } from 'store/hooks';
 import { togglePopup } from 'store/Modal';
-import AuthModalOptions from 'utils/constants/AuthModalOptions';
 import { logInScheme, signUpScheme } from 'utils/schemas';
 import style from './Header.module.scss';
 
@@ -20,6 +21,8 @@ interface authFormValues {
 }
 
 const Header = () => {
+	const theme = useTheme();
+	const headerStyles = headerStyle(theme);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 	const [isLogin, setIsLogin] = useState<boolean>(true);
@@ -38,7 +41,6 @@ const Header = () => {
 
 	const handleAuthClick = (isLoginProps: boolean) => {
 		setIsLogin(isLoginProps);
-		// dispatch(setAuthType('logIn'));
 		openPopup();
 	};
 
@@ -55,9 +57,9 @@ const Header = () => {
 	const handleClose = () => {
 		console.log('handle');
 	};
-
+	console.log(headerStyle);
 	return (
-		<div className={style.header}>
+		<Box className={style.header} sx={headerStyles.root}>
 			<div className="">
 				<Link to="/">
 					<img className={style.logo} src={logo} alt="logo" />
@@ -71,7 +73,7 @@ const Header = () => {
 					<Button type="contained" onClick={() => handleAuthClick(true)}>
 						{t('auth.login.title')}
 					</Button>
-					<Button type="filled" onClick={() => handleAuthClick(false)}>
+					<Button type="contained" onClick={() => handleAuthClick(false)}>
 						{t('auth.signUp.title')}
 					</Button>
 				</div>
@@ -90,7 +92,7 @@ const Header = () => {
 				<Divider variant="middle" />
 				{isLogin ? <LogInForm /> : <SignUpForm />}
 			</Modal>
-		</div>
+		</Box>
 	);
 };
 

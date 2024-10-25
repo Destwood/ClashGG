@@ -7,3 +7,11 @@ export interface ButtonProps {
 	type: 'contained' | 'filled' | 'outlined';
 	onClick?: () => void;
 }
+
+export interface InputProps {
+	value: string;
+	onChange: (value: string) => void;
+	placeholder?: string;
+	type?: string;
+	variant?: 'standard' | 'outlined' | 'filled';
+}

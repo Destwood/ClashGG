@@ -1,15 +1,17 @@
-import { extendTheme } from '@mui/material';
-import { buttonStyle, inputStyle } from './components';
+import { createTheme, ThemeOptions } from '@mui/material/styles';
+import { darkThemePalette, lightThemePalette } from './themePalette';
 
-const theme = extendTheme({
-	components: {
-		MuiInput: {
-			styleOverrides: inputStyle,
-		},
-		MuiButton: {
-			styleOverrides: buttonStyle,
-		},
-	},
-});
+export const theme = (mode: 'light' | 'dark') => {
+	const palette = mode === 'light' ? lightThemePalette : darkThemePalette;
 
-export default theme;
+	return createTheme({
+		palette,
+		components: {
+			MuiCssBaseline: {
+				styleOverrides: {
+					body: {},
+				},
+			},
+		},
+	} as ThemeOptions);
+};

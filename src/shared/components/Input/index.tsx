@@ -1,26 +1,7 @@
 import React, { ChangeEvent } from 'react';
-import { Theme } from '@mui/material/styles';
-import TextField, { TextFieldVariants } from '@mui/material/TextField';
-import { SxProps } from '@mui/system';
-import commonInputStyles from './InputStyle';
-
-interface InputProps {
-	value: string;
-	onChange: (value: string) => void;
-	placeholder?: string;
-	type: React.HTMLInputTypeAttribute;
-	variant?: TextFieldVariants;
-}
-
-const inputStyle: Record<TextFieldVariants, SxProps<Theme>> = {
-	filled: {
-		...commonInputStyles,
-	},
-	outlined: {
-		...commonInputStyles,
-	},
-	standard: {},
-};
+import TextField from '@mui/material/TextField';
+import { inputStyle } from 'shared/theme/components';
+import { InputProps } from 'types';
 
 export const Input: React.FC<InputProps> = ({ value, onChange, placeholder, type = 'text', variant = 'standard' }) => {
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
