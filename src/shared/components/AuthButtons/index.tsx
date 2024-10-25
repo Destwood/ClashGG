@@ -1,7 +1,7 @@
 import React from 'react';
-import discord from '../../../assets/discord.svg';
-import facebook from '../../../assets/facebook.svg';
-import twitch from '../../../assets/twitch.svg';
+import discord from 'assets/discord.svg';
+import facebook from 'assets/facebook.svg';
+import twitch from 'assets/twitch.svg';
 import { Button } from '../Button';
 import style from './index.module.scss';
 

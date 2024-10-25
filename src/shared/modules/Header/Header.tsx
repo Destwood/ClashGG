@@ -38,7 +38,6 @@ const Header = () => {
 
 	const handleAuthClick = (isLoginProps: boolean) => {
 		setIsLogin(isLoginProps);
-		// dispatch(setAuthType('logIn'));
 		openPopup();
 	};
 
