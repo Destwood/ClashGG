@@ -1,3 +1,55 @@
 {
-  "welcome_message": "Ласкаво просимо!"
+  "common": {
+    "welcome": "Ласкаво просимо",
+    "logout": "Вийти",
+    "submit": "Надіслати",
+    "cancel": "Скасувати",
+    "save": "Зберегти"
+  },
+  "auth": {
+    "login": {
+      "title": "Вхід",
+      "username": "Ім'я користувача",
+      "password": "Пароль",
+      "rememberMe": "Запам'ятати мене",
+      "forgotPassword": "Забули пароль?",
+      "loginButton": "Увійти",
+      "errorMessage": {
+        "requiredUsername": "Ім'я користувача обов'язкове",
+        "requiredPassword": "Пароль обов'язковий",
+        "invalidCredentials": "Невірне ім'я користувача або пароль"
+      }
+    },
+    "signUp": {
+      "title": "Реєстрація",
+      "firstName": "Ім'я",
+      "lastName": "Прізвище",
+      "email": "Електронна пошта",
+      "password": "Пароль",
+      "confirmPassword": "Підтвердити пароль",
+      "signUpButton": "Зареєструватися"
+    }
+  },
+  "dashboard": {
+    "title": "Панель керування",
+    "overview": "Огляд",
+    "statistics": "Статистика",
+    "recentActivities": "Останні активності",
+    "viewAll": "Переглянути всі"
+  },
+  "profile": {
+    "title": "Профіль",
+    "editProfile": "Редагувати профіль",
+    "settings": "Налаштування",
+    "changePassword": "Змінити пароль",
+    "notifications": "Сповіщення",
+    "language": "Мова",
+    "theme": "Тема"
+  },
+  "errors": {
+    "pageNotFound": "Сторінку не знайдено",
+    "internalServerError": "Внутрішня помилка сервера",
+    "accessDenied": "Доступ заборонено",
+    "backToHome": "Повернутися на головну"
+  }
 }

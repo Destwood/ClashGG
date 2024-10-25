@@ -1,3 +1,58 @@
 {
-  "welcome_message": "Welcome!"
+  "common": {
+    "welcome": "Welcome",
+    "logout": "Logout",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "email": "Email",
+    "password": "Password",
+    "username": "Username",
+    "confirmPassword": "Confirm Password"
+  },
+  "auth": {
+    "login": {
+      "title": "Log in",
+      "username": "Username",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "loginButton": "Login",
+      "alreadyHaveAccount": "Already have an account?",
+      "errorMessage": {
+        "requiredUsername": "Username is required",
+        "requiredPassword": "Password is required",
+        "invalidCredentials": "Invalid username or password"
+      }
+    },
+    "signUp": {
+      "title": "signUp",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "confirmPassword": "Confirm Password",
+      "signUpButton": "signUp",
+      "dontHaveAccount": "Don't have an account?"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Overview",
+    "statistics": "Statistics",
+    "recentActivities": "Recent Activities",
+    "viewAll": "View all"
+  },
+  "profile": {
+    "title": "Profile",
+    "editProfile": "Edit Profile",
+    "settings": "Settings",
+    "changePassword": "Change Password",
+    "notifications": "Notifications",
+    "language": "Language",
+    "theme": "Theme"
+  },
+  "errors": {
+    "pageNotFound": "Page Not Found",
+    "internalServerError": "Internal Server Error",
+    "accessDenied": "Access Denied",
+    "backToHome": "Back to Home"
+  }
 }

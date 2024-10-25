@@ -37,14 +37,13 @@
   text-transform: uppercase;
 }
 
-.discordButton {
-  background-color: #434de4;
+.buttonContainer {
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
-.twitchButton {
-  background-color: #6e31df;
-}
-
-.facebookButton {
-  background-color: #1876f2;
+.errorMsg {
+  display: block;
+  font-size: 1rem;
+  color: #e7234c;
 }
