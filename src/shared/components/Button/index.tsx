@@ -1,17 +1,20 @@
 import React from 'react';
 import MuiButton from '@mui/material/Button';
+import { useTheme } from '@mui/material/styles';
+import { buttonStyle } from 'shared/theme/components';
 import { ButtonProps } from 'types';
-import buttonStyle from './ButtonStyle';
 
-export const Button: React.FC<ButtonProps> = ({ children, color, textColor, type, onClick }) => {
-	return (
-		<MuiButton
-			style={{ backgroundColor: color, color: textColor }}
-			sx={buttonStyle[type]}
-			variant={type === 'outlined' ? 'outlined' : 'contained'}
-			onClick={onClick}
-		>
-			{children}
-		</MuiButton>
-	);
+export const Button: React.FC<ButtonProps> = ({ children, type, onClick }) => {
+    const theme = useTheme();
+    const buttonStyles = buttonStyle(theme);
+
+    return (
+        <MuiButton
+            sx={{ ...buttonStyles[type] }}
+            variant={type === 'outlined' ? 'outlined' : 'contained'}
+            onClick={onClick}
+        >
+            {children}
+        </MuiButton>
+    );
 };

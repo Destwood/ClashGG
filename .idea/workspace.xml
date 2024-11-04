@@ -5,8 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d74e4fae-dc4e-4c61-880e-7ab429a08d04" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/AuthButtons/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/AuthButtons/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Button/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Input/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Input/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/modules/Header/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/modules/Header/Header.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/modules/Sidebar/Sidebar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/modules/Sidebar/Sidebar.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/modules/Sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/modules/Sidebar/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/theme/ThemeProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/ThemeProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/theme/components/Button.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/components/Button.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/theme/components/Header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/components/Header.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/theme/components/Input.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/components/Input.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/theme/components/Sidebar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/components/Sidebar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/theme/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/theme/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/theme/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/theme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/theme/themePalette.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/themePalette.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/theme/themes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/theme/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/getCssVariables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/getCssVariables.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +64,10 @@
     &quot;Node.js.Sidebar.ts.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.start.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev__formik__auth&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev__themeProvider&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Front-End&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Front-End/Practice/ClashGG/src/shared/theme&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -60,13 +84,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Front-End\Practice\ClashGG\src\shared\theme" />
       <recent name="E:\Front-End\Practice\ClashGG\src\shared\components\SignUpForm" />
       <recent name="E:\Front-End\Practice\ClashGG\src\utils\yup" />
       <recent name="E:\Front-End\Practice\ClashGG\src\shared\modules\AuthModal" />
-      <recent name="E:\Front-End\Practice\ClashGG\src\shared\theme" />
       <recent name="E:\Front-End\Practice\ClashGG" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Front-End\Practice\ClashGG\src\shared\theme" />
       <recent name="E:\Front-End\Practice\ClashGG\src\store\ActiveGame" />
       <recent name="E:\Front-End\Practice\ClashGG\src\shared\components" />
     </key>
@@ -122,6 +147,32 @@
       <workItem from="1727440139414" duration="3792000" />
       <workItem from="1727445198423" duration="4941000" />
       <workItem from="1727511757185" duration="606000" />
+      <workItem from="1727689130813" duration="2759000" />
+      <workItem from="1727696491140" duration="2110000" />
+      <workItem from="1727813453763" duration="34000" />
+      <workItem from="1727814061061" duration="189000" />
+      <workItem from="1727982037542" duration="600000" />
+      <workItem from="1728026892617" duration="2500000" />
+      <workItem from="1728031826145" duration="601000" />
+      <workItem from="1728044189646" duration="3569000" />
+      <workItem from="1728135061857" duration="1193000" />
+      <workItem from="1728374960394" duration="15633000" />
+      <workItem from="1728462066378" duration="15499000" />
+      <workItem from="1728557229475" duration="6130000" />
+      <workItem from="1728564036520" duration="7369000" />
+      <workItem from="1728640590236" duration="342000" />
+      <workItem from="1728902556291" duration="632000" />
+      <workItem from="1728936820855" duration="594000" />
+      <workItem from="1729001587606" duration="3834000" />
+      <workItem from="1729013708632" duration="239000" />
+      <workItem from="1729081416108" duration="1782000" />
+      <workItem from="1729172288706" duration="105000" />
+      <workItem from="1729342589136" duration="65000" />
+      <workItem from="1729515365868" duration="402000" />
+      <workItem from="1729773958300" duration="3000" />
+      <workItem from="1729777846618" duration="11000" />
+      <workItem from="1729850765931" duration="5013000" />
+      <workItem from="1729856233142" duration="4560000" />
     </task>
     <servers />
   </component>

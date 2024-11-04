@@ -1,7 +1,10 @@
 import React from 'react';
+import { Box } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import LoL from 'assets/temp/LoL.svg';
 import RocketLeague from 'assets/temp/RocketLeague.svg';
 import tft from 'assets/temp/tft.webp';
+import { sidebarStyle } from 'shared/theme/components/Sidebar';
 import { setActiveGame } from 'store/ActiveGame/Slice';
 import { useAppDispatch } from 'store/hooks';
 import style from './Sidebar.module.scss';
@@ -15,6 +18,8 @@ interface Props {
 }
 
 const Sidebar: React.FC<Props> = () => {
+	const theme = useTheme();
+	const sidebarStyles = sidebarStyle(theme);
 	const dispatch = useAppDispatch();
 
 	const handleGameClick =
@@ -56,7 +61,7 @@ const Sidebar: React.FC<Props> = () => {
 	// fetchTournaments();
 
 	return (
-		<div className={style.sidebar}>
+		<Box className={style.sidebar} sx={sidebarStyles.root}>
 			<div className={style.gameContainer} onClick={handleGameClick('LoL')}>
 				<img className={style.icon} src={LoL} alt="League of Legends img" />
 			</div>
@@ -66,7 +71,7 @@ const Sidebar: React.FC<Props> = () => {
 			<div className={style.gameContainer} onClick={handleGameClick('TFT')}>
 				<img className={style.icon} src={tft} alt="TFT img" />
 			</div>
-		</div>
+		</Box>
 	);
 };
 
