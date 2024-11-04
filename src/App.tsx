@@ -6,7 +6,8 @@ import Header from 'shared/modules/Header/Header';
 import { getTheme } from 'shared/theme/themes';
 import { Themes } from 'utils/enums';
 import 'i18n';
-import Sidebar from "./shared/modules/Sidebar/Sidebar";
+import './firebase/firebaseInit';
+import Sidebar from './shared/modules/Sidebar/Sidebar';
 import './App.scss';
 
 const App = () => {
@@ -20,13 +21,12 @@ const App = () => {
 				<div className="App">
 					<Header />
 
-                    <main>
-                        <Sidebar/>
-                        <Routes>
-                            <Route path="/" element="" />
-                        </Routes>
-                    </main>
-
+					<main>
+						<Sidebar />
+						<Routes>
+							<Route path="/" element="" />
+						</Routes>
+					</main>
 				</div>
 			</Router>
 		</ThemeProvider>

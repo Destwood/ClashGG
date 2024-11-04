@@ -3,11 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Divider } from '@mui/material';
 import logo from 'assets/logo.webp';
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { ErrorMessage, Field, Formik, FormikHelpers } from 'formik';
 import { Button, Input, LogInForm, Modal, SignUpForm } from 'shared/components';
 import { AuthButtons } from 'shared/components/AuthButtons';
-import { useAppDispatch } from 'store/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { togglePopup } from 'store/Modal';
+import { clearUser, selectUser, setUser } from 'store/User';
 import AuthModalOptions from 'utils/constants/AuthModalOptions';
 import { logInScheme, signUpScheme } from 'utils/schemas';
 import style from './Header.module.scss';
@@ -22,6 +24,7 @@ interface authFormValues {
 const Header = () => {
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
+	const userFromStore = useAppSelector(selectUser);
 	const [isLogin, setIsLogin] = useState<boolean>(true);
 	const [searchValue, setSearchValue] = useState<string>('');
 	const initLogInValues: authFormValues = { email: '', password: '' };
@@ -46,13 +49,38 @@ const Header = () => {
 	};
 
 	// modal
-	const handleSubmit = (values: authFormValues, actions: FormikHelpers<authFormValues>) => {
-		alert(JSON.stringify(values, null, 2));
-		actions.resetForm();
-	};
+	const handleSubmit = async (values: authFormValues, actions: FormikHelpers<authFormValues>) => {
+		const auth = getAuth();
+		const { email, password } = values;
 
+		try {
+			let userCredential;
+			if (isLogin) {
+				userCredential = await signInWithEmailAndPassword(auth, email, password);
+				const user = userCredential.user;
+				const id = user.uid;
+				const token = await user.getIdToken();
+				dispatch(setUser({ id, token, email: user.email }));
+			} else {
+				userCredential = await createUserWithEmailAndPassword(auth, email, password);
+				const user = userCredential.user;
+				const id = user.uid;
+				const token = await user.getIdToken();
+				dispatch(setUser({ id, token, email: user.email }));
+			}
+			dispatch(togglePopup());
+		} catch (error) {
+			console.log(error);
+		} finally {
+			actions.resetForm();
+		}
+	};
 	const handleClose = () => {
 		console.log('handle');
+	};
+
+	const handleLogout = () => {
+		dispatch(clearUser());
 	};
 
 	return (
@@ -67,12 +95,20 @@ const Header = () => {
 			</div>
 			<div className="">
 				<div className={style.authButtons}>
-					<Button type="contained" onClick={() => handleAuthClick(true)}>
-						{t('auth.login.title')}
-					</Button>
-					<Button type="filled" onClick={() => handleAuthClick(false)}>
-						{t('auth.signUp.title')}
-					</Button>
+					{userFromStore.token ? (
+						<Button type="outlined" onClick={handleLogout}>
+							{t('auth.logout.title')}
+						</Button>
+					) : (
+						<>
+							<Button type="contained" onClick={() => handleAuthClick(true)}>
+								{t('auth.login.title')}
+							</Button>
+							<Button type="filled" onClick={() => handleAuthClick(false)}>
+								{t('auth.signUp.title')}
+							</Button>
+						</>
+					)}
 				</div>
 			</div>
 			{/* modal here will have childs */}
