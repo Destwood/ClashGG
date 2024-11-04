@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 import { Box, Divider } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import logo from 'assets/logo.webp';
-import { FormikHelpers } from 'formik';
+import { ErrorMessage, Field, Formik, FormikHelpers } from 'formik';
 import { Button, Input, LogInForm, Modal, SignUpForm } from 'shared/components';
-import { AuthButtons } from 'shared/components/AuthButtons';
 import { headerStyle } from 'shared/theme/components';
+import { AuthButtons } from 'shared/components/AuthButtons';
 import { useAppDispatch } from 'store/hooks';
 import { togglePopup } from 'store/Modal';
 import { logInScheme, signUpScheme } from 'utils/schemas';
+import AuthModalOptions from 'utils/constants/AuthModalOptions';
 import style from './Header.module.scss';
 
 interface authFormValues {
@@ -57,7 +58,7 @@ const Header = () => {
 	const handleClose = () => {
 		console.log('handle');
 	};
-	console.log(headerStyle);
+
 	return (
 		<Box className={style.header} sx={headerStyles.root}>
 			<div className="">
@@ -78,6 +79,7 @@ const Header = () => {
 					</Button>
 				</div>
 			</div>
+
 			{/* modal here will have childs */}
 			<Modal
 				initialValues={isLogin ? initLogInValues : initSignUpValues}

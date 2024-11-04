@@ -5,16 +5,16 @@ import { buttonStyle } from 'shared/theme/components';
 import { ButtonProps } from 'types';
 
 export const Button: React.FC<ButtonProps> = ({ children, type, onClick }) => {
-	const theme = useTheme();
-	const buttonStyles = buttonStyle(theme);
+    const theme = useTheme();
+    const buttonStyles = buttonStyle(theme);
 
-	return (
-		<MuiButton
-			sx={{ ...buttonStyles[type] }}
-			variant={type === 'outlined' ? 'outlined' : 'contained'}
-			onClick={onClick}
-		>
-			{children}
-		</MuiButton>
-	);
+    return (
+        <MuiButton
+            sx={{ ...buttonStyles[type] }}
+            variant={type === 'outlined' ? 'outlined' : 'contained'}
+            onClick={onClick}
+        >
+            {children}
+        </MuiButton>
+    );
 };
