@@ -1,12 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { IUser } from 'types';
 
-interface UserState {
-	email: string;
-	token: string;
-	id: string;
-}
-
-const initialState: UserState = {
+const initialState: IUser = {
 	email: '',
 	token: '',
 	id: '',

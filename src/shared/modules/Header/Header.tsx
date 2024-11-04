@@ -1,34 +1,31 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Divider } from '@mui/material';
+import { Box, Divider } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import logo from 'assets/logo.webp';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { ErrorMessage, Field, Formik, FormikHelpers } from 'formik';
+import { FormikHelpers } from 'formik';
+import { Auth } from 'services';
 import { Button, Input, LogInForm, Modal, SignUpForm } from 'shared/components';
 import { AuthButtons } from 'shared/components/AuthButtons';
+import { headerStyle } from 'shared/theme/components';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { togglePopup } from 'store/Modal';
 import { clearUser, selectUser, setUser } from 'store/User';
-import AuthModalOptions from 'utils/constants/AuthModalOptions';
+import { IAuth } from 'types/auth';
 import { logInScheme, signUpScheme } from 'utils/schemas';
 import style from './Header.module.scss';
 
-interface authFormValues {
-	email: string;
-	password: string;
-	username?: string;
-	confirmPassword?: string;
-}
-
 const Header = () => {
+	const theme = useTheme();
+	const headerStyles = headerStyle(theme);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
 	const userFromStore = useAppSelector(selectUser);
 	const [isLogin, setIsLogin] = useState<boolean>(true);
 	const [searchValue, setSearchValue] = useState<string>('');
-	const initLogInValues: authFormValues = { email: '', password: '' };
-	const initSignUpValues: authFormValues = {
+	const initLogInValues: IAuth = { email: '', password: '' };
+	const initSignUpValues: IAuth = {
 		email: '',
 		username: '',
 		password: '',
@@ -49,32 +46,23 @@ const Header = () => {
 	};
 
 	// modal
-	const handleSubmit = async (values: authFormValues, actions: FormikHelpers<authFormValues>) => {
-		const auth = getAuth();
+	const handleSubmit = async (values: IAuth) => {
 		const { email, password } = values;
+		let userCredentials;
 
 		try {
-			let userCredential;
 			if (isLogin) {
-				userCredential = await signInWithEmailAndPassword(auth, email, password);
-				const user = userCredential.user;
-				const id = user.uid;
-				const token = await user.getIdToken();
-				dispatch(setUser({ id, token, email: user.email }));
+				userCredentials = await Auth.login(email, password);
 			} else {
-				userCredential = await createUserWithEmailAndPassword(auth, email, password);
-				const user = userCredential.user;
-				const id = user.uid;
-				const token = await user.getIdToken();
-				dispatch(setUser({ id, token, email: user.email }));
+				userCredentials = await Auth.signUp(email, password);
 			}
+			dispatch(setUser({ token: userCredentials.user.uid, username: userCredentials.user.email }));
 			dispatch(togglePopup());
 		} catch (error) {
 			console.log(error);
-		} finally {
-			actions.resetForm();
 		}
 	};
+
 	const handleClose = () => {
 		console.log('handle');
 	};
@@ -84,7 +72,7 @@ const Header = () => {
 	};
 
 	return (
-		<div className={style.header}>
+		<Box className={style.header} sx={headerStyles.root}>
 			<div className="">
 				<Link to="/">
 					<img className={style.logo} src={logo} alt="logo" />
@@ -104,14 +92,14 @@ const Header = () => {
 							<Button type="contained" onClick={() => handleAuthClick(true)}>
 								{t('auth.login.title')}
 							</Button>
-							<Button type="filled" onClick={() => handleAuthClick(false)}>
+							<Button type="contained" onClick={() => handleAuthClick(false)}>
 								{t('auth.signUp.title')}
 							</Button>
 						</>
 					)}
 				</div>
 			</div>
-			{/* modal here will have childs */}
+
 			<Modal
 				initialValues={isLogin ? initLogInValues : initSignUpValues}
 				title={isLogin ? t('auth.login.title') : t('auth.signUp.title')}
@@ -125,7 +113,7 @@ const Header = () => {
 				<Divider variant="middle" />
 				{isLogin ? <LogInForm /> : <SignUpForm />}
 			</Modal>
-		</div>
+		</Box>
 	);
 };
 

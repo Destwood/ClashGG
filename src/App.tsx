@@ -1,30 +1,37 @@
-import { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { CssBaseline, ThemeProvider } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material';
 import Header from 'shared/modules/Header/Header';
-import { getTheme } from 'shared/theme/themes';
-import { Themes } from 'utils/enums';
+import ThemeProvider, { useTheme } from 'shared/theme/ThemeProvider';
 import 'i18n';
 import './firebase/firebaseInit';
 import Sidebar from './shared/modules/Sidebar/Sidebar';
 import './App.scss';
 
-const App = () => {
-	const [themeMode, setThemeMode] = useState<Themes>(Themes.dark);
-	const theme = createTheme(getTheme(themeMode));
+const HomePage: React.FC = () => {
+	const { currentTheme, toggleTheme } = useTheme();
 
 	return (
-		<ThemeProvider theme={theme}>
+		<div>
+			<h1>
+				Home Page, current theme: {currentTheme} {currentTheme === 'light' ? 'асуждаю' : ''}
+			</h1>
+			<button onClick={toggleTheme}>Toggle Theme</button>
+		</div>
+	);
+};
+
+const App = () => {
+	return (
+		<ThemeProvider>
 			<CssBaseline />
 			<Router>
 				<div className="App">
 					<Header />
-
 					<main>
 						<Sidebar />
 						<Routes>
-							<Route path="/" element="" />
+							<Route path="/" element={<HomePage />} />
 						</Routes>
 					</main>
 				</div>

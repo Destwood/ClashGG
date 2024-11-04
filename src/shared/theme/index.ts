@@ -1,1 +1,3 @@
-export * from './themes';
+export * from './theme';
+export * from './themePalette';
+export * from './ThemeProvider';
