@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field } from 'formik';
 import style from './SignUpForm.module.scss';
 
 export const SignUpForm: React.FC = () => {

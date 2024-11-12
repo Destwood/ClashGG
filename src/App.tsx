@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { CssBaseline } from '@mui/material';
 import Header from 'shared/modules/Header/Header';
-import Sidebar from 'shared/modules/Sidebar/Sidebar';
 import ThemeProvider, { useTheme } from 'shared/theme/ThemeProvider';
 import 'i18n';
+import './services/firebase.services';
+import Sidebar from './shared/modules/Sidebar/Sidebar';
 import './App.scss';
 
 const HomePage: React.FC = () => {

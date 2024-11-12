@@ -31,6 +31,10 @@
       "confirmPassword": "Confirm Password",
       "signUpButton": "signUp",
       "dontHaveAccount": "Don't have an account?"
+    },
+    "logout": {
+      "title": "Log Out",
+      "message": "Are you sure you want to log out?"
     }
   },
   "dashboard": {

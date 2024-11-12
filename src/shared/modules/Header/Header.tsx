@@ -4,32 +4,30 @@ import { Link } from 'react-router-dom';
 import { Box, Divider } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import logo from 'assets/logo.webp';
-import { ErrorMessage, Field, Formik, FormikHelpers } from 'formik';
+import { getAuth } from 'firebase/auth';
+import { FormikHelpers } from 'formik';
+import { Auth } from 'services';
 import { Button, Input, LogInForm, Modal, SignUpForm } from 'shared/components';
-import { headerStyle } from 'shared/theme/components';
 import { AuthButtons } from 'shared/components/AuthButtons';
-import { useAppDispatch } from 'store/hooks';
+import { headerStyle } from 'shared/theme/components';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { togglePopup } from 'store/Modal';
+import { clearUser, selectUser, setUser } from 'store/User';
+import { IAuth } from 'types/auth';
 import { logInScheme, signUpScheme } from 'utils/schemas';
-import AuthModalOptions from 'utils/constants/AuthModalOptions';
 import style from './Header.module.scss';
 
-interface authFormValues {
-	email: string;
-	password: string;
-	username?: string;
-	confirmPassword?: string;
-}
-
 const Header = () => {
+	const auth = getAuth();
 	const theme = useTheme();
 	const headerStyles = headerStyle(theme);
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
+	const userFromStore = useAppSelector(selectUser);
 	const [isLogin, setIsLogin] = useState<boolean>(true);
 	const [searchValue, setSearchValue] = useState<string>('');
-	const initLogInValues: authFormValues = { email: '', password: '' };
-	const initSignUpValues: authFormValues = {
+	const initLogInValues: IAuth = { email: '', password: '' };
+	const initSignUpValues: IAuth = {
 		email: '',
 		username: '',
 		password: '',
@@ -50,13 +48,20 @@ const Header = () => {
 	};
 
 	// modal
-	const handleSubmit = (values: authFormValues, actions: FormikHelpers<authFormValues>) => {
-		alert(JSON.stringify(values, null, 2));
-		actions.resetForm();
+	const handleSubmit = async ({ email, password }: IAuth) => {
+		try {
+			const userCredentials = isLogin ? await Auth.login(email, password) : await Auth.signUp(email, password);
+
+			const { uid, email: username } = userCredentials.user;
+			dispatch(setUser({ token: uid, username }));
+			dispatch(togglePopup());
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
-	const handleClose = () => {
-		console.log('handle');
+	const handleLogout = () => {
+		dispatch(clearUser());
 	};
 
 	return (
@@ -71,21 +76,27 @@ const Header = () => {
 			</div>
 			<div className="">
 				<div className={style.authButtons}>
-					<Button type="contained" onClick={() => handleAuthClick(true)}>
-						{t('auth.login.title')}
-					</Button>
-					<Button type="contained" onClick={() => handleAuthClick(false)}>
-						{t('auth.signUp.title')}
-					</Button>
+					{userFromStore.token ? (
+						<Button type="outlined" onClick={handleLogout}>
+							{t('auth.logout.title')}
+						</Button>
+					) : (
+						<>
+							<Button type="contained" onClick={() => handleAuthClick(true)}>
+								{t('auth.login.title')}
+							</Button>
+							<Button type="contained" onClick={() => handleAuthClick(false)}>
+								{t('auth.signUp.title')}
+							</Button>
+						</>
+					)}
 				</div>
 			</div>
 
-			{/* modal here will have childs */}
 			<Modal
 				initialValues={isLogin ? initLogInValues : initSignUpValues}
 				title={isLogin ? t('auth.login.title') : t('auth.signUp.title')}
 				subtitle={isLogin ? t('auth.login.alreadyHaveAccount') : t('auth.signUp.dontHaveAccount')}
-				onClose={handleClose}
 				validationScheme={isLogin ? logInScheme : signUpScheme}
 				onSubmit={handleSubmit}
 			>

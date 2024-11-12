@@ -1,19 +1,20 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import { Themes } from 'utils/enums';
 import { theme } from './theme';
 
 interface ThemeContextType {
 	toggleTheme: () => void;
-	currentTheme: 'light' | 'dark';
+	currentTheme: Themes;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-	const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('light');
+	const [currentTheme, setCurrentTheme] = useState<Themes>(Themes.dark);
 
 	const toggleTheme = () => {
-		setCurrentTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+		setCurrentTheme((prev) => (prev === Themes.light ? Themes.dark : Themes.light));
 	};
 
 	const themeConfig = theme(currentTheme);

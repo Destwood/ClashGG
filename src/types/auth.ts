@@ -1,5 +1,6 @@
-import { Auth } from 'utils/enums';
-
-export interface ModalState {
-	typeOfModal: Auth.signUp | Auth.logIn;
+export interface IAuth {
+	email: string;
+	password: string;
+	username?: string;
+	confirmPassword?: string;
 }
