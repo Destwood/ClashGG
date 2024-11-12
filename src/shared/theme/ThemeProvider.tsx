@@ -5,13 +5,13 @@ import { theme } from './theme';
 
 interface ThemeContextType {
 	toggleTheme: () => void;
-	currentTheme: Themes.light | Themes.dark;
+	currentTheme: Themes;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-	const [currentTheme, setCurrentTheme] = useState<Themes.light | Themes.dark>(Themes.dark);
+	const [currentTheme, setCurrentTheme] = useState<Themes>(Themes.dark);
 
 	const toggleTheme = () => {
 		setCurrentTheme((prev) => (prev === Themes.light ? Themes.dark : Themes.light));

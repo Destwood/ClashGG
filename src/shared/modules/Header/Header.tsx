@@ -48,17 +48,12 @@ const Header = () => {
 	};
 
 	// modal
-	const handleSubmit = async (values: IAuth) => {
-		const { email, password } = values;
-		let userCredentials;
-
+	const handleSubmit = async ({ email, password }: IAuth) => {
 		try {
-			if (isLogin) {
-				userCredentials = await Auth.login(email, password);
-			} else {
-				userCredentials = await Auth.signUp(email, password);
-			}
-			dispatch(setUser({ token: userCredentials.user.uid, username: userCredentials.user.email }));
+			const userCredentials = isLogin ? await Auth.login(email, password) : await Auth.signUp(email, password);
+
+			const { uid, email: username } = userCredentials.user;
+			dispatch(setUser({ token: uid, username }));
 			dispatch(togglePopup());
 		} catch (error) {
 			console.log(error);

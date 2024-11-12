@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d74e4fae-dc4e-4c61-880e-7ab429a08d04" name="Changes" comment="fix conflicts, added services">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/firebaseInit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/firebase.services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth.services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/Modal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Modal/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/theme/ThemeProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/ThemeProvider.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +134,7 @@
       <workItem from="1727440139414" duration="3792000" />
       <workItem from="1727445198423" duration="4941000" />
       <workItem from="1727511757185" duration="606000" />
-      <workItem from="1731407296964" duration="3064000" />
+      <workItem from="1731407296964" duration="3971000" />
     </task>
     <servers />
   </component>
