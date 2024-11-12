@@ -4,22 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d74e4fae-dc4e-4c61-880e-7ab429a08d04" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/services/auth.services.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/user.ts" afterDir="false" />
+    <list default="true" id="d74e4fae-dc4e-4c61-880e-7ab429a08d04" name="Changes" comment="fix conflicts, added services">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/LogInForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/LogInForm/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/SignUpForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/SignUpForm/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/firebaseInit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/firebase.services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth.services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Modal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Modal/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/theme/ThemeProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/ThemeProvider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/theme/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/theme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/theme/themePalette.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/themePalette.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/User/Slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/User/Slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/components.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +30,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Destwood"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Destwood/ClashGG.git",
+    "accountId": "635b3656-fb59-4346-ba53-64f65c095b3b"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -47,30 +53,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Node.js.Sidebar.ts.executor": "Run",
-    "Node.js.start.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "#7 on dev__firebase",
-    "ignore.virus.scanning.warn.message": "true",
-    "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "E:/Front-End",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "E:\\Front-End\\Practice\\ClashGG\\node_modules\\eslint",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.start.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "E:\\Front-End\\Practice\\ClashGG\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "editing.templates",
-    "ts.external.directory.path": "E:\\Front-End\\Practice\\ClashGG\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Node.js.Sidebar.ts.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.start.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#7 on dev__firebase&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Front-End&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;E:\\Front-End\\Practice\\ClashGG\\node_modules\\eslint&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;E:\\Front-End\\Practice\\ClashGG\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\Front-End\\Practice\\ClashGG\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Front-End\Practice\ClashGG\src\shared\components\SignUpForm" />
@@ -80,6 +86,7 @@
       <recent name="E:\Front-End\Practice\ClashGG" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Front-End\Practice\ClashGG\src\services" />
       <recent name="E:\Front-End\Practice\ClashGG\src\store\ActiveGame" />
       <recent name="E:\Front-End\Practice\ClashGG\src\shared\components" />
     </key>
@@ -135,6 +142,7 @@
       <workItem from="1727440139414" duration="3792000" />
       <workItem from="1727445198423" duration="4941000" />
       <workItem from="1727511757185" duration="606000" />
+      <workItem from="1731407296964" duration="3064000" />
     </task>
     <servers />
   </component>

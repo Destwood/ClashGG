@@ -4,7 +4,7 @@ import { CssBaseline } from '@mui/material';
 import Header from 'shared/modules/Header/Header';
 import ThemeProvider, { useTheme } from 'shared/theme/ThemeProvider';
 import 'i18n';
-import './firebase/firebaseInit';
+import './services/firebase.services';
 import Sidebar from './shared/modules/Sidebar/Sidebar';
 import './App.scss';
 

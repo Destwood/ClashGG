@@ -12,12 +12,7 @@ const userSlice = createSlice({
 	initialState,
 	reducers: {
 		setUser: (state, { payload }) => {
-			return {
-				...state,
-				email: payload.id,
-				token: payload.token,
-				id: payload.email,
-			};
+			return payload;
 		},
 		clearUser: () => initialState,
 	},

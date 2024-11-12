@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Box, Divider } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import logo from 'assets/logo.webp';
+import { getAuth } from 'firebase/auth';
 import { FormikHelpers } from 'formik';
 import { Auth } from 'services';
 import { Button, Input, LogInForm, Modal, SignUpForm } from 'shared/components';
@@ -17,6 +18,7 @@ import { logInScheme, signUpScheme } from 'utils/schemas';
 import style from './Header.module.scss';
 
 const Header = () => {
+	const auth = getAuth();
 	const theme = useTheme();
 	const headerStyles = headerStyle(theme);
 	const dispatch = useAppDispatch();
@@ -63,10 +65,6 @@ const Header = () => {
 		}
 	};
 
-	const handleClose = () => {
-		console.log('handle');
-	};
-
 	const handleLogout = () => {
 		dispatch(clearUser());
 	};
@@ -104,7 +102,6 @@ const Header = () => {
 				initialValues={isLogin ? initLogInValues : initSignUpValues}
 				title={isLogin ? t('auth.login.title') : t('auth.signUp.title')}
 				subtitle={isLogin ? t('auth.login.alreadyHaveAccount') : t('auth.signUp.dontHaveAccount')}
-				onClose={handleClose}
 				validationScheme={isLogin ? logInScheme : signUpScheme}
 				onSubmit={handleSubmit}
 			>

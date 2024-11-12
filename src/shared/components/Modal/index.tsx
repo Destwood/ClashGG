@@ -10,7 +10,7 @@ export interface ModalProps<T extends AnyObject> {
 	title?: string;
 	subtitle?: string;
 	onSubmit: (values: T, actions: FormikHelpers<T>) => void;
-	onClose: () => void;
+	onClose?: () => void;
 	// help
 	validationScheme: Schema<T>;
 	children: ReactNode;
@@ -30,7 +30,6 @@ export const Modal = <T extends AnyObject>({
 
 	const handleClose = () => {
 		dispatch(togglePopup());
-		onClose();
 	};
 
 	return (
