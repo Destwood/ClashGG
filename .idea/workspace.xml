@@ -5,7 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d74e4fae-dc4e-4c61-880e-7ab429a08d04" name="Changes" comment="fix conflicts, added services">
+      <change afterPath="$PROJECT_DIR$/src/assets/profile.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Home/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Home/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/AppSettings/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/AppSettings/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/Security/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/Security/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/UserSettings/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/UserSettings/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/user.services.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/constants/Auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/constants/User.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/enums/language.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/enums/profileTabs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/i18n/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth.services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/firebase.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/firebase.services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Button/ButtonStyle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Button/ButtonStyle.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/theme/components/Button.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/components/Button.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/constants/AuthModalOptions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/enums/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/enums/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,18 +52,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Destwood"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Destwood&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Destwood/ClashGG.git",
-    "accountId": "635b3656-fb59-4346-ba53-64f65c095b3b"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Destwood/ClashGG.git&quot;,
+    &quot;accountId&quot;: &quot;635b3656-fb59-4346-ba53-64f65c095b3b&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -51,10 +81,10 @@
     &quot;Node.js.Sidebar.ts.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.start.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#7 on dev__firebase&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev__profile&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Front-End&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Front-End/Practice/ClashGG/src/pages/Home&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -71,11 +101,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Front-End\Practice\ClashGG\src\shared\components\SignUpForm" />
-      <recent name="E:\Front-End\Practice\ClashGG\src\utils\yup" />
-      <recent name="E:\Front-End\Practice\ClashGG\src\shared\modules\AuthModal" />
-      <recent name="E:\Front-End\Practice\ClashGG\src\shared\theme" />
-      <recent name="E:\Front-End\Practice\ClashGG" />
+      <recent name="E:\Front-End\Practice\ClashGG\src\pages\Home" />
+      <recent name="E:\Front-End\Practice\ClashGG\src\pages\Profile\Tabs\UserSettings" />
+      <recent name="E:\Front-End\Practice\ClashGG\src\pages\Profile\Tabs\Security" />
+      <recent name="E:\Front-End\Practice\ClashGG\src\pages\Profile\Tabs\AppSettings" />
+      <recent name="E:\Front-End\Practice\ClashGG\src\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Front-End\Practice\ClashGG\src\services" />
@@ -135,6 +165,14 @@
       <workItem from="1727445198423" duration="4941000" />
       <workItem from="1727511757185" duration="606000" />
       <workItem from="1731407296964" duration="3971000" />
+      <workItem from="1731495660847" duration="9204000" />
+      <workItem from="1731507118301" duration="2563000" />
+      <workItem from="1731596399328" duration="599000" />
+      <workItem from="1731667156699" duration="9911000" />
+      <workItem from="1731758863000" duration="2869000" />
+      <workItem from="1731919030705" duration="22271000" />
+      <workItem from="1732035982208" duration="3611000" />
+      <workItem from="1732101035981" duration="6115000" />
     </task>
     <servers />
   </component>
