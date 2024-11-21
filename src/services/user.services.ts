@@ -1,4 +1,4 @@
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { doc, onSnapshot, setDoc } from 'firebase/firestore';
 import { firestore } from 'services/firebase.services';
 
 export class UserService {
@@ -7,13 +7,11 @@ export class UserService {
 		await setDoc(userRef, userInfo);
 	}
 
-	static async getUserProfile(uid: string): Promise<Record<string, any> | null> {
+	static listenUserProfile(uid: string, callback: (data: any) => void) {
 		const userRef = doc(firestore, 'users', uid);
-		const userDoc = await getDoc(userRef);
-		if (userDoc.exists()) {
-			return userDoc.data();
-		}
-		console.error(`User profile for UID ${uid} not found`);
-		return null;
+
+		return onSnapshot(userRef, (doc) => {
+			return doc.exists() ? callback(doc.data()) : callback(null);
+		});
 	}
 }

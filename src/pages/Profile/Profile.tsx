@@ -1,16 +1,18 @@
 import React, { Suspense, useState } from 'react';
 import { Link } from 'react-router-dom';
 import defaultPicture from 'assets/profile.svg';
-import { doc, getFirestore, setDoc } from 'firebase/firestore';
 import { useTheme } from 'shared/theme/ThemeProvider';
 import { profileTabs } from 'utils/enums';
-import { AppSettings } from './Tabs/AppSettings';
-import { Security } from './Tabs/Security';
-import { UserSettings } from './Tabs/UserSettings';
+import { useAppSelector } from '../../store/hooks';
+import { selectUser } from '../../store/User';
+import { AppSettings } from './Tabs/AppSettings/AppSettings';
+import { Security } from './Tabs/Security/Security';
+import { UserSettings } from './Tabs/UserSettings/UserSettings';
 import './style.css';
 import styles from './index.module.scss';
 
 export const Profile: React.FC = () => {
+	const userData = useAppSelector(selectUser);
 	const { toggleTheme } = useTheme();
 
 	const [avatarSrc, setAvatarSrc] = useState<string>('');
@@ -36,7 +38,7 @@ export const Profile: React.FC = () => {
 							setAvatarSrc(defaultPicture);
 						}}
 					/>
-					<h2 className={styles.username}>Destwood</h2>
+					<h2 className={styles.username}>{userData.username}</h2>
 					<Link to="/" className={styles.viewProfile}>
 						View Profile
 					</Link>

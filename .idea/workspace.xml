@@ -5,37 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d74e4fae-dc4e-4c61-880e-7ab429a08d04" name="Changes" comment="fix conflicts, added services">
-      <change afterPath="$PROJECT_DIR$/src/assets/profile.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Home/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Home/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/AppSettings/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/AppSettings/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/Security/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/Security/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/UserSettings/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/UserSettings/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/user.services.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/constants/Auth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/constants/User.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/enums/language.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/enums/profileTabs.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/schemas/profile.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/i18n/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth.services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/firebase.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/firebase.services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/Button/ButtonStyle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Button/ButtonStyle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Tabs/AppSettings/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/AppSettings/AppSettings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Tabs/Security/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/Security/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Tabs/Security/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/Security/Security.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Tabs/UserSettings/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/UserSettings/UserSettings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/user.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.services.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/theme/components/Button.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme/components/Button.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/User/Selector.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/User/Selector.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/User/Slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/User/Slice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/constants/AuthModalOptions.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/enums/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/enums/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/constants/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/enums/error.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/enums/error.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/schemas/auth.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +67,7 @@
     &quot;Node.js.Sidebar.ts.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.start.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev__profile&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#8 on dev__profile&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/Front-End/Practice/ClashGG/src/pages/Home&quot;,
@@ -94,7 +80,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.start.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;E:\\Front-End\\Practice\\ClashGG\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;E:\\Front-End\\Practice\\ClashGG\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -173,6 +159,9 @@
       <workItem from="1731919030705" duration="22271000" />
       <workItem from="1732035982208" duration="3611000" />
       <workItem from="1732101035981" duration="6115000" />
+      <workItem from="1732190665812" duration="6724000" />
+      <workItem from="1732199014521" duration="740000" />
+      <workItem from="1732199767492" duration="4024000" />
     </task>
     <servers />
   </component>

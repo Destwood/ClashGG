@@ -1,41 +1,51 @@
 import React from 'react';
+import { getAuth } from 'firebase/auth';
+import { doc, updateDoc } from 'firebase/firestore';
 import { Field, Form, Formik } from 'formik';
-import * as Yup from 'yup';
+import { firestore } from 'services/firebase.services';
+import { userScheme } from 'utils/schemas/profile';
 import style from './index.module.scss';
 
 interface UserSettingsValues {
-	firstName: string;
+	username: string;
 	lastName: string;
 	email: string;
 }
 
-const validationSchema = Yup.object({
-	firstName: Yup.string().required('First name is required'),
-	lastName: Yup.string().required('Last name is required'),
-	email: Yup.string().email('Invalid email format').required('Email is required'),
-});
+const initialValues: UserSettingsValues = {
+	username: '',
+	lastName: '',
+	email: '',
+};
 
 export const UserSettings: React.FC = () => {
-	const initialValues: UserSettingsValues = {
-		firstName: '',
-		lastName: '',
-		email: '',
-	};
+	const auth = getAuth();
 
-	const handleSubmit = (values: UserSettingsValues) => {
-		console.log('Form values:', values);
+	const handleSubmit = async (values: UserSettingsValues) => {
+		try {
+			const userDocRef = doc(firestore, 'users', auth.currentUser?.uid || '');
+			console.log('Form values:', values);
+
+			await updateDoc(userDocRef, {
+				username: values.username !== '' ? values.username : '',
+				updatedAt: new Date().toISOString(),
+			});
+			console.log('updated successfully');
+		} catch (error) {
+			console.error('Error updating profile:', error);
+		}
 	};
 
 	return (
 		<div className={style.container}>
 			<h2>User Settings</h2>
-			<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
+			<Formik initialValues={initialValues} validationSchema={userScheme} onSubmit={handleSubmit}>
 				{({ touched, errors }) => (
 					<Form className={style.form}>
 						<div className={style.inputGroup}>
-							<label htmlFor="firstName">First Name</label>
-							<Field id="firstName" name="firstName" placeholder="Enter your first name" className={style.input} />
-							{touched.firstName && errors.firstName && <div className={style.error}>{errors.firstName}</div>}
+							<label htmlFor="username">First Name</label>
+							<Field id="username" name="username" placeholder="Enter your first name" className={style.input} />
+							{touched.username && errors.username && <div className={style.error}>{errors.username}</div>}
 						</div>
 
 						<div className={style.inputGroup}>

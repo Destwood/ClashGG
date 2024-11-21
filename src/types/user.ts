@@ -1,9 +1,3 @@
-export interface IUser {
-	email: string;
-	token: string;
-	id: string;
-}
-
 export interface IGame {
 	name: string;
 	url: string;
@@ -14,10 +8,9 @@ export interface ISettings {
 	theme: string;
 }
 
-export interface IUserInfo {
+export interface IUser {
 	id: string;
-	token: string;
-	nickname: string;
+	username: string;
 	email: string;
 	firstName: string;
 	lastName: string;

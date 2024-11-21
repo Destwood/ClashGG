@@ -4,25 +4,27 @@ import { Link } from 'react-router-dom';
 import { Box, Divider } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import logo from 'assets/logo.webp';
+import { getAuth, signOut } from 'firebase/auth';
 import { Auth, UserService } from 'services';
 import { Button, Input, LogInForm, Modal, SignUpForm } from 'shared/components';
 import { AuthButtons } from 'shared/components/AuthButtons';
 import { headerStyle } from 'shared/theme/components';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { togglePopup } from 'store/Modal';
-import { clearUser, selectUser, setUser } from 'store/User';
+import { clearUser, selectUser } from 'store/User';
 import { IAuth } from 'types/auth';
 import { initInfo, logInValues, signUpValues } from 'utils/constants';
-import { logInScheme, signUpScheme } from 'utils/schemas';
+import { logInScheme, signUpScheme } from 'utils/schemas/auth';
 import style from './Header.module.scss';
 
 const Header = () => {
+	const auth = getAuth();
 	const theme = useTheme();
 	const headerStyles = headerStyle(theme);
 
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
-	const userFromStore = useAppSelector(selectUser);
+	const userData = useAppSelector(selectUser);
 	const [isLogin, setIsLogin] = useState<boolean>(true);
 	const [searchValue, setSearchValue] = useState<string>('');
 
@@ -45,18 +47,19 @@ const Header = () => {
 			const userCredentials = isLogin ? await Auth.login(email, password) : await Auth.signUp(email, password);
 			const token = await userCredentials.user.getIdToken();
 
-			const { uid, email: username } = userCredentials.user;
+			const { uid } = userCredentials.user;
 
 			localStorage.setItem('authToken', token);
 
 			if (!isLogin) {
 				await UserService.createUserProfile(uid, {
 					...initInfo,
+					username,
 					email,
+					id: uid,
 				});
 			}
 
-			dispatch(setUser({ token: uid, username }));
 			dispatch(togglePopup());
 		} catch (error) {
 			console.log(error);
@@ -64,8 +67,16 @@ const Header = () => {
 	};
 
 	const handleLogout = () => {
+		console.log('logging out', userData);
+
+		signOut(auth)
+			.then(() => {
+				console.log('signOutSuccsessful');
+				dispatch(clearUser());
+			})
+			.catch((e) => console.error(e));
+
 		localStorage.removeItem('authToken');
-		dispatch(clearUser());
 	};
 
 	return (
@@ -80,7 +91,7 @@ const Header = () => {
 			</div>
 			<div className="">
 				<div className={style.authButtons}>
-					{userFromStore.token ? (
+					{userData.id !== '' ? (
 						<Button type="outlined" onClick={handleLogout}>
 							{t('auth.logout.title')}
 						</Button>

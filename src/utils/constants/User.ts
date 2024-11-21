@@ -1,10 +1,10 @@
-import { IUserInfo } from 'types';
+import { IUser } from 'types';
 import { Language, Themes } from 'utils/enums';
 
 export const User = {
 	initInfo: {
 		id: '',
-		nickname: '',
+		username: '',
 		email: '',
 		firstName: '',
 		lastName: '',
@@ -23,7 +23,7 @@ export const User = {
 		createdAt: new Date().toISOString(),
 		updatedAt: new Date().toISOString(),
 		lastLogin: new Date().toISOString(),
-	} as IUserInfo,
+	} as IUser,
 };
 
 export const initInfo = User.initInfo;
