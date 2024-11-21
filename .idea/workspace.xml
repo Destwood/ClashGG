@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d74e4fae-dc4e-4c61-880e-7ab429a08d04" name="Changes" comment="fix conflicts, added services">
-      <change afterPath="$PROJECT_DIR$/src/utils/schemas/profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Tabs/AppSettings/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/AppSettings/AppSettings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Tabs/Security/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/Security/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Tabs/Security/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/Security/Security.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Tabs/UserSettings/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Tabs/UserSettings/UserSettings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/user.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/User/Selector.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/User/Selector.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/User/Slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/User/Slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/constants/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/enums/error.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/enums/error.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/schemas/auth.ts" afterDir="false" />
-    </list>
+    <list default="true" id="d74e4fae-dc4e-4c61-880e-7ab429a08d04" name="Changes" comment="fix conflicts, added services" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,7 +143,7 @@
       <workItem from="1732101035981" duration="6115000" />
       <workItem from="1732190665812" duration="6724000" />
       <workItem from="1732199014521" duration="740000" />
-      <workItem from="1732199767492" duration="4024000" />
+      <workItem from="1732199767492" duration="4329000" />
     </task>
     <servers />
   </component>
