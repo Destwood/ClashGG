@@ -2,6 +2,7 @@ import { IUser } from 'types';
 import { Language, Themes } from 'utils/enums';
 
 export const User = {
+	firebaseKey: 'users',
 	initInfo: {
 		id: '',
 		username: '',
@@ -26,4 +27,4 @@ export const User = {
 	} as IUser,
 };
 
-export const initInfo = User.initInfo;
+export const { firebaseKey, initInfo } = User;

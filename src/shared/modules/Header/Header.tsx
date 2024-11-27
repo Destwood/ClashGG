@@ -13,7 +13,7 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { togglePopup } from 'store/Modal';
 import { clearUser, selectUser } from 'store/User';
 import { IAuth } from 'types/auth';
-import { initInfo, logInValues, signUpValues } from 'utils/constants';
+import { initInfo, logInValues, signUpValues, tokenKey } from 'utils/constants';
 import { logInScheme, signUpScheme } from 'utils/schemas/auth';
 import style from './Header.module.scss';
 
@@ -49,7 +49,7 @@ const Header = () => {
 
 			const { uid } = userCredentials.user;
 
-			localStorage.setItem('authToken', token);
+			localStorage.setItem(tokenKey, token);
 
 			if (!isLogin) {
 				await UserService.createUserProfile(uid, {
@@ -76,7 +76,7 @@ const Header = () => {
 			})
 			.catch((e) => console.error(e));
 
-		localStorage.removeItem('authToken');
+		localStorage.removeItem(tokenKey);
 	};
 
 	return (

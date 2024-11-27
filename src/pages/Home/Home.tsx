@@ -4,6 +4,7 @@ import { getAuth } from 'firebase/auth';
 import { useTheme } from 'shared/theme';
 
 export const HomePage: React.FC = () => {
+	//TODO - all styles and this page is temporary
 	const auth = getAuth();
 	const { currentTheme, toggleTheme } = useTheme();
 

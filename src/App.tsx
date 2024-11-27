@@ -11,6 +11,7 @@ import { Profile } from './pages/Profile/Profile';
 import Sidebar from './shared/modules/Sidebar/Sidebar';
 import { useAppDispatch, useAppSelector } from './store/hooks';
 import { clearUser, selectUser, setUser } from './store/User';
+import { tokenKey } from './utils/constants';
 import './App.scss';
 
 const App = () => {
@@ -22,7 +23,7 @@ const App = () => {
 			Auth.restoreSession(async (userData) => {
 				if (userData) {
 					const { token, uid } = userData;
-					localStorage.setItem('authToken', token);
+					localStorage.setItem(tokenKey, token);
 					UserService.listenUserProfile(uid, (data) => {
 						if (data) {
 							dispatch(setUser(data));
@@ -31,7 +32,7 @@ const App = () => {
 						}
 					});
 				} else {
-					localStorage.removeItem('authToken');
+					localStorage.removeItem(tokenKey);
 					dispatch(clearUser());
 				}
 			});

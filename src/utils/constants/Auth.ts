@@ -1,6 +1,7 @@
 import { IAuth } from 'types';
 
 const Auth = {
+	tokenKey: 'authToken',
 	logInValues: {
 		email: '',
 		password: '',
@@ -13,4 +14,4 @@ const Auth = {
 	} as IAuth,
 };
 
-export const { logInValues, signUpValues } = Auth;
+export const { tokenKey, logInValues, signUpValues } = Auth;
