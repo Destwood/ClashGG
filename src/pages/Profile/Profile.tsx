@@ -1,6 +1,7 @@
 import React, { Suspense, useState } from 'react';
 import { Link } from 'react-router-dom';
 import defaultPicture from 'assets/profile.svg';
+import { Switch } from 'shared/components';
 import { useTheme } from 'shared/theme/ThemeProvider';
 import { useAppSelector } from 'store/hooks';
 import { selectUser } from 'store/User';
@@ -52,10 +53,8 @@ export const Profile: React.FC = () => {
 				</div>
 				<div className={styles.appearance}>
 					<span>Theme</span>
-					<input
-						type="checkbox"
-						className="theme-checkbox"
-						onClick={() => {
+					<Switch
+						onChange={() => {
 							handleThemeToggle();
 						}}
 					/>
