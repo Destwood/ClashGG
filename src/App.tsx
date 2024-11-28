@@ -51,7 +51,7 @@ const App = () => {
 						<Sidebar />
 						<Routes>
 							<Route path="/" element={<HomePage />} />
-							<Route path="/profile" element={userData.id !== '' ? <Profile /> : <Navigate to="/" />} />
+							<Route path="/profile" element={userData.id ? <Profile /> : <Navigate to="/" />} />
 						</Routes>
 					</main>
 				</div>

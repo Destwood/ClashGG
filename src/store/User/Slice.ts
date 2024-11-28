@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IUser } from 'types';
+import { IUserInit } from 'types';
 import { Language, Themes } from 'utils/enums';
 
-const initialState: IUser = {
+const initialState: IUserInit = {
 	id: '',
 	username: '',
 	email: '',

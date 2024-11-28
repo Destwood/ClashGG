@@ -15,14 +15,7 @@ export const Security: React.FC = () => {
 	const handleDeleteAccount = async () => {
 		if (user) {
 			try {
-				await deleteDoc(userRef);
-				deleteUser(user)
-					.then(() => {
-						console.log('Account deleted');
-					})
-					.catch((e) => {
-						console.error('Error deleting account', e);
-					});
+				await deleteUser(user);
 			} catch (e) {
 				console.error('Error deleting account', e);
 			}

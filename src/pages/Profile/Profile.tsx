@@ -9,7 +9,6 @@ import { profileTabs } from 'utils/enums';
 import { AppSettings } from './Tabs/AppSettings/AppSettings';
 import { Security } from './Tabs/Security/Security';
 import { UserSettings } from './Tabs/UserSettings/UserSettings';
-import './style.css';
 import styles from './index.module.scss';
 
 export const Profile: React.FC = () => {
@@ -61,20 +60,20 @@ export const Profile: React.FC = () => {
 				</div>
 				<nav className={styles.menu}>
 					<div
-						className={`${styles.menuItem} ${activeTab === profileTabs.SECURITY ? styles.active : ''}`}
-						onClick={() => handleTabChange(profileTabs.SECURITY)}
+						className={`${styles.menuItem} ${activeTab === profileTabs.USERSETTINGS ? styles.active : ''}`}
+						onClick={() => handleTabChange(profileTabs.USERSETTINGS)}
 					>
 						Profile
 					</div>
 					<div
-						className={`${styles.menuItem} ${activeTab === profileTabs.USERSETTINGS ? styles.active : ''}`}
-						onClick={() => handleTabChange(profileTabs.USERSETTINGS)}
+						className={`${styles.menuItem} ${activeTab === profileTabs.APPSETTINGS ? styles.active : ''}`}
+						onClick={() => handleTabChange(profileTabs.APPSETTINGS)}
 					>
 						Settings
 					</div>
 					<div
-						className={`${styles.menuItem} ${activeTab === profileTabs.APPSETTINGS ? styles.active : ''}`}
-						onClick={() => handleTabChange(profileTabs.APPSETTINGS)}
+						className={`${styles.menuItem} ${activeTab === profileTabs.SECURITY ? styles.active : ''}`}
+						onClick={() => handleTabChange(profileTabs.SECURITY)}
 					>
 						Security
 					</div>
@@ -83,9 +82,9 @@ export const Profile: React.FC = () => {
 			<main className={styles.content}>
 				<Suspense fallback={<div>Loading...</div>}>
 					<div className={styles.tabContent}>
-						{activeTab === profileTabs.SECURITY && <UserSettings />}
-						{activeTab === profileTabs.USERSETTINGS && <AppSettings />}
-						{activeTab === profileTabs.APPSETTINGS && <Security />}
+						{activeTab === profileTabs.USERSETTINGS && <UserSettings />}
+						{activeTab === profileTabs.APPSETTINGS && <AppSettings />}
+						{activeTab === profileTabs.SECURITY && <Security />}
 					</div>
 				</Suspense>
 			</main>

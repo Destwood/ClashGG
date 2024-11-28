@@ -1,7 +1,7 @@
 import { IUser } from 'types';
 import { Language, Themes } from 'utils/enums';
 
-export const User = {
+export const User: IUser = {
 	firebaseKey: 'users',
 	initInfo: {
 		id: '',
@@ -24,7 +24,7 @@ export const User = {
 		createdAt: new Date().toISOString(),
 		updatedAt: new Date().toISOString(),
 		lastLogin: new Date().toISOString(),
-	} as IUser,
+	},
 };
 
 export const { firebaseKey, initInfo } = User;

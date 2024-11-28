@@ -12,7 +12,7 @@ import { headerStyle } from 'shared/theme/components';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { togglePopup } from 'store/Modal';
 import { clearUser, selectUser } from 'store/User';
-import { IAuth } from 'types/auth';
+import { IAuth, IAuthValues } from 'types/auth';
 import { initInfo, logInValues, signUpValues, tokenKey } from 'utils/constants';
 import { logInScheme, signUpScheme } from 'utils/schemas/auth';
 import style from './Header.module.scss';
@@ -42,12 +42,13 @@ const Header = () => {
 	};
 
 	// modal
-	const handleSubmit = async ({ username, email, password }: IAuth) => {
+	const handleSubmit = async ({ username, email, password }: IAuthValues) => {
 		try {
 			const userCredentials = isLogin ? await Auth.login(email, password) : await Auth.signUp(email, password);
-			const token = await userCredentials.user.getIdToken();
+			const { user } = userCredentials;
 
-			const { uid } = userCredentials.user;
+			const token = await user.getIdToken();
+			const { uid } = user;
 
 			localStorage.setItem(tokenKey, token);
 
@@ -66,17 +67,14 @@ const Header = () => {
 		}
 	};
 
-	const handleLogout = () => {
-		console.log('logging out', userData);
-
-		signOut(auth)
-			.then(() => {
-				console.log('signOutSuccsessful');
-				dispatch(clearUser());
-			})
-			.catch((e) => console.error(e));
-
-		localStorage.removeItem(tokenKey);
+	const handleLogout = async () => {
+		try {
+			await signOut(auth);
+			dispatch(clearUser());
+			localStorage.removeItem(tokenKey);
+		} catch (error) {
+			console.error('Error during logout:', error);
+		}
 	};
 
 	return (
@@ -91,7 +89,7 @@ const Header = () => {
 			</div>
 			<div className="">
 				<div className={style.authButtons}>
-					{userData.id !== '' ? (
+					{userData.id ? (
 						<Button type="outlined" onClick={handleLogout}>
 							{t('auth.logout.title')}
 						</Button>

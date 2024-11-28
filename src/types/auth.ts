@@ -1,5 +1,12 @@
 export interface IAuth {
+	tokenKey: string;
+	logInValues: IAuthValues;
+	signUpValues: IAuthValues;
+}
+
+export interface IAuthValues {
 	email: string;
-	password: string;
 	username?: string;
+	password: string;
+	confirmPassword?: string;
 }

@@ -3,6 +3,7 @@ import { getAuth } from 'firebase/auth';
 import { doc, updateDoc } from 'firebase/firestore';
 import { Field, Form, Formik } from 'formik';
 import { firestore } from 'services/firebase.services';
+import { Button } from 'shared/components';
 import { userScheme } from 'utils/schemas/profile';
 import style from './index.module.scss';
 
@@ -60,9 +61,7 @@ export const UserSettings: React.FC = () => {
 							{touched.email && errors.email && <div className={style.error}>{errors.email}</div>}
 						</div>
 
-						<button type="submit" className={style.submitButton}>
-							Save Changes
-						</button>
+						<Button type="outlined">Save Changes</Button>
 					</Form>
 				)}
 			</Formik>
