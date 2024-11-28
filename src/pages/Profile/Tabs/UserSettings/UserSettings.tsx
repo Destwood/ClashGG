@@ -1,19 +1,13 @@
 import React from 'react';
 import { getAuth } from 'firebase/auth';
-import { doc, updateDoc } from 'firebase/firestore';
 import { Field, Form, Formik } from 'formik';
-import { firestore } from 'services/firebase.services';
+import { UserService } from 'services';
 import { Button } from 'shared/components';
+import { IUserSettings } from 'types';
 import { userScheme } from 'utils/schemas/profile';
 import style from './index.module.scss';
 
-interface UserSettingsValues {
-	username: string;
-	lastName: string;
-	email: string;
-}
-
-const initialValues: UserSettingsValues = {
+const initialValues: IUserSettings = {
 	username: '',
 	lastName: '',
 	email: '',
@@ -22,19 +16,8 @@ const initialValues: UserSettingsValues = {
 export const UserSettings: React.FC = () => {
 	const auth = getAuth();
 
-	const handleSubmit = async (values: UserSettingsValues) => {
-		try {
-			const userDocRef = doc(firestore, 'users', auth.currentUser?.uid || '');
-			console.log('Form values:', values);
-
-			await updateDoc(userDocRef, {
-				username: values.username !== '' ? values.username : '',
-				updatedAt: new Date().toISOString(),
-			});
-			console.log('updated successfully');
-		} catch (error) {
-			console.error('Error updating profile:', error);
-		}
+	const handleSubmit = async (values: IUserSettings) => {
+		await UserService.updateProfile(auth, values);
 	};
 
 	return (

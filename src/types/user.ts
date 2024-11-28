@@ -26,3 +26,9 @@ export interface ISettings {
 	language: string;
 	theme: string;
 }
+
+export interface IUserSettings {
+	username: string;
+	lastName: string;
+	email: string;
+}

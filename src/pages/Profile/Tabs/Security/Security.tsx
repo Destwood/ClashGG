@@ -1,25 +1,20 @@
 import React from 'react';
-import { deleteUser, getAuth } from 'firebase/auth';
-import { deleteDoc, doc } from 'firebase/firestore';
-import { firestore } from 'services';
+import { getAuth } from 'firebase/auth';
+import { doc } from 'firebase/firestore';
+import { firestore, UserService } from 'services';
 import { useAppSelector } from 'store/hooks';
 import { selectUser } from 'store/User';
+import { User } from 'utils/constants';
 import styles from './index.module.scss';
 
 export const Security: React.FC = () => {
 	const userData = useAppSelector(selectUser);
 	const auth = getAuth();
 	const user = auth.currentUser;
-	const userRef = doc(firestore, 'users', userData.id);
+	const userRef = doc(firestore, User.firebaseKey, userData.id);
 
 	const handleDeleteAccount = async () => {
-		if (user) {
-			try {
-				await deleteUser(user);
-			} catch (e) {
-				console.error('Error deleting account', e);
-			}
-		}
+		await UserService.deleteProfile(user, userRef);
 	};
 
 	return (
