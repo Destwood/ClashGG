@@ -1,10 +1,8 @@
 import { Auth, deleteUser, User } from 'firebase/auth';
-import firebase from 'firebase/compat';
-import { deleteDoc, doc, onSnapshot, setDoc, updateDoc } from 'firebase/firestore';
+import { deleteDoc, doc, DocumentReference, onSnapshot, setDoc, updateDoc } from 'firebase/firestore';
 import { firestore } from 'services/firebase.services';
 import { IUserInit, IUserSettings } from 'types';
 import { firebaseKey } from 'utils/constants';
-import DocumentReference = firebase.firestore.DocumentReference;
 
 export class UserService {
 	static async createUserProfile(uid: string, userInfo: Record<string, any>) {
