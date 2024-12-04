@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import LoL from 'assets/temp/LoL.svg';
@@ -62,9 +63,10 @@ const Sidebar: React.FC<Props> = () => {
 
 	return (
 		<Box className={style.sidebar} sx={sidebarStyles.root}>
-			<div className={style.gameContainer} onClick={handleGameClick('LoL')}>
+			<Link to="/game" className={style.gameContainer} onClick={() => handleGameClick('LoL')}>
 				<img className={style.icon} src={LoL} alt="League of Legends img" />
-			</div>
+			</Link>
+
 			<div className={style.gameContainer} onClick={handleGameClick('RocketLeague')}>
 				<img className={style.icon} src={RocketLeague} alt="Rocket League img" />
 			</div>

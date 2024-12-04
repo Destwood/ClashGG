@@ -5,7 +5,7 @@ interface ActiveGame {
 }
 
 const initialState: ActiveGame = {
-	activeGame: '',
+	activeGame: 'League of Legends',
 };
 
 const activeGame = createSlice({

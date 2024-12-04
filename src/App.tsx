@@ -1,16 +1,17 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import { CssBaseline } from '@mui/material';
+import { Game } from 'pages/Game/Game';
+import { HomePage } from 'pages/Home/Home';
+import { Profile } from 'pages/Profile/Profile';
 import { Auth, UserService } from 'services';
 import Header from 'shared/modules/Header/Header';
+import Sidebar from 'shared/modules/Sidebar/Sidebar';
 import ThemeProvider from 'shared/theme/ThemeProvider';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { clearUser, selectUser, setUser } from 'store/User';
 import 'i18n';
-import './services/firebase.services';
-import { HomePage } from './pages/Home/Home';
-import { Profile } from './pages/Profile/Profile';
-import Sidebar from './shared/modules/Sidebar/Sidebar';
-import { useAppDispatch, useAppSelector } from './store/hooks';
-import { clearUser, selectUser, setUser } from './store/User';
+import 'services/firebase.services';
 import { tokenKey } from './utils/constants';
 import './App.scss';
 
@@ -51,6 +52,7 @@ const App = () => {
 						<Sidebar />
 						<Routes>
 							<Route path="/" element={<HomePage />} />
+							<Route path="/game" element={<Game />} />
 							<Route path="/profile" element={userData.id ? <Profile /> : <Navigate to="/" />} />
 						</Routes>
 					</main>
