@@ -1,27 +1,46 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import { CssBaseline } from '@mui/material';
+import { Auth, UserService } from 'services';
 import Header from 'shared/modules/Header/Header';
-import ThemeProvider, { useTheme } from 'shared/theme/ThemeProvider';
+import ThemeProvider from 'shared/theme/ThemeProvider';
 import 'i18n';
 import './services/firebase.services';
+import { HomePage } from './pages/Home/Home';
+import { Profile } from './pages/Profile/Profile';
 import Sidebar from './shared/modules/Sidebar/Sidebar';
+import { useAppDispatch, useAppSelector } from './store/hooks';
+import { clearUser, selectUser, setUser } from './store/User';
+import { tokenKey } from './utils/constants';
 import './App.scss';
 
-const HomePage: React.FC = () => {
-	const { currentTheme, toggleTheme } = useTheme();
-
-	return (
-		<div>
-			<h1>
-				Home Page, current theme: {currentTheme} {currentTheme === 'light' ? 'асуждаю' : ''}
-			</h1>
-			<button onClick={toggleTheme}>Toggle Theme</button>
-		</div>
-	);
-};
-
 const App = () => {
+	const userData = useAppSelector(selectUser);
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		const fetchUserProfile = async () => {
+			Auth.restoreSession(async (userData) => {
+				if (userData) {
+					const { token, uid } = userData;
+					localStorage.setItem(tokenKey, token);
+					UserService.listenUserProfile(uid, (data) => {
+						if (data) {
+							dispatch(setUser(data));
+						} else {
+							console.log('No user data found');
+						}
+					});
+				} else {
+					localStorage.removeItem(tokenKey);
+					dispatch(clearUser());
+				}
+			});
+		};
+
+		fetchUserProfile();
+	}, []);
+
 	return (
 		<ThemeProvider>
 			<CssBaseline />
@@ -32,6 +51,7 @@ const App = () => {
 						<Sidebar />
 						<Routes>
 							<Route path="/" element={<HomePage />} />
+							<Route path="/profile" element={userData.id ? <Profile /> : <Navigate to="/" />} />
 						</Routes>
 					</main>
 				</div>

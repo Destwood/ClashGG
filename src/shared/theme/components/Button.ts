@@ -25,7 +25,7 @@ export const buttonStyle = (theme: Theme): Partial<Record<ButtonProps['type'], C
 	outlined: {
 		...commonButtonStyles,
 		backgroundColor: theme.palette.background.paper,
-		color: theme.palette.primary.main,
+		color: theme.palette.text.secondary,
 		'&:hover': {
 			color: theme.palette.common.white,
 			backgroundColor: theme.palette.primary.main,

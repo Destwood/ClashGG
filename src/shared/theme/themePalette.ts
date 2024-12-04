@@ -43,4 +43,11 @@ export const darkThemePalette = {
 		primary: getCssVariable('--text-primary'),
 		secondary: getCssVariable('--text-secondary'),
 	},
+	grey: {
+		100: getCssVariable('--grey-100'),
+		300: getCssVariable('--grey-300'),
+		500: getCssVariable('--grey-500'),
+		700: getCssVariable('--grey-700'),
+		800: getCssVariable('--grey-900'),
+	},
 };

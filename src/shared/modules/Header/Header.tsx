@@ -4,35 +4,29 @@ import { Link } from 'react-router-dom';
 import { Box, Divider } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import logo from 'assets/logo.webp';
-import { getAuth } from 'firebase/auth';
-import { FormikHelpers } from 'formik';
-import { Auth } from 'services';
+import { getAuth, signOut } from 'firebase/auth';
+import { Auth, UserService } from 'services';
 import { Button, Input, LogInForm, Modal, SignUpForm } from 'shared/components';
 import { AuthButtons } from 'shared/components/AuthButtons';
 import { headerStyle } from 'shared/theme/components';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { togglePopup } from 'store/Modal';
-import { clearUser, selectUser, setUser } from 'store/User';
-import { IAuth } from 'types/auth';
-import { logInScheme, signUpScheme } from 'utils/schemas';
+import { clearUser, selectUser } from 'store/User';
+import { IAuth, IAuthValues } from 'types/auth';
+import { initInfo, logInValues, signUpValues, tokenKey } from 'utils/constants';
+import { logInScheme, signUpScheme } from 'utils/schemas/auth';
 import style from './Header.module.scss';
 
 const Header = () => {
 	const auth = getAuth();
 	const theme = useTheme();
 	const headerStyles = headerStyle(theme);
+
 	const dispatch = useAppDispatch();
 	const { t } = useTranslation();
-	const userFromStore = useAppSelector(selectUser);
+	const userData = useAppSelector(selectUser);
 	const [isLogin, setIsLogin] = useState<boolean>(true);
 	const [searchValue, setSearchValue] = useState<string>('');
-	const initLogInValues: IAuth = { email: '', password: '' };
-	const initSignUpValues: IAuth = {
-		email: '',
-		username: '',
-		password: '',
-		confirmPassword: '',
-	};
 
 	const handleChange = (newValue: string) => {
 		setSearchValue(newValue);
@@ -48,20 +42,39 @@ const Header = () => {
 	};
 
 	// modal
-	const handleSubmit = async ({ email, password }: IAuth) => {
+	const handleSubmit = async ({ username, email, password }: IAuthValues) => {
 		try {
 			const userCredentials = isLogin ? await Auth.login(email, password) : await Auth.signUp(email, password);
+			const { user } = userCredentials;
 
-			const { uid, email: username } = userCredentials.user;
-			dispatch(setUser({ token: uid, username }));
+			const token = await user.getIdToken();
+			const { uid } = user;
+
+			localStorage.setItem(tokenKey, token);
+
+			if (!isLogin) {
+				await UserService.createUserProfile(uid, {
+					...initInfo,
+					username,
+					email,
+					id: uid,
+				});
+			}
+
 			dispatch(togglePopup());
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
-	const handleLogout = () => {
-		dispatch(clearUser());
+	const handleLogout = async () => {
+		try {
+			await signOut(auth);
+			dispatch(clearUser());
+			localStorage.removeItem(tokenKey);
+		} catch (error) {
+			console.error('Error during logout:', error);
+		}
 	};
 
 	return (
@@ -76,7 +89,7 @@ const Header = () => {
 			</div>
 			<div className="">
 				<div className={style.authButtons}>
-					{userFromStore.token ? (
+					{userData.id ? (
 						<Button type="outlined" onClick={handleLogout}>
 							{t('auth.logout.title')}
 						</Button>
@@ -94,7 +107,7 @@ const Header = () => {
 			</div>
 
 			<Modal
-				initialValues={isLogin ? initLogInValues : initSignUpValues}
+				initialValues={isLogin ? logInValues : signUpValues}
 				title={isLogin ? t('auth.login.title') : t('auth.signUp.title')}
 				subtitle={isLogin ? t('auth.login.alreadyHaveAccount') : t('auth.signUp.dontHaveAccount')}
 				validationScheme={isLogin ? logInScheme : signUpScheme}
