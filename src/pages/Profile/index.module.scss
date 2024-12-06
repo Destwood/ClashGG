@@ -1,0 +1,178 @@
+.profilePage {
+  display: flex;
+  color: #f3f4f6;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 300px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.username {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.viewProfile {
+  color: #3b82f6;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.balance {
+  margin-top: 20px;
+  background-color: #374151;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.balanceAmount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #10b981;
+}
+
+.balanceButtons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+
+  button {
+    flex: 1;
+    background-color: #3b82f6;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #2563eb;
+    }
+  }
+}
+
+.appearance {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.themeToggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  input[type="checkbox"] {
+    width: 40px;
+    height: 20px;
+    background-color: #374151;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+
+    &:checked {
+      background-color: #3b82f6;
+    }
+  }
+}
+
+.menu {
+  margin-top: 20px;
+
+  .menuItem {
+    padding: 10px;
+    color: #9ca3af;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom:.5rem;
+
+    &:hover {
+      background-color: #374151;
+      color: #fff;
+    }
+    &.active {
+      background-color: #2563eb;
+      color: #fff;
+    }
+
+
+  }
+}
+
+.content {
+  flex: 1;
+  margin-left: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 1px solid #1f2937;
+}
+
+.profilePicture {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  .uploadButton {
+    background-color: #2563eb;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #1d4ed8;
+    }
+  }
+}
+
+.profileBanner {
+  margin-top: 20px;
+
+  .bannerUpload {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    button {
+      width: 100%;
+      background-color: #2563eb;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #1d4ed8;
+      }
+    }
+  }
+}

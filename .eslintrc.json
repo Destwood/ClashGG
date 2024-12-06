@@ -1,0 +1,162 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "jest": true
+  },
+  "root": true,
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "eslint-config-prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "ignorePatterns": ["!.storybook/"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "simple-import-sort", "@typescript-eslint"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".svg"],
+        "paths": ["apps/portal"]
+      },
+      "typescript": {}
+    }
+  },
+  "rules": {
+    "no-case-declarations": 0,
+    "no-async-promise-executor": 0,
+    "import/prefer-default-export": 0,
+    "react/jsx-props-no-spreading": 0,
+    "consistent-return": 0,
+    "react/display-name": 0,
+    // "react/jsx-indent-props": [2, 2],
+    "import/no-dynamic-require": 0,
+    "import/no-named-as-default": 0,
+    "import/no-extraneous-dependencies": 0,
+    "implicit-arrow-linebreak": 0,
+    "no-underscore-dangle": 0,
+    "class-methods-use-this": 0,
+    "no-prototype-builtins": 0,
+    "react/prefer-stateless-function": 0,
+    "comma-dangle": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "off",
+    "react/prop-types": 0,
+    "react/jsx-indent": 0,
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["off"],
+    "react/jsx-boolean-value": 0,
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions":"off",
+    "max-len": [
+      "error",
+      {
+        "code": 140
+      }
+    ],
+    "no-console": [
+      "warn",
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "prefer-destructuring": [
+      "error",
+      {
+        "object": false,
+        "array": false
+      }
+    ],
+    "no-restricted-syntax": ["error", "ForInStatement"],
+    "arrow-parens": ["error", "always"],
+    "spaced-comment": 0,
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "object-curly-newline": [
+      "error",
+      {
+        "multiline": true,
+        "minProperties": 8,
+        "consistent": true
+      }
+    ],
+    "function-paren-newline": "off",
+    "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
+    "jsx-a11y/label-has-associated-control": 0,
+    "jsx-a11y/label-has-for": 0,
+    "react/button-has-type": 0,
+    "react/jsx-one-expression-per-line": "off",
+    "react/destructuring-assignment": 1,
+    "linebreak-style": 0,
+    "no-trailing-spaces": 1,
+    "no-unused-expressions": 1,
+    "@typescript-eslint/no-unused-vars": [1, { "varsIgnorePattern": "^_", "ignoreRestSiblings": true }],
+    "curly": ["error", "multi-line"],
+    "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx", ".ts"] }],
+    // "semi": ["error", "always", { "omitLastInOneLineBlock": true }],
+    // "quotes": ["error", "single"],
+    "no-duplicate-imports": "error",
+    // "jsx-quotes": ["error", "prefer-single"],
+    "eol-last": ["error", "always"],
+    "object-curly-spacing": ["error", "always"],
+    "no-inline-comments": "error",
+    "@typescript-eslint/type-annotation-spacing": "error",
+    "arrow-body-style": "off",
+    "default-param-last": "off",
+    "import/extensions": "off",
+    "react/require-default-props": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-unsafe-optional-chaining": ["error"],
+    "react/no-array-index-key": "off",
+    "no-use-before-define": "off",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // Packages. `react` related packages come first.
+          [
+            "^react",
+            "^@?\\w",
+            // Internal packages.
+            "^(components|modules|utils)(/.*|$)",
+            // Side effect imports.
+            "^\\u0000",
+            // Parent imports. Put `..` last.
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./?$",
+            // Other relative imports. Put same-folder imports and `.` last.
+            "^\\./(?=.*/)(?!/?$)",
+            "^\\.(?!/?$)",
+            "^\\./?$",
+            // Style imports.
+            "^.+\\.s?css$"
+          ]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error"
+  }
+}
