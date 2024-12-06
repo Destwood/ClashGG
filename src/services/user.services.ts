@@ -4,7 +4,6 @@ import { deleteDoc, doc, onSnapshot, setDoc, updateDoc } from 'firebase/firestor
 import { firestore } from 'services/firebase.services';
 import { IUserInit, IUserSettings } from 'types';
 import { firebaseKey } from 'utils/constants';
-import DocumentReference = firebase.firestore.DocumentReference;
 
 export class UserService {
 	static async createUserProfile(uid: string, userInfo: Record<string, any>) {

@@ -1,0 +1,55 @@
+.secondaryList {
+  margin-top: 3rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: .3rem;
+}
+
+.listContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+//
+
+
+.tournamentInfo {
+  display: flex;
+  gap: 1rem;
+  margin-top: .5rem;
+}
+
+.organizerImg {
+  height: 2.5rem;
+}
+
+.startTime {
+  font-weight: 700;
+  font-size: .7rem;
+  color: var(--cm-colors-fg2);
+  text-transform: uppercase;
+}
+
+.details {
+  font-size: .8rem;
+  color: var(--cm-colors-fg2);
+}
+
+.detailItem {
+  position: relative;
+  display: inline-block;
+  margin-right: 1.6rem;
+
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    height: 0.3rem;
+    width: 0.3rem;
+    border-radius: 50%;
+    background-color: var(--cm-colors-fg2);
+    top: .5rem;
+    right: -1rem;
+  }
+}
