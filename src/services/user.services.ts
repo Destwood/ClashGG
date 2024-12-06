@@ -1,11 +1,11 @@
 import { Auth, deleteUser, User } from 'firebase/auth';
-import firebase from 'firebase/compat';
 import { deleteDoc, doc, onSnapshot, setDoc, updateDoc } from 'firebase/firestore';
 import { firestore } from 'services/firebase.services';
-import { IUserInit, IUserSettings } from 'types';
+import { IUserSettings } from 'types';
 import { firebaseKey } from 'utils/constants';
 
 export class UserService {
+	//TODO - fix any type, have a look at EACH service here
 	static async createUserProfile(uid: string, userInfo: Record<string, any>) {
 		const userRef = doc(firestore, firebaseKey, uid);
 		await setDoc(userRef, userInfo);
@@ -37,7 +37,6 @@ export class UserService {
 			try {
 				await deleteUser(user);
 				await deleteDoc(userRef);
-				console.log('User deleted successfully');
 			} catch (error) {
 				console.error('Error deleting user:', error);
 			}

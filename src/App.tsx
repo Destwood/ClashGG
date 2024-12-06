@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-d
 import { CssBaseline } from '@mui/material';
 import { Game } from 'pages/Game/Game';
 import { HomePage } from 'pages/Home/Home';
-import { Profile } from 'pages/Profile/Profile';
 import { Auth, UserService } from 'services';
 import Header from 'shared/modules/Header/Header';
 import Sidebar from 'shared/modules/Sidebar/Sidebar';
@@ -12,6 +11,7 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { clearUser, selectUser, setUser } from 'store/User';
 import 'i18n';
 import 'services/firebase.services';
+import { Profile } from './pages/Profile/Profile';
 import { tokenKey } from './utils/constants';
 import './App.scss';
 
