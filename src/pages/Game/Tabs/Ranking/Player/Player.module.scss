@@ -1,0 +1,23 @@
+.row {
+  display: contents;
+  align-items: center;
+  font-size: 16px;
+  color: #fff;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.stats {
+  display: flex;
+}
+
+.playerIcon {
+  border-radius: 50%;
+  height: 2rem;
+}

@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d74e4fae-dc4e-4c61-880e-7ab429a08d04" name="Changes" comment="fix conflicts, added services">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/user.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/modules/Header/Header.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,25 +150,6 @@
       <workItem from="1727445198423" duration="4941000" />
       <workItem from="1727511757185" duration="606000" />
       <workItem from="1731407296964" duration="3971000" />
-      <workItem from="1731495660847" duration="9204000" />
-      <workItem from="1731507118301" duration="2563000" />
-      <workItem from="1731596399328" duration="599000" />
-      <workItem from="1731667156699" duration="9911000" />
-      <workItem from="1731758863000" duration="2869000" />
-      <workItem from="1731919030705" duration="22271000" />
-      <workItem from="1732035982208" duration="3611000" />
-      <workItem from="1732101035981" duration="6115000" />
-      <workItem from="1732190665812" duration="6724000" />
-      <workItem from="1732199014521" duration="740000" />
-      <workItem from="1732199767492" duration="4872000" />
-      <workItem from="1732547918384" duration="867000" />
-      <workItem from="1732647277880" duration="2186000" />
-      <workItem from="1732700441659" duration="441000" />
-      <workItem from="1732724795423" duration="21000" />
-      <workItem from="1732725279295" duration="3876000" />
-      <workItem from="1732745549518" duration="282000" />
-      <workItem from="1732790424727" duration="8381000" />
-      <workItem from="1733073209244" duration="303000" />
     </task>
     <servers />
   </component>
