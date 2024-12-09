@@ -1,0 +1,120 @@
+@import 'shared/theme/variables';
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.mainInfo {
+  display: flex;
+  gap: 1rem;
+}
+
+.iconContainer {
+  position: relative;
+  width: fit-content;
+}
+
+.summonerIcon {
+  height: 8rem;
+}
+
+.summonerLevel {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tag {
+  opacity: .7;
+}
+
+// main info
+
+.overview {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.dataContainer {
+  min-width: 19rem;
+  background-color: var(--background-default);
+  border-radius: .2rem;
+  margin-bottom: 1rem;
+}
+
+.statTitle {
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 1.5rem;
+    background-color: var(--header);
+    width: .15rem;
+    margin-right: .5rem;
+    transform: translateY(.3rem);
+  }
+}
+
+.statOverview {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.rank {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.rankIcon {
+  height: 4rem;
+}
+
+.rankInfo {
+  height: fit-content;
+}
+
+.rankName {
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+}
+
+.rankLP {
+  font-size: .8rem;
+  font-weight: 700;
+  opacity: .8;
+}
+
+.wrInfo {
+  font-size: .8rem;
+  text-align: end;
+  opacity: .8;
+}
+
+.championsList {
+}
+
+.championContainer {
+
+  &:not(:first-child) {
+    border-bottom: 2px solid var(--primary-dark);
+  }
+
+  &:not(:last-child) {
+    border-top: 2px solid var(--primary-dark);
+  }
+}
+
+// history
+
+.history {
+  width: 100%;
+}
+
+.games {
+  padding: 1rem;
+}

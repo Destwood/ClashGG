@@ -16,6 +16,8 @@ export const HomePage: React.FC = () => {
 			<p>{auth.currentUser?.uid !== undefined ? 'true' : 'false'}</p>
 			<p>
 				<Link to="/profile">profile</Link>
+				<br />
+				<Link to="/player">Player Data</Link>
 			</p>
 			<button onClick={toggleTheme}>Toggle Theme</button>
 		</div>

@@ -11,6 +11,7 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { clearUser, selectUser, setUser } from 'store/User';
 import 'i18n';
 import 'services/firebase.services';
+import { PlayerData } from './pages/PlayerData/PlayerData';
 import { Profile } from './pages/Profile/Profile';
 import { tokenKey } from './utils/constants';
 import './App.scss';
@@ -50,11 +51,14 @@ const App = () => {
 					<Header />
 					<main>
 						<Sidebar />
-						<Routes>
-							<Route path="/" element={<HomePage />} />
-							<Route path="/game" element={<Game />} />
-							<Route path="/profile" element={userData.id ? <Profile /> : <Navigate to="/" />} />
-						</Routes>
+						<div className="pageContainer">
+							<Routes>
+								<Route path="/" element={<HomePage />} />
+								<Route path="/game" element={<Game />} />
+								<Route path="/player" element={<PlayerData />} />
+								<Route path="/profile" element={userData.id ? <Profile /> : <Navigate to="/" />} />
+							</Routes>
+						</div>
 					</main>
 				</div>
 			</Router>

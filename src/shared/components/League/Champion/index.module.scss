@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: .1rem;
+  padding: .5rem 1rem;
+  font-size: .8rem;
+
+}
+
+
+.mainInfo {
+  display: flex;
+  gap: .5rem;
+}
+
+.iconContainer {
+  height: 2.5rem;
+  width: 2.5rem;
+  overflow: hidden;
+}
+
+.chamionIcon {
+  height: 100%;
+  transform: scale(1.15);
+}
+
+.nameContainer {
+}
+
+.name {
+  font-weight: 700;
+}
+
+.specialText {
+  font-weight: 700;
+}
+
+.KDA {
+  text-align: center;
+}
+
+.wr {
+  text-align: end;
+}

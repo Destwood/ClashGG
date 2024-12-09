@@ -1,5 +1,7 @@
 export * from './Button';
 export * from './Input';
+export * from './League/Champion';
+export * from './League/Game';
 export * from './LogInForm';
 export * from './Modal';
 export * from './SignUpForm';
