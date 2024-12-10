@@ -1,11 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import championIcon from 'assets/Camille.png';
 import rank from 'assets/diamond.png';
 import summonerIconDef from 'assets/summonerIcon.png';
+import { RiotServices } from 'services/riot.serviceі';
 import { Champion, Game } from 'shared/components';
 import style from './PlayerData.module.scss';
 
 export const PlayerData: React.FC = () => {
+	// TODO
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const data = await RiotServices.fetchSummonerData('Destwood', 'toxic');
+				console.log(data);
+			} catch (error) {
+				console.error('Error fetching data:', error);
+			}
+		};
+		fetchData();
+	}, []);
+
+	// fetch(
+	// 	// eslint-disable-next-line max-len
+	// eslint-disable-next-line max-len
+	// 	'https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/Destwood/toxic?api_key=RGAPI-a2510bea-cca8-4f24-8eae-57cf1d3a01e2',
+	// 	{
+	// 		method: 'GET',
+	// 		mode: 'no-cors',
+	// 	}
+	// )
+	// 	.then((response) => console.log('response: ', response))
+	// 	.catch((error) => console.error('Помилка:', error));
+
 	return (
 		<div className={style.container}>
 			<div className={style.mainInfo}>
