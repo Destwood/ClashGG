@@ -3,16 +3,17 @@ import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-d
 import { CssBaseline } from '@mui/material';
 import { Game } from 'pages/Game/Game';
 import { HomePage } from 'pages/Home/Home';
+import { Profile } from 'pages/Profile/Profile';
 import { Auth, UserService } from 'services';
+import GlobalChat from 'shared/modules/GlobalChat/GlobalChat';
 import Header from 'shared/modules/Header/Header';
 import Sidebar from 'shared/modules/Sidebar/Sidebar';
 import ThemeProvider from 'shared/theme/ThemeProvider';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { clearUser, selectUser, setUser } from 'store/User';
+import { tokenKey } from 'utils/constants';
 import 'i18n';
 import 'services/firebase.services';
-import { Profile } from './pages/Profile/Profile';
-import { tokenKey } from './utils/constants';
 import './App.scss';
 
 const App = () => {
@@ -50,6 +51,7 @@ const App = () => {
 					<Header />
 					<main>
 						<Sidebar />
+						<GlobalChat />
 						<Routes>
 							<Route path="/" element={<HomePage />} />
 							<Route path="/game" element={<Game />} />

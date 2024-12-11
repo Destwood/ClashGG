@@ -1,0 +1,108 @@
+@import 'shared/theme/variables';
+
+.chatButton {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+  user-select: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--cm-colors-fg3);
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.chatIcon {
+  height: 2rem;
+}
+
+//chatContainer
+
+.chatContainer {
+  z-index: 1;
+  position: fixed;
+  height: 20rem;
+  background-color: var(--cm-colors-bg2);
+  bottom: 5rem;
+  border-radius: 1rem;
+  padding: 1rem ;
+  right: 1rem;
+  box-shadow: 0px 6px 15px 0px rgba(0,0,0,0.75);
+  display: flex;
+  flex-direction: column;
+}
+
+.msgList {
+  height: 15rem;
+  overflow-y: scroll;
+
+  scrollbar-width: thin; /* Для Firefox */
+  scrollbar-color: var(--cm-colors-fg3) var(--cm-colors-bg2); /* Колір треку і повзунка */
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--cm-colors-bg2);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--cm-colors-fg3);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--cm-colors-fg2);
+  }
+}
+
+.message {
+  margin-bottom: 0rem;
+}
+
+.username {
+  font-weight: 700;
+}
+
+.sendContainer {
+  width: 25%;
+}
+
+.inputArea {
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+}
+
+.inputContainer {
+  width: 75%;
+}
+
+.me {
+  color: var(--me);
+}
+
+//
+.chatHeader {
+}
+.roomSelection {
+  height: 1rem;
+}
+.roomContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.roomButtomContainer {
+  height: 1rem;
+
+}
