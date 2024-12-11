@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import { Box, Divider } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import logo from 'assets/logo.webp';
@@ -15,6 +16,7 @@ import { clearUser, selectUser } from 'store/User';
 import { IAuth, IAuthValues } from 'types/auth';
 import { initInfo, logInValues, signUpValues, tokenKey } from 'utils/constants';
 import { logInScheme, signUpScheme } from 'utils/schemas/auth';
+import 'react-toastify/dist/ReactToastify.css';
 import style from './Header.module.scss';
 
 const Header = () => {
@@ -62,8 +64,15 @@ const Header = () => {
 			}
 
 			dispatch(togglePopup());
+			toast.success('Success Notification !', {
+				position: 'top-right',
+			});
 		} catch (error) {
 			console.log(error);
+
+			toast.error('Error Notification !', {
+				position: 'top-right',
+			});
 		}
 	};
 
@@ -104,6 +113,8 @@ const Header = () => {
 						</>
 					)}
 				</div>
+
+				<ToastContainer />
 			</div>
 
 			<Modal
