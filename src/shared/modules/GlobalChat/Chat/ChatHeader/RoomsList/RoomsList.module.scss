@@ -1,0 +1,27 @@
+@import 'shared/theme/variables';
+
+.chatHeader {
+}
+
+.tabs {
+  display: flex;
+  gap: .5rem;
+  height: 2rem;
+  * {
+    font-size: .7rem !important;
+  }
+}
+
+.listContainer {
+  position: relative;
+}
+
+.list {
+  width: fit-content;
+  padding: 1rem;
+  left: 0rem;
+  top: 0rem;
+  position: absolute;
+  background-color: var(--background-paper);
+  border-radius: 1rem;
+}

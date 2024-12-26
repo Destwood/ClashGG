@@ -1,0 +1,27 @@
+@import 'shared/theme/variables';
+
+.nameOfRoom {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.currentRoom {
+  font-weight: bold;
+  color: var(--me);
+}
+
+.roomItem {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addUserForm {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  background-color: var(--background-default);
+  padding: .5rem;
+}
