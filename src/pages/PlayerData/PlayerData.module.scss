@@ -30,8 +30,6 @@
   opacity: .7;
 }
 
-// main info
-
 .overview {
   display: flex;
   gap: 1rem;
@@ -83,23 +81,20 @@
   line-height: 1.3rem;
 }
 
-.rankLP {
+.rankLeaguePoint {
   font-size: .8rem;
   font-weight: 700;
   opacity: .8;
 }
 
-.wrInfo {
+.winRateInfo {
   font-size: .8rem;
   text-align: end;
   opacity: .8;
 }
 
-.championsList {
-}
 
 .championContainer {
-
   &:not(:first-child) {
     border-bottom: 2px solid var(--primary-dark);
   }
@@ -108,8 +103,6 @@
     border-top: 2px solid var(--primary-dark);
   }
 }
-
-// history
 
 .history {
   width: 100%;

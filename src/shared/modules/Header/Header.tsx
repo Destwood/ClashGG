@@ -13,9 +13,10 @@ import { headerStyle } from 'shared/theme/components';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { togglePopup } from 'store/Modal';
 import { clearUser, selectUser } from 'store/User';
-import { IAuth, IAuthValues } from 'types/auth';
+import { IAuthValues } from 'types/auth';
 import { initInfo, logInValues, signUpValues, tokenKey } from 'utils/constants';
 import { logInScheme, signUpScheme } from 'utils/schemas/auth';
+import { ToastPosition } from '../../../utils/enums';
 import 'react-toastify/dist/ReactToastify.css';
 import style from './Header.module.scss';
 
@@ -65,7 +66,7 @@ const Header = () => {
 
 			dispatch(togglePopup());
 			toast.success('Success Notification !', {
-				position: 'top-right',
+				position: ToastPosition.topRight,
 			});
 		} catch (error) {
 			console.log(error);
@@ -113,7 +114,6 @@ const Header = () => {
 						</>
 					)}
 				</div>
-
 				<ToastContainer />
 			</div>
 

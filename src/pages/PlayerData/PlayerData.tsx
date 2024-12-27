@@ -1,24 +1,47 @@
-import React, { useEffect, useState } from 'react';
-import championIcon from 'assets/Camille.png';
-import rank from 'assets/diamond.png';
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import summonerIconDef from 'assets/summonerIcon.png';
-import { RiotServices } from 'services/riot.serviceі';
+import { RiotServices } from 'services/riot.services';
 import { Champion, Game } from 'shared/components';
+import { RankData } from 'shared/components/League/RankData';
 import style from './PlayerData.module.scss';
 
+const mockRanks = [
+	{
+		type: 'Solo',
+		tier: 'Diamond',
+		rank: '4',
+		leaguePoints: 73,
+		wins: 41,
+		losses: 44,
+		winRate: '48%',
+	},
+	{
+		type: 'Flex',
+		tier: 'Platinum',
+		rank: '3',
+		leaguePoints: 20,
+		wins: 22,
+		losses: 18,
+		winRate: '55%',
+	},
+];
+
 export const PlayerData: React.FC = () => {
-	// TODO
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const data = await RiotServices.fetchSummonerData('Destwood', 'toxic');
-				console.log(data);
-			} catch (error) {
-				console.error('Error fetching data:', error);
-			}
-		};
-		fetchData();
-	}, []);
+	const { t } = useTranslation();
+
+	// TODO require working api, will add this later
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		try {
+	// 			const data = await RiotServices.fetchSummonerData('Destwood', 'toxic');
+	// 			console.log(data);
+	// 		} catch (error) {
+	// 			console.error('Error fetching data:', error);
+	// 		}
+	// 	};
+	// 	fetchData();
+	// }, []);
 
 	return (
 		<div className={style.container}>
@@ -32,60 +55,37 @@ export const PlayerData: React.FC = () => {
 						<h1>
 							Destwood <span className={style.tag}>#toxic</span>
 						</h1>
-						<p>Ladder rank is #8111</p>
+						<p>{t('playerData.summonerLevel')} #8111</p>
 					</div>
 				</div>
 			</div>
 			<div className={style.overview}>
 				<div className={style.stats}>
+					{mockRanks.map((rankData, index) => (
+						<div className={style.dataContainer} key={index}>
+							<RankData rankData={rankData} />
+						</div>
+					))}
+
 					<div className={style.dataContainer}>
 						<div className={style.statOverview}>
-							<h3 className={style.statTitle}>Ranked Solo</h3>
-							<p className={style.statInfo}>unranked</p>
+							<h3 className={style.statTitle}>{t('playerData.championStats')}</h3>
+							<p className={style.statInfo}>{t('playerData.allRanked')}</p>
 						</div>
-						<div className={style.rank}>
-							<img className={style.rankIcon} src={rank} alt="" />
-							<div className={style.rankInfo}>
-								<h4 className={style.rankName}>Diamond 4</h4>
-								<p className={style.rankLP}>73 LP</p>
-							</div>
-							<div className={style.wrInfo}>
-								<p className={style.wrGames}>41W 44L</p>
-								<p className={style.wrPercent}>48% Win Rate</p>
-							</div>
-						</div>
-					</div>
-					<div className={style.dataContainer}>
-						<div className={style.statOverview}>
-							<h3 className={style.statTitle}>Ranked Flex</h3>
-							<p className={style.statInfo}>unranked</p>
-						</div>
-					</div>
-					<div className={style.dataContainer}>
-						<div className={style.statOverview}>
-							<h3 className={style.statTitle}>Champion Stats</h3>
-							<p className={style.statInfo}>All Ranked</p>
-						</div>
-						<div className={style.championsList}>
-							<div className={style.championContainer}>
+						{[1, 2, 3].map((_, index) => (
+							<div key={index} className={style.championContainer}>
 								<Champion />
 							</div>
-							<div className={style.championContainer}>
-								<Champion />
-							</div>
-							<div className={style.championContainer}>
-								<Champion />
-							</div>
-						</div>
+						))}
 					</div>
 				</div>
 				<div className={style.history}>
 					<div className={style.dataContainer}>
 						<div className={style.statOverview}>
-							<h3 className={style.statTitle}>Match History</h3>
+							<h3 className={style.statTitle}>{t('playerData.matchHistory')}</h3>
 							<p className={style.statInfo}>---</p>
 						</div>
-						<div className={style.stats}>TODO will do later, require charts library</div>
+						<div className={style.stats} />
 						<div className={style.games}>
 							<Game />
 						</div>
