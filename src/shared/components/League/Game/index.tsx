@@ -1,11 +1,9 @@
 import React from 'react';
 import champ from 'assets/Camille.png';
+import { GameMockData } from 'utils/mock';
 import style from './index.module.scss';
 
 export const Game: React.FC = () => {
-	const team1Players = ['player1', 'player2', 'player3', 'player4', 'player5'];
-	const team2Players = ['player6', 'player7', 'player8', 'player9', 'player10'];
-
 	return (
 		<div className={style.container}>
 			<div className={style.mainInfo}>
@@ -24,14 +22,14 @@ export const Game: React.FC = () => {
 				<div className={style.build}>build</div>
 				<div className={style.teams}>
 					<div className={style.teamContainer}>
-						{team1Players.map((player, index) => (
+						{GameMockData.redSide.map((player, index) => (
 							<div key={index} className={style.playerContainer}>
 								{player}
 							</div>
 						))}
 					</div>
 					<div className={style.teamContainer}>
-						{team2Players.map((player, index) => (
+						{GameMockData.blueSide.map((player, index) => (
 							<div key={index} className={style.playerContainer}>
 								{player}
 							</div>

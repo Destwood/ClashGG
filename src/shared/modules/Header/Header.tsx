@@ -15,8 +15,8 @@ import { togglePopup } from 'store/Modal';
 import { clearUser, selectUser } from 'store/User';
 import { IAuthValues } from 'types/auth';
 import { initInfo, logInValues, signUpValues, tokenKey } from 'utils/constants';
+import { ToastPosition } from 'utils/enums';
 import { logInScheme, signUpScheme } from 'utils/schemas/auth';
-import { ToastPosition } from '../../../utils/enums';
 import 'react-toastify/dist/ReactToastify.css';
 import style from './Header.module.scss';
 

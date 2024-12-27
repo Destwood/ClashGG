@@ -7,7 +7,6 @@ export const Champion: React.FC = () => {
 		<div className={style.champion}>
 			<div className={style.champion__left}>
 				<div className={style.champion__left__iconContainer}>
-					{/* TODO is this right? or how should i fix classes here*/}
 					<img className={style.champion__left__iconContainer__icon} src={champ} alt="" />
 				</div>
 				<div className={style.champion__info}>
