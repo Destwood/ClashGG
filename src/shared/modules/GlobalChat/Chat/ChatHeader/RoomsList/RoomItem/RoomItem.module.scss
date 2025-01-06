@@ -2,8 +2,12 @@
 
 .nameOfRoom {
   cursor: pointer;
-  &:hover {
-    opacity: 0.6;
+  line-height: 1.5;
+  margin-bottom: .2rem;
+  &:hover  {
+    &:not(.currentRoom) {
+      opacity: 0.6;
+    }
   }
 }
 
@@ -24,4 +28,19 @@
   z-index: 1;
   background-color: var(--background-default);
   padding: .5rem;
+}
+
+.controlButton {
+  background-color: transparent;
+  border: none;
+  margin-right: .1rem;
+  padding: .2rem;
+  &:hover {
+    cursor: pointer;
+    opacity: .7;
+  }
+}
+
+.icon {
+  height: 1rem;
 }

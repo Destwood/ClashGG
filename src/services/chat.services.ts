@@ -81,18 +81,12 @@ export class ChatServices {
 		}
 	}
 
-	// TODO - should i do it?
-	// static removeUserFromRoom(data: any) {
-	// 	if (this.socket) {
-	// 		this.socket.send(JSON.stringify(data));
-	// 	}
-	// }
-
-	static joinRoom(roomName: string, user: IUserInit, user2?: any) {
+	static joinRoom(roomName: string, user: IUserInit, user2?: any, isPrivate?: boolean) {
 		if (this.socket && this.socket.readyState === WebSocket.OPEN) {
 			const message = {
 				event: ChatEvents.joinRoom,
 				room: roomName,
+				roomId: isPrivate ? roomName : null,
 				user,
 				user2,
 			};

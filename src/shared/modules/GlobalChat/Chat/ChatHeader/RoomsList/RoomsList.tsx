@@ -5,12 +5,12 @@ import { useAppSelector } from 'shared/hooks';
 import { selectChatRooms } from 'store/ChatRoom';
 import { selectUser } from 'store/User';
 import { IRoom } from 'types';
-import { RoomType } from '../../../../../../utils/enums/chat';
+import { RoomType } from 'utils/enums/chat';
 import { RoomItem } from './RoomItem/RoomItem';
 import style from './RoomsList.module.scss';
 
 export const RoomsList: React.FC<{ onRoomClick: (name: string) => void }> = ({ onRoomClick }) => {
-	const chatRoomsList = useAppSelector(selectChatRooms);
+	const chatRoomsList = useAppSelector(selectChatRooms).roomList;
 	const [creatingRoom, setCreatingRoom] = useState(false);
 	const [newRoomName, setNewRoomName] = useState('');
 	const userData = useAppSelector(selectUser);
@@ -23,19 +23,11 @@ export const RoomsList: React.FC<{ onRoomClick: (name: string) => void }> = ({ o
 		}
 	};
 
-	const filteredList = chatRoomsList.roomList
-		.filter((room: any) =>
-			room.users.some((userInRoom: any) => userInRoom.user.id === userData.id || room.name === 'global')
-		)
-		.map((room: any, index: number) => {
-			return room;
-		});
-
 	return (
 		<div className={style.roomsList}>
 			<h3>Rooms</h3>
 
-			{filteredList?.map((room: IRoom, index: number) =>
+			{chatRoomsList?.map((room: IRoom, index: number) =>
 				room.type !== RoomType.direct ? <RoomItem key={index} roomObj={room} onRoomClick={onRoomClick} /> : null
 			)}
 			{!creatingRoom ? (

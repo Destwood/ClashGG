@@ -6,7 +6,8 @@ import { selectActiveRoom, setActiveRoom } from 'store/ChatActiveRoom';
 import { selectChatRooms, setRoomList } from 'store/ChatRoom';
 import { setUserList } from 'store/ChatUser';
 import { selectUser } from 'store/User';
-import { IMessage } from 'types/chat';
+import { IMessage, IRoom } from 'types/chat';
+import { v4 as uuidv4 } from 'uuid';
 import { ChatEvents } from 'utils/enums/chat';
 import { ChatHeader } from './ChatHeader/ChatHeader';
 import { InputArea } from './InputArea/InputArea';
@@ -32,22 +33,23 @@ export const Chat: React.FC = () => {
 						setMessages(message.messages);
 						break;
 					case ChatEvents.updateRoomList:
-						// readable option
-						const rooms = message.rooms;
-						const activeRoomList = rooms.find((room: any) => room.name === activeRoom);
-						dispatch(setUserList(activeRoomList.users));
-						// short option
-						// dispatch(setUserList(message.rooms.find((room: any) => room.name === activeRoom)?.users || []));
+						const rooms: IRoom[] = Object.values(message.rooms);
+						const activeRoomData = rooms.find((room: any) => room.id === activeRoom);
 
-						dispatch(setRoomList(message.rooms));
+						dispatch(setUserList(activeRoomData?.allUsers || []));
+						dispatch(setRoomList(rooms));
 						break;
 					case ChatEvents.message:
+						console.log('this is smg');
 						setMessages((prev) => [...prev, message]);
 						break;
 					case ChatEvents.createPrivateMessageRoom:
 						// dispatch(setActiveRoom(roomName));
 						// setMessages((prev) => [...prev, message]);
 
+						break;
+					case ChatEvents.updateUserList:
+						dispatch(setUserList(message.users || []));
 						break;
 					default:
 						break;
@@ -67,14 +69,16 @@ export const Chat: React.FC = () => {
 	}, []);
 
 	const sendMessage = () => {
+		if (inputMessage === '') return;
 		const message: IMessage = {
 			event: ChatEvents.message,
-			id: Date.now(),
+			id: uuidv4(),
 			user: userData,
 			message: inputMessage,
 			date: new Date().toISOString(),
-			room: activeRoom,
+			roomId: activeRoom,
 		};
+		console.log(activeRoom);
 		console.log('sending: ', message);
 		ChatServices.sendMessage(message);
 		setInputMessage('');

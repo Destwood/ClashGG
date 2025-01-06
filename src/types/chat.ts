@@ -5,10 +5,10 @@ export interface IRoom {
 	name: string;
 	creator: IUserInit | null;
 	messages: string[];
-	users: IUserInit[] | null;
+	activeUsers: { user: { id: string; username: string }; ws: WebSocket }[];
+	allUsers: { user: { id: string; username: string }; ws: WebSocket }[];
 	type: RoomType;
 }
-
 export interface IRoomUser {
 	id: string;
 	username: string;
@@ -16,9 +16,9 @@ export interface IRoomUser {
 
 export interface IMessage {
 	event: string;
-	id: number;
+	id: string;
 	user: IUserInit;
 	message: string;
 	date: string;
-	room: string;
+	roomId: string;
 }

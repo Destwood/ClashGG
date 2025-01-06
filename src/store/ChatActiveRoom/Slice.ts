@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface ActiveGame {
-	activeRoom: string;
+	// TODO will fix later, for now working on id instead of names
+	activeRoom: any;
 }
 
 const initialState: ActiveGame = {

@@ -14,7 +14,10 @@ const GlobalChat: React.FC = () => {
 		<div className={style.globalChat}>
 			{userData.id && (
 				<>
-					{isChatOpen && <Chat />}
+					<div className={`${isChatOpen ? style.chatContainer : style.hideChat}`}>
+						<Chat />
+					</div>
+
 					<div
 						className={style.chatButton}
 						onClick={() => {

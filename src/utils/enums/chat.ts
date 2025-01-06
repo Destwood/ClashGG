@@ -6,6 +6,7 @@ export enum ChatEvents {
 	setUser = 'setUser',
 	userList = 'userList',
 	updateRoomList = 'updateRoomList',
+	updateUserList = 'updateUserList',
 	addUserToPrivateRoom = 'addUserToPrivateRoom',
 	removeUserFromPrivateRoom = 'removeUserFromPrivateRoom',
 	createPrivateRoom = 'createPrivateRoom',
