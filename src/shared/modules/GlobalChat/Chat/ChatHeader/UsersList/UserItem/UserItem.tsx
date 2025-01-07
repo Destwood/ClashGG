@@ -21,7 +21,11 @@ export const UserItem: React.FC<UserItemProps> = ({ userInfo, handleUsernameClic
 		<div className={`${style.userItem}`}>
 			<span
 				className={`${style.nickname} ${userData.username === user.username ? style.me : ''}`}
-				onClick={() => handleUsernameClick(user)}
+				onClick={() => {
+					if (userData.username !== user.username) {
+						handleUsernameClick(user);
+					}
+				}}
 			>
 				{user.username}
 			</span>

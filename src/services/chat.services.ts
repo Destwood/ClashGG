@@ -77,7 +77,6 @@ export class ChatServices {
 				room,
 				userId,
 			};
-			console.log('sending\n', addUserData);
 			this.socket.send(JSON.stringify(addUserData));
 		}
 	}

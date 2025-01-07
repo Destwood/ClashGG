@@ -40,11 +40,9 @@ export const Chat: React.FC = () => {
 						dispatch(setRoomList(rooms));
 						break;
 					case ChatEvents.message:
-						console.log('this is smg');
 						setMessages((prev) => [...prev, message]);
 						break;
 					case ChatEvents.updateUserList:
-						console.log('list of users: ', message);
 						dispatch(setUserList(message.users || []));
 						break;
 					default:
@@ -74,8 +72,6 @@ export const Chat: React.FC = () => {
 			date: new Date().toISOString(),
 			roomId: activeRoom,
 		};
-		console.log(activeRoom);
-		console.log('sending: ', message);
 		ChatServices.sendMessage(message);
 		setInputMessage('');
 	};
