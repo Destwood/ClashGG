@@ -54,7 +54,7 @@ export class ChatServices {
 			const createRoomData = {
 				event: ChatEvents.createPrivateRoom,
 				room: roomName,
-				userData,
+				user: userData,
 			};
 			this.socket.send(JSON.stringify(createRoomData));
 		}
@@ -70,23 +70,23 @@ export class ChatServices {
 		}
 	}
 
-	static addUserToRoom(roomName: string, userId: string) {
+	static addUserToRoom(room: string, userId: string) {
 		if (this.socket) {
 			const addUserData = {
 				event: ChatEvents.addUserToPrivateRoom,
-				roomName,
+				room,
 				userId,
 			};
+			console.log('sending\n', addUserData);
 			this.socket.send(JSON.stringify(addUserData));
 		}
 	}
 
-	static joinRoom(roomName: string, user: IUserInit, user2?: any, isPrivate?: boolean) {
+	static joinRoom(roomId: string, user: IUserInit, user2?: any) {
 		if (this.socket && this.socket.readyState === WebSocket.OPEN) {
 			const message = {
 				event: ChatEvents.joinRoom,
-				room: roomName,
-				roomId: isPrivate ? roomName : null,
+				room: roomId,
 				user,
 				user2,
 			};
@@ -94,11 +94,11 @@ export class ChatServices {
 		}
 	}
 
-	static leaveRoom(roomName: string, user: IUserInit) {
+	static leaveRoom(roomId: string, user: IUserInit) {
 		if (this.socket && this.socket.readyState === WebSocket.OPEN) {
 			const message = {
 				event: ChatEvents.removeUserFromPrivateRoom,
-				roomName,
+				roomId,
 				user,
 			};
 			this.socket.send(JSON.stringify(message));

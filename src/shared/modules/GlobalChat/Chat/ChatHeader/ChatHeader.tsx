@@ -45,9 +45,8 @@ export const ChatHeader: React.FC = () => {
 	}
 
 	const handleUsernameClick = (user: any) => {
-		console.log(user);
 		const roomId = getPrivateRoomId(userData.id, user.id);
-		ChatServices.joinRoom(roomId, userData, user.user, true);
+		ChatServices.joinRoom(roomId, userData, user);
 		dispatch(setActiveRoom(roomId));
 		setRoomName(`to ${user.username}`);
 	};

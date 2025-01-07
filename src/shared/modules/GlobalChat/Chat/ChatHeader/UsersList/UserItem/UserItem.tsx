@@ -12,8 +12,13 @@ interface UserItemProps {
 export const UserItem: React.FC<UserItemProps> = ({ userInfo, handleUsernameClick }) => {
 	const userData = useAppSelector(selectUser);
 	const user = userInfo.userData;
+
+	if (!user) {
+		return null;
+	}
+
 	return (
-		<div className={`${style.userItem} ${user.status === 'online' ? style.online : style.offline}`}>
+		<div className={`${style.userItem}`}>
 			<span
 				className={`${style.nickname} ${userData.username === user.username ? style.me : ''}`}
 				onClick={() => handleUsernameClick(user)}

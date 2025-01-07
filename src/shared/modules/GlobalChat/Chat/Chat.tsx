@@ -43,12 +43,8 @@ export const Chat: React.FC = () => {
 						console.log('this is smg');
 						setMessages((prev) => [...prev, message]);
 						break;
-					case ChatEvents.createPrivateMessageRoom:
-						// dispatch(setActiveRoom(roomName));
-						// setMessages((prev) => [...prev, message]);
-
-						break;
 					case ChatEvents.updateUserList:
+						console.log('list of users: ', message);
 						dispatch(setUserList(message.users || []));
 						break;
 					default:

@@ -21,20 +21,20 @@ export const RoomItem: React.FC<RoomItemProps> = ({ roomObj, onRoomClick }) => {
 	const [isAddingUser, setIsAddingUser] = useState(false);
 	const [newUserId, setNewUserId] = useState('');
 	const userData = useAppSelector(selectUser);
-	const chatRoomsList = useAppSelector(selectChatRooms).roomList;
+	const ifThisRoomActive = roomObj.id === activeRoom;
 
 	const handleJoinRoom = () => {
-		if (roomName !== activeRoom) {
+		if (!ifThisRoomActive) {
 			dispatch(setActiveRoom(roomObj.id));
 			onRoomClick(roomName);
-			ChatServices.joinRoom(roomName, userData);
+			ChatServices.joinRoom(roomObj.id, userData);
 		}
 	};
 
 	const handleAddUser = () => {
 		setNewUserId('');
 		setIsAddingUser(false);
-		ChatServices.addUserToRoom(roomName, newUserId);
+		ChatServices.addUserToRoom(roomObj.id, newUserId);
 	};
 
 	const handleLeaveRoom = () => {
@@ -48,7 +48,7 @@ export const RoomItem: React.FC<RoomItemProps> = ({ roomObj, onRoomClick }) => {
 
 	return (
 		<div className={style.roomItem} onClick={() => handleJoinRoom()}>
-			<span className={`${style.nameOfRoom} ${roomObj.id === activeRoom ? style.currentRoom : ''}`}>{roomName}</span>
+			<span className={`${style.nameOfRoom} ${ifThisRoomActive ? style.currentRoom : ''}`}>{roomName}</span>
 
 			{roomName !== 'global' && roomObj.id === activeRoom && (
 				<div className={style.actions}>
