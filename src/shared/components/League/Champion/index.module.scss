@@ -1,0 +1,48 @@
+.champion {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+
+  &__left {
+    display: flex;
+    gap: 0.5rem;
+
+    &__iconContainer {
+      height: 2.5rem;
+      width: 2.5rem;
+      overflow: hidden;
+
+      &__icon {
+        height: 100%;
+        transform: scale(1.15);
+      }
+    }
+  }
+
+
+  &__info {
+    .champion__name {
+      font-weight: 700;
+    }
+
+    .champion__performance {
+      .special_text {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__middle {
+    text-align: center;
+
+    .special_text {
+      font-weight: 700;
+    }
+  }
+
+  &__right {
+    text-align: end;
+  }
+}

@@ -9,7 +9,7 @@ import { profileTabs } from 'utils/enums';
 import { AppSettings } from './Tabs/AppSettings/AppSettings';
 import { Security } from './Tabs/Security/Security';
 import { UserSettings } from './Tabs/UserSettings/UserSettings';
-import styles from './index.module.scss';
+import style from './index.module.scss';
 
 export const Profile: React.FC = () => {
 	const userData = useAppSelector(selectUser);
@@ -27,30 +27,30 @@ export const Profile: React.FC = () => {
 	};
 
 	return (
-		<div className={styles.profilePage}>
-			<aside className={styles.sidebar}>
-				<div className={styles.profileInfo}>
+		<div className={style.profilePage}>
+			<aside className={style.sidebar}>
+				<div className={style.profileInfo}>
 					<img
 						src={avatarSrc}
 						alt="Avatar"
-						className={styles.avatar}
+						className={style.avatar}
 						onError={() => {
 							setAvatarSrc(defaultPicture);
 						}}
 					/>
-					<h2 className={styles.username}>{userData.username}</h2>
-					<Link to="/" className={styles.viewProfile}>
+					<h2 className={style.username}>{userData.username}</h2>
+					<Link to="/" className={style.viewProfile}>
 						View Profile
 					</Link>
 				</div>
-				<div className={styles.balance}>
-					<div className={styles.balanceAmount}>€0.00</div>
-					<div className={styles.balanceButtons}>
+				<div className={style.balance}>
+					<div className={style.balanceAmount}>€0.00</div>
+					<div className={style.balanceButtons}>
 						<button>Add funds</button>
 						<button>Withdraw</button>
 					</div>
 				</div>
-				<div className={styles.appearance}>
+				<div className={style.appearance}>
 					<span>Theme</span>
 					<Switch
 						onChange={() => {
@@ -58,30 +58,30 @@ export const Profile: React.FC = () => {
 						}}
 					/>
 				</div>
-				<nav className={styles.menu}>
+				<nav className={style.menu}>
 					<div
-						className={`${styles.menuItem} ${activeTab === profileTabs.USERSETTINGS ? styles.active : ''}`}
+						className={`${style.menuItem} ${activeTab === profileTabs.USERSETTINGS ? style.active : ''}`}
 						onClick={() => handleTabChange(profileTabs.USERSETTINGS)}
 					>
 						Profile
 					</div>
 					<div
-						className={`${styles.menuItem} ${activeTab === profileTabs.APPSETTINGS ? styles.active : ''}`}
+						className={`${style.menuItem} ${activeTab === profileTabs.APPSETTINGS ? style.active : ''}`}
 						onClick={() => handleTabChange(profileTabs.APPSETTINGS)}
 					>
 						Settings
 					</div>
 					<div
-						className={`${styles.menuItem} ${activeTab === profileTabs.SECURITY ? styles.active : ''}`}
+						className={`${style.menuItem} ${activeTab === profileTabs.SECURITY ? style.active : ''}`}
 						onClick={() => handleTabChange(profileTabs.SECURITY)}
 					>
 						Security
 					</div>
 				</nav>
 			</aside>
-			<main className={styles.content}>
+			<main className={style.content}>
 				<Suspense fallback={<div>Loading...</div>}>
-					<div className={styles.tabContent}>
+					<div className={style.tabContent}>
 						{activeTab === profileTabs.USERSETTINGS && <UserSettings />}
 						{activeTab === profileTabs.APPSETTINGS && <AppSettings />}
 						{activeTab === profileTabs.SECURITY && <Security />}

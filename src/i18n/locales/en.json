@@ -58,5 +58,22 @@
     "internalServerError": "Internal Server Error",
     "accessDenied": "Access Denied",
     "backToHome": "Back to Home"
+  },
+  "playerData": {
+    "summonerLevel": "Level",
+    "ladderRank": "Ladder rank is",
+    "matchHistory": "Match History",
+    "championStats": "Champion Stats",
+    "allRanked": "All Ranked",
+    "rankedSolo": "Ranked Solo",
+    "rankedFlex": "Ranked Flex",
+    "wins": "W",
+    "losses": "L",
+    "winRate": "Win Rate"
+  },
+  "rankData": {
+    "ranked": "Ranked",
+    "LP": "LP",
+    "winRate": "Win Rate"
   }
 }
