@@ -5,8 +5,6 @@ import defaultPfp from 'assets/defaultPfp.webp';
 import defaultBanner from 'assets/leagueBanner.webp';
 import defaultGame from 'assets/leagueMainImg.webp';
 import { Button } from 'shared/components';
-import { useAppSelector } from 'shared/hooks/store';
-import { selectActiveGame } from 'store/ActiveGame';
 import { Overview } from './Tabs/Overview/Overview';
 import { Ranking } from './Tabs/Ranking/Ranking';
 import { Tournaments } from './Tabs/Tournaments/Tournaments';
@@ -22,7 +20,6 @@ const gameData = {
 
 export const Game: React.FC = () => {
 	const theme = useTheme();
-	const gameInfo = useAppSelector(selectActiveGame);
 	const [activeTab, setActiveTab] = useState<number>(0);
 
 	const handleTabClick = (index: number) => {

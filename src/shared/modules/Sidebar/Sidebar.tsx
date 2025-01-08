@@ -23,11 +23,9 @@ const Sidebar: React.FC<Props> = () => {
 	const sidebarStyles = sidebarStyle(theme);
 	const dispatch = useAppDispatch();
 
-	const handleGameClick =
-		(game: string) =>
-		(event: React.MouseEvent<HTMLDivElement>): void => {
-			dispatch(setActiveGame(game));
-		};
+	const handleGameClick = (game: string) => (): void => {
+		dispatch(setActiveGame(game));
+	};
 
 	// TODO
 	// const API_URL = 'https://api.challengermode.com/graphql'; // Replace with actual API URL

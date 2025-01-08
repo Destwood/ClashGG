@@ -1,13 +1,13 @@
-import { RoomType } from '../utils/enums/chat';
+import { RoomType } from 'utils/enums/chat';
 import { IUserInit } from './user';
 
 export interface IRoom {
+	id: string;
 	name: string;
-	creator: IUserInit | null;
-	messages: string[];
-	activeUsers: { user: { id: string; username: string }; ws: WebSocket }[];
-	allUsers: { user: { id: string; username: string }; ws: WebSocket }[];
 	type: RoomType;
+	activeUsers: IRoomUser[];
+	allUsers: IRoomUser[];
+	messages: IMessage[];
 }
 export interface IRoomUser {
 	id: string;

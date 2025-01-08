@@ -5,7 +5,6 @@ import leave from 'assets/leave.svg';
 import { ChatServices } from 'services/chat.services';
 import { useAppDispatch, useAppSelector } from 'shared/hooks';
 import { selectActiveRoom, setActiveRoom } from 'store/ChatActiveRoom';
-import { selectChatRooms } from 'store/ChatRoom';
 import { selectUser } from 'store/User';
 import style from './RoomItem.module.scss';
 

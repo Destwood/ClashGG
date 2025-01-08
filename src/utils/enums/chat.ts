@@ -1,6 +1,7 @@
 export enum ChatEvents {
 	connect = 'connect',
 	message = 'message',
+	error = 'error',
 	history = 'history',
 	joinRoom = 'joinRoom',
 	setUser = 'setUser',
@@ -19,9 +20,12 @@ export enum ChatEvents {
 export enum ChatHeaderToDisplay {
 	rooms = 'rooms',
 	users = 'users',
+	allUsers = 'allUsers',
+	none = 'none',
 }
 
 export enum RoomType {
+	public = 'public',
+	private = 'private',
 	direct = 'direct',
-	privateRoom = 'privateRoom',
 }

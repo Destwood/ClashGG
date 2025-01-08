@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import summonerIconDef from 'assets/summonerIcon.png';
-import { RiotServices } from 'services/riot.services';
 import { Champion, Game } from 'shared/components';
 import { RankData } from 'shared/components/League/RankData';
 import style from './PlayerData.module.scss';

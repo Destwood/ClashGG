@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { current } from '@reduxjs/toolkit';
+import React, { useEffect, useRef, useState } from 'react';
+import { toast } from 'react-toastify';
 import { ChatServices } from 'services/chat.services';
 import { useAppDispatch, useAppSelector } from 'shared/hooks/store';
-import { selectActiveRoom, setActiveRoom } from 'store/ChatActiveRoom';
-import { selectChatRooms, setRoomList } from 'store/ChatRoom';
+import { selectActiveRoom } from 'store/ChatActiveRoom';
+import { setRoomList } from 'store/ChatRoom';
 import { setUserList } from 'store/ChatUser';
 import { selectUser } from 'store/User';
 import { IMessage, IRoom } from 'types/chat';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuid } from 'uuid';
 import { ChatEvents } from 'utils/enums/chat';
 import { ChatHeader } from './ChatHeader/ChatHeader';
 import { InputArea } from './InputArea/InputArea';
@@ -19,6 +19,7 @@ export const Chat: React.FC = () => {
 	const userData = useAppSelector(selectUser);
 	const [messages, setMessages] = useState<IMessage[]>([]);
 	const [inputMessage, setInputMessage] = useState<string>('');
+	const messagesRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		ChatServices.connect(
@@ -45,6 +46,11 @@ export const Chat: React.FC = () => {
 					case ChatEvents.updateUserList:
 						dispatch(setUserList(message.users || []));
 						break;
+					case ChatEvents.error:
+						toast.error(message.errorMsg, {
+							position: 'top-right',
+						});
+						break;
 					default:
 						break;
 				}
@@ -62,11 +68,15 @@ export const Chat: React.FC = () => {
 		};
 	}, []);
 
+	useEffect(() => {
+		messagesRef.current?.scrollIntoView({ behavior: 'smooth' });
+	}, [messages]);
+
 	const sendMessage = () => {
 		if (inputMessage === '') return;
 		const message: IMessage = {
 			event: ChatEvents.message,
-			id: uuidv4(),
+			id: uuid(),
 			user: userData,
 			message: inputMessage,
 			date: new Date().toISOString(),
@@ -95,6 +105,7 @@ export const Chat: React.FC = () => {
 						: {msg.message}
 					</div>
 				))}
+				<div ref={messagesRef} />
 			</div>
 			<InputArea
 				inputMessage={inputMessage}

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useAppSelector } from 'shared/hooks/store';
 import { selectChatUsers } from 'store/ChatUser';
-import { selectUser } from 'store/User';
 import { UserItem } from './UserItem/UserItem';
 import style from './UserList.module.scss';
 
