@@ -1,0 +1,49 @@
+.statTitle {
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 1.5rem;
+    background-color: var(--header);
+    width: .15rem;
+    margin-right: .5rem;
+    transform: translateY(.3rem);
+  }
+}
+
+.statOverview {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.rank {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.rankIcon {
+  height: 4rem;
+}
+
+.rankInfo {
+  height: fit-content;
+}
+
+.rankName {
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+}
+
+.rankLeaguePoint {
+  font-size: .8rem;
+  font-weight: 700;
+  opacity: .8;
+}
+
+.winRateInfo {
+  font-size: .8rem;
+  text-align: end;
+  opacity: .8;
+}
