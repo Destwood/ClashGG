@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 import { Button as MUIButton, Dialog, IconButton, Typography } from '@mui/material';
 import { Form, Formik, FormikHelpers } from 'formik';
+import { useAppDispatch, useAppSelector } from 'shared/hooks';
 import { selectIsModalOpen, togglePopup } from 'store/Modal';
 import { AnyObject, Schema } from 'yup';
-import { useAppDispatch, useAppSelector } from '../../hooks';
 
 export interface ModalProps<T extends AnyObject> {
 	initialValues: T;

@@ -1,4 +1,4 @@
-import { IUserInit } from 'types';
+import { IMessage, IRespondMessage, IUserInit } from 'types';
 import { ChatEvents } from 'utils/enums/chat';
 
 export class ChatServices {
@@ -7,8 +7,8 @@ export class ChatServices {
 	static connect(
 		url: string,
 		user: IUserInit,
-		activeRoom: any,
-		onMessage: (msg: any) => void,
+		activeRoom: string,
+		onMessage: (msg: IRespondMessage) => void,
 		onClose: () => void,
 		onError?: (error: Event) => void
 	) {
@@ -34,22 +34,20 @@ export class ChatServices {
 			onMessage(message);
 		};
 
-		this.socket.onclose = () => {
-			if (onClose) onClose();
-		};
+		this.socket.onclose = onClose;
 
 		this.socket.onerror = (error) => {
 			if (onError) onError(error);
 		};
 	}
 
-	static sendMessage(data: any) {
-		if (this.socket) {
+	static sendMessage(data: IMessage) {
+		if (this.socket?.readyState === WebSocket.OPEN) {
 			this.socket.send(JSON.stringify(data));
 		}
 	}
 
-	static createNewRoom(roomName: any, userData: any) {
+	static createNewRoom(roomName: string, userData: IUserInit) {
 		if (this.socket) {
 			const createRoomData = {
 				event: ChatEvents.createPrivateRoom,
@@ -60,7 +58,7 @@ export class ChatServices {
 		}
 	}
 
-	static deleteRoom(roomName: any) {
+	static deleteRoom(roomName: string) {
 		if (this.socket) {
 			const deleteRoomData = {
 				event: ChatEvents.deletePrivateRoom,

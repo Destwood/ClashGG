@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
+import { MenuItem } from '@mui/material';
 import { ChatServices } from 'services/chat.services';
-import { Button } from 'shared/components';
-import { useAppSelector } from 'shared/hooks';
-import { selectChatRooms } from 'store/ChatRoom';
+import { Button, Input } from 'shared/components';
+import { Dropdown } from 'shared/components/Dropdown';
+import { useAppDispatch, useAppSelector } from 'shared/hooks';
+import { setActiveRoom } from 'store/ChatActiveRoom';
 import { selectUser } from 'store/User';
 import { IRoom } from 'types';
-import { RoomType } from 'utils/enums/chat';
 import { RoomItem } from './RoomItem/RoomItem';
 import style from './RoomsList.module.scss';
 
-export const RoomsList: React.FC<{ onRoomClick: (name: string) => void }> = ({ onRoomClick }) => {
-	const chatRoomsList = useAppSelector(selectChatRooms).roomList;
+interface roomsListData {
+	roomsListData: IRoom[];
+	listName: string;
+}
+
+export const RoomsList: React.FC<roomsListData> = ({ roomsListData, listName }) => {
+	const dispatch = useAppDispatch();
 	const [creatingRoom, setCreatingRoom] = useState(false);
 	const [newRoomName, setNewRoomName] = useState('');
 	const userData = useAppSelector(selectUser);
@@ -23,29 +29,88 @@ export const RoomsList: React.FC<{ onRoomClick: (name: string) => void }> = ({ o
 		}
 	};
 
+	const handleCloseCreateRoom = () => {
+		setCreatingRoom(false);
+	};
+
+	const handleJoinRoom = (room: IRoom) => {
+		if (room.id) {
+			dispatch(setActiveRoom(room.id));
+			ChatServices.joinRoom(room.id, userData);
+		}
+	};
+
 	return (
 		<div className={style.roomsList}>
-			<h3>Rooms</h3>
-
-			{chatRoomsList?.map((room: IRoom, index: number) =>
-				room.type !== RoomType.direct ? <RoomItem key={index} roomObj={room} onRoomClick={onRoomClick} /> : null
-			)}
-			{!creatingRoom ? (
-				<Button onClick={() => setCreatingRoom(true)} type="contained">
-					Create New Room
-				</Button>
-			) : (
-				<div className={style.createRoomForm}>
-					<input
-						type="text"
-						value={newRoomName}
-						onChange={(e) => setNewRoomName(e.target.value)}
-						placeholder="Enter room name"
-					/>
-					<Button onClick={handleCreateRoom} type="contained">
-						Create
-					</Button>
-				</div>
+			{roomsListData && roomsListData.length && (
+				<Dropdown listName={listName}>
+					{roomsListData.map((item: IRoom) => (
+						<MenuItem
+							key={item.id || null}
+							onClick={() => {
+								if (item !== handleJoinRoom) {
+									handleJoinRoom(item);
+								}
+							}}
+						>
+							<RoomItem roomObj={item} />
+						</MenuItem>
+					))}
+					<MenuItem
+						disableRipple
+						disableTouchRipple
+						onClick={(e) => {
+							e.preventDefault();
+							e.stopPropagation();
+						}}
+						sx={{
+							'&.MuiMenuItem-root:hover': {
+								cursor: 'default',
+								backgroundColor: 'transparent',
+							},
+						}}
+					>
+						{!creatingRoom ? (
+							<Button
+								onClick={(e) => {
+									e.preventDefault();
+									e.stopPropagation();
+									setCreatingRoom(true);
+								}}
+								type="contained"
+							>
+								Create New Room
+							</Button>
+						) : (
+							<div
+								className={style.createRoomForm}
+								onClick={(e) => {
+									e.preventDefault();
+									e.stopPropagation();
+								}}
+							>
+								<Input
+									type="text"
+									value={newRoomName}
+									onChange={(value) => setNewRoomName(value)}
+									placeholder="Type your message..."
+								/>
+								<div className={style.createROomButtons}>
+									<div className={style.createRoomButton}>
+										<Button onClick={handleCreateRoom} type="contained">
+											Create
+										</Button>
+									</div>
+									<div className={style.closeCreateRoomButton}>
+										<Button onClick={handleCloseCreateRoom} type="contained">
+											Close
+										</Button>
+									</div>
+								</div>
+							</div>
+						)}
+					</MenuItem>
+				</Dropdown>
 			)}
 		</div>
 	);

@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { toast } from 'react-toastify';
 import { ChatServices } from 'services/chat.services';
+import { ToastService } from 'services/toast.services';
 import { useAppDispatch, useAppSelector } from 'shared/hooks/store';
 import { selectActiveRoom } from 'store/ChatActiveRoom';
 import { setRoomList } from 'store/ChatRoom';
-import { setUserList } from 'store/ChatUser';
+import { setAllChatUsers, setUserList } from 'store/ChatUser';
 import { selectUser } from 'store/User';
 import { IMessage, IRoom } from 'types/chat';
 import { v4 as uuid } from 'uuid';
@@ -27,29 +27,31 @@ export const Chat: React.FC = () => {
 			userData,
 			activeRoom,
 			(message) => {
-				console.log(message);
-
 				switch (message.event) {
 					case ChatEvents.history:
-						setMessages(message.messages);
+						if (message.messages) {
+							setMessages(message.messages);
+						}
 						break;
 					case ChatEvents.updateRoomList:
-						const rooms: IRoom[] = Object.values(message.rooms);
-						const activeRoomData = rooms.find((room: any) => room.id === activeRoom);
-
-						dispatch(setUserList(activeRoomData?.allUsers || []));
-						dispatch(setRoomList(rooms));
+						if (message.rooms) {
+							const rooms: IRoom[] = Object.values(message.rooms);
+							const activeRoomData = rooms.find((room) => room.id === activeRoom);
+							dispatch(setUserList(activeRoomData?.allUsers || []));
+							dispatch(setRoomList(rooms));
+						}
 						break;
 					case ChatEvents.message:
-						setMessages((prev) => [...prev, message]);
+						if (message.event === ChatEvents.message) {
+							setMessages((prev: IMessage[]) => [...prev, message as IMessage]);
+						}
 						break;
 					case ChatEvents.updateUserList:
 						dispatch(setUserList(message.users || []));
+						dispatch(setAllChatUsers(message.allUsers || []));
 						break;
 					case ChatEvents.error:
-						toast.error(message.errorMsg, {
-							position: 'top-right',
-						});
+						ToastService.error(message.errorMsg);
 						break;
 					default:
 						break;

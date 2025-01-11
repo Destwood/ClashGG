@@ -1,7 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { IRoom } from 'types';
+import { DefaultRoomNames } from 'utils/enums/chat';
 
-const initialState: any = {
-	roomList: ['global'],
+interface ChatRoomState {
+	roomList: IRoom[];
+}
+
+const initialState: ChatRoomState = {
+	roomList: [{ name: DefaultRoomNames.global }],
 };
 
 const chatRoom = createSlice({

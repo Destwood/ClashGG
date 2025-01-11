@@ -7,6 +7,7 @@ import { useTheme } from '@mui/material/styles';
 import logo from 'assets/logo.webp';
 import { getAuth, signOut } from 'firebase/auth';
 import { Auth, UserService } from 'services';
+import { ToastService } from 'services/toast.services';
 import { Button, Input, LogInForm, Modal, SignUpForm } from 'shared/components';
 import { AuthButtons } from 'shared/components/AuthButtons';
 import { useAppDispatch, useAppSelector } from 'shared/hooks/store';
@@ -15,7 +16,6 @@ import { togglePopup } from 'store/Modal';
 import { clearUser, selectUser } from 'store/User';
 import { IAuthValues } from 'types/auth';
 import { initInfo, logInValues, signUpValues, tokenKey } from 'utils/constants';
-import { ToastPosition } from 'utils/enums';
 import { logInScheme, signUpScheme } from 'utils/schemas/auth';
 import 'react-toastify/dist/ReactToastify.css';
 import style from './Header.module.scss';
@@ -65,9 +65,7 @@ const Header = () => {
 			}
 
 			dispatch(togglePopup());
-			toast.success('Success Notification !', {
-				position: ToastPosition.topRight,
-			});
+			ToastService.success('You are logged in!');
 		} catch (error) {
 			console.log(error);
 

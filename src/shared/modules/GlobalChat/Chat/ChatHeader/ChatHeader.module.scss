@@ -1,14 +1,16 @@
 @import 'shared/theme/variables';
 
-.chatHeader {
-}
-
 .tabs {
+  display: flex;
+  gap: .5rem;
   margin-bottom: .5rem;
   width: 100%;
-  * {
-    font-size: .5rem;
-  }
+}
+
+.usersContainer,
+.allContainer,
+.RoomsContainer {
+  flex: 1;
 }
 
 .listContainer {
@@ -34,4 +36,30 @@
   font-size: 1.3rem;
   line-height: 1.3rem;
   margin-bottom: .5rem;
+}
+
+//temporary, to delete
+.itemContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.copyButton {
+  color: var(--text-primary);
+  border: none;
+  background: none;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+
+  &:active {
+    color: var(--me);
+  }
+}
+
+.copyIcon {
+  height: 1rem;
 }

@@ -29,3 +29,7 @@ export enum RoomType {
 	private = 'private',
 	direct = 'direct',
 }
+
+export enum DefaultRoomNames {
+	global = 'global',
+}

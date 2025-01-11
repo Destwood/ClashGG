@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import { buttonStyle } from 'shared/theme/components';
 import { ButtonProps } from 'types';
 
-export const Button: React.FC<ButtonProps> = ({ children, type, onClick, color, textColor }) => {
+export const Button: React.FC<ButtonProps> = ({ children, type, onClick, color, textColor, onBlur }) => {
 	const theme = useTheme();
 	const buttonStyles = buttonStyle(theme);
 
@@ -17,6 +17,7 @@ export const Button: React.FC<ButtonProps> = ({ children, type, onClick, color, 
 			}}
 			variant={type === 'outlined' ? 'outlined' : 'contained'}
 			onClick={onClick}
+			onBlur={onBlur}
 		>
 			{children}
 		</MuiButton>

@@ -4,7 +4,9 @@
   cursor: pointer;
   line-height: 1.5;
   margin-bottom: .2rem;
+
   &:hover  {
+
     &:not(.currentRoom) {
       opacity: 0.6;
     }
@@ -35,6 +37,7 @@
   border: none;
   margin-right: .1rem;
   padding: .2rem;
+
   &:hover {
     cursor: pointer;
     opacity: .7;

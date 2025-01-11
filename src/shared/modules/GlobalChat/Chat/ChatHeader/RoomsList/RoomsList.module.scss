@@ -7,9 +7,6 @@
   display: flex;
   gap: .5rem;
   height: 2rem;
-  * {
-    font-size: .7rem !important;
-  }
 }
 
 .listContainer {
@@ -24,4 +21,17 @@
   position: absolute;
   background-color: var(--background-paper);
   border-radius: 1rem;
+}
+
+.createROomButtons {
+  display: flex;
+  marg-top: .5rem;
+}
+
+.createRoomButton {
+  width: 100%;
+}
+
+.closeCreateRoomButton {
+  width: 100%;
 }

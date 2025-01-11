@@ -1,27 +1,32 @@
 @import 'shared/theme/variables';
 
-.chatHeader {
+.itemContainer {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
 }
 
-.tabs {
-  display: flex;
-  gap: .5rem;
-  height: 2rem;
-  * {
-    font-size: .7rem !important;
+.copyButton {
+  color: var(--text-primary);
+  border: none;
+  background: none;
+
+  &:hover {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  &:active {
+    color: var(--me);
   }
 }
 
-.listContainer {
-  position: relative;
+.copyIcon {
+  height: 1rem;
 }
 
-.list {
-  width: fit-content;
-  padding: 1rem;
-  left: 0rem;
-  top: 0rem;
-  position: absolute;
-  background-color: var(--background-paper);
-  border-radius: 1rem;
+.me {
+  color: var(--me);
+  font-weight: 700;
 }

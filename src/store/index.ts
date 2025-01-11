@@ -13,6 +13,7 @@ export const store = configureStore({
 		activeGame: activeGameReducer,
 		roomList: chatRoomReducer,
 		userList: chatUserReducer,
+		allChatUsers: chatUserReducer,
 		activeRoom: activeRoomReducer,
 	},
 });

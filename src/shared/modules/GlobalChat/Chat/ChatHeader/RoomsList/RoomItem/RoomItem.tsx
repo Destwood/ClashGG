@@ -6,14 +6,14 @@ import { ChatServices } from 'services/chat.services';
 import { useAppDispatch, useAppSelector } from 'shared/hooks';
 import { selectActiveRoom, setActiveRoom } from 'store/ChatActiveRoom';
 import { selectUser } from 'store/User';
+import { IRoom } from 'types';
 import style from './RoomItem.module.scss';
 
 interface RoomItemProps {
-	roomObj: any;
-	onRoomClick: (name: string) => void;
+	roomObj: IRoom;
 }
 
-export const RoomItem: React.FC<RoomItemProps> = ({ roomObj, onRoomClick }) => {
+export const RoomItem: React.FC<RoomItemProps> = ({ roomObj }) => {
 	const roomName: string = roomObj.name;
 	const activeRoom = useAppSelector(selectActiveRoom);
 	const dispatch = useAppDispatch();
@@ -22,18 +22,12 @@ export const RoomItem: React.FC<RoomItemProps> = ({ roomObj, onRoomClick }) => {
 	const userData = useAppSelector(selectUser);
 	const ifThisRoomActive = roomObj.id === activeRoom;
 
-	const handleJoinRoom = () => {
-		if (!ifThisRoomActive) {
-			dispatch(setActiveRoom(roomObj.id));
-			onRoomClick(roomName);
-			ChatServices.joinRoom(roomObj.id, userData);
-		}
-	};
-
 	const handleAddUser = () => {
-		setNewUserId('');
-		setIsAddingUser(false);
-		ChatServices.addUserToRoom(roomObj.id, newUserId);
+		if (roomObj.id) {
+			setNewUserId('');
+			setIsAddingUser(false);
+			ChatServices.addUserToRoom(roomObj.id, newUserId);
+		}
 	};
 
 	const handleLeaveRoom = () => {
@@ -46,7 +40,7 @@ export const RoomItem: React.FC<RoomItemProps> = ({ roomObj, onRoomClick }) => {
 	};
 
 	return (
-		<div className={style.roomItem} onClick={() => handleJoinRoom()}>
+		<div className={style.roomItem}>
 			<span className={`${style.nameOfRoom} ${ifThisRoomActive ? style.currentRoom : ''}`}>{roomName}</span>
 
 			{roomName !== 'global' && roomObj.id === activeRoom && (
