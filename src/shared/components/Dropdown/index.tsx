@@ -17,10 +17,9 @@ export const Dropdown: React.FC<DropdownProps> = ({ children, variant, onOpen, o
 		onOpen?.('');
 	};
 
-	const handleChange = (event: SelectChangeEvent<string>) => {
-		// console.log(event.target.value);
-		console.log('changed');
-	};
+	// const handleChange = (event: SelectChangeEvent<string>) => {
+	//
+	// };
 
 	const handleClose = () => {
 		onClose?.('');
@@ -33,7 +32,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ children, variant, onOpen, o
 		<FormControl sx={{ width: '100%' }}>
 			<Select
 				onOpen={handleOpen}
-				onChange={handleChange}
+				// onChange={handleChange}
 				onClose={() => handleClose}
 				// onBlur={handleBlur}
 				value={defValue || ''}

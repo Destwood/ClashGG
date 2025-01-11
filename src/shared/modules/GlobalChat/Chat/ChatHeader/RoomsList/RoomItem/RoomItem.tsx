@@ -57,15 +57,22 @@ export const RoomItem: React.FC<RoomItemProps> = ({ roomObj }) => {
 					{roomObj.creator?.id === userData.id && (
 						<>
 							{isAddingUser ? (
-								<div className={style.addUserForm}>
+								<div
+									className={style.addUserForm}
+									onClick={(e) => {
+										e.stopPropagation();
+									}}
+								>
 									<input
 										type="text"
 										placeholder="Enter userId"
 										value={newUserId}
 										onChange={(e) => setNewUserId(e.target.value)}
 									/>
-									<button onClick={handleAddUser}>Add</button>
-									<button onClick={() => setIsAddingUser(false)}>Cancel</button>
+									<div className="">
+										<button onClick={handleAddUser}>Add</button>
+										<button onClick={() => setIsAddingUser(false)}>Cancel</button>
+									</div>
 								</div>
 							) : (
 								<button
