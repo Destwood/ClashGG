@@ -1,52 +1,137 @@
-import React, { useState } from "react";
-import style from "./Header.module.scss";
-import Button from "../../components/Button/Button";
-import logo from "../../../assets/logo.webp";
-import { Link } from "react-router-dom";
-import Input from "../../components/Input/Input";
-import { useAppDispatch } from "../../hooks/redux";
-import { togglePopup } from "../../../store/slices/AuthModalSlice";
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import { Box, Divider } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import logo from 'assets/logo.webp';
+import { getAuth, signOut } from 'firebase/auth';
+import { Auth, UserService } from 'services';
+import { Button, Input, LogInForm, Modal, SignUpForm } from 'shared/components';
+import { AuthButtons } from 'shared/components/AuthButtons';
+import { headerStyle } from 'shared/theme/components';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { togglePopup } from 'store/Modal';
+import { clearUser, selectUser } from 'store/User';
+import { IAuthValues } from 'types/auth';
+import { initInfo, logInValues, signUpValues, tokenKey } from 'utils/constants';
+import { ToastPosition } from 'utils/enums';
+import { logInScheme, signUpScheme } from 'utils/schemas/auth';
+import 'react-toastify/dist/ReactToastify.css';
+import style from './Header.module.scss';
 
-function Header() {
-  const dispatch = useAppDispatch();
-  const [searchValue, setSearchValue] = useState<string>("");
+const Header = () => {
+	const auth = getAuth();
+	const theme = useTheme();
+	const headerStyles = headerStyle(theme);
 
-  const handleChange = (newValue: string) => {
-    setSearchValue(newValue);
-  };
+	const dispatch = useAppDispatch();
+	const { t } = useTranslation();
+	const userData = useAppSelector(selectUser);
+	const [isLogin, setIsLogin] = useState<boolean>(true);
+	const [searchValue, setSearchValue] = useState<string>('');
 
-  const handleLoginClick = () => {
-    dispatch(togglePopup({ isOpen: true, typeOfModal: "LogIn" }));
-  };
-  const handleSignUpClick = () => {
-    dispatch(togglePopup({ isOpen: true, typeOfModal: "SignUp" }));
-  };
+	const handleChange = (newValue: string) => {
+		setSearchValue(newValue);
+	};
 
-  return (
-    <div className={style.header}>
-      <div className="">
-        <Link to={"/"}>
-          <img className={style.logo} src={logo} alt="logo" />
-        </Link>
-      </div>
-      <div className="">
-        <Input
-          value={searchValue}
-          onChange={handleChange}
-          placeholder="Search..."
-          type="outlined"
-        />
-      </div>
-      <div className="">
-        <Button type="contained" onClick={() => handleLoginClick()}>
-          Log In
-        </Button>
-        <Button type="filled" onClick={() => handleSignUpClick()}>
-          Sign Up
-        </Button>
-      </div>
-    </div>
-  );
-}
+	const handleAuthClick = (isLoginProps: boolean) => {
+		setIsLogin(isLoginProps);
+		openPopup();
+	};
+
+	const openPopup = () => {
+		dispatch(togglePopup());
+	};
+
+	// modal
+	const handleSubmit = async ({ username, email, password }: IAuthValues) => {
+		try {
+			const userCredentials = isLogin ? await Auth.login(email, password) : await Auth.signUp(email, password);
+			const { user } = userCredentials;
+
+			const token = await user.getIdToken();
+			const { uid } = user;
+
+			localStorage.setItem(tokenKey, token);
+
+			if (!isLogin) {
+				await UserService.createUserProfile(uid, {
+					...initInfo,
+					username,
+					email,
+					id: uid,
+				});
+			}
+
+			dispatch(togglePopup());
+			toast.success('Success Notification !', {
+				position: ToastPosition.topRight,
+			});
+		} catch (error) {
+			console.log(error);
+
+			toast.error('Error Notification !', {
+				position: 'top-right',
+			});
+		}
+	};
+
+	const handleLogout = async () => {
+		try {
+			await signOut(auth);
+			dispatch(clearUser());
+			localStorage.removeItem(tokenKey);
+		} catch (error) {
+			console.error('Error during logout:', error);
+		}
+	};
+
+	return (
+		<Box className={style.header} sx={headerStyles.root}>
+			<div className="">
+				<Link to="/">
+					<img className={style.logo} src={logo} alt="logo" />
+				</Link>
+			</div>
+			<div className="">
+				<Input value={searchValue} onChange={handleChange} placeholder="Search..." type="outlined" />
+			</div>
+			<div className="">
+				<div className={style.authButtons}>
+					{userData.id ? (
+						<Button type="outlined" onClick={handleLogout}>
+							{t('auth.logout.title')}
+						</Button>
+					) : (
+						<>
+							<Button type="contained" onClick={() => handleAuthClick(true)}>
+								{t('auth.login.title')}
+							</Button>
+							<Button type="contained" onClick={() => handleAuthClick(false)}>
+								{t('auth.signUp.title')}
+							</Button>
+						</>
+					)}
+				</div>
+				<ToastContainer />
+			</div>
+
+			<Modal
+				initialValues={isLogin ? logInValues : signUpValues}
+				title={isLogin ? t('auth.login.title') : t('auth.signUp.title')}
+				subtitle={isLogin ? t('auth.login.alreadyHaveAccount') : t('auth.signUp.dontHaveAccount')}
+				validationScheme={isLogin ? logInScheme : signUpScheme}
+				onSubmit={handleSubmit}
+			>
+				<AuthButtons name="aaa" />
+
+				<Divider variant="middle" />
+				{isLogin ? <LogInForm /> : <SignUpForm />}
+			</Modal>
+		</Box>
+	);
+};
+
 
 export default Header;

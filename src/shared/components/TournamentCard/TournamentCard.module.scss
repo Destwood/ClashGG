@@ -1,0 +1,236 @@
+//can we fix this import? since shared/theme... doesnt work
+@import '../../theme/variables';
+
+.container {
+  &.big {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: fit-content;
+
+    .organizerImg {
+      display: block;
+    }
+
+    .organizerImgAlternative {
+      display: none;
+    }
+
+    .detailItem {
+      font-size: .8rem;
+      margin-right: 1.4rem;
+
+      &:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        height: 0.3rem;
+        width: 0.3rem;
+        border-radius: 50%;
+        background-color: var(--cm-colors-fg2);
+        top: .45rem;
+        right: -.9rem;
+      }
+    }
+  }
+
+  &.minimal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: fit-content;
+    padding: .5rem;
+    border-radius: .5rem;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--cm-colors-bg2);
+    }
+
+    .tournamentPictureContainer {
+      width: 15rem;
+    }
+
+    .organizerDetail {
+      font-weight: 700;
+    }
+
+    .organizerContainer {
+      display: none;
+    }
+
+    .organizerImgAlternative {
+      display: none;
+    }
+    .startTime {
+      font-size: .6rem;
+    }
+
+    .title {
+      font-size: 1.2rem;
+      line-height: 1rem;
+    }
+
+    .detailItem {
+      font-size: .7rem;
+      margin-right: 1.4rem;
+
+      &:not(:first-child)::after {
+        content: "";
+        position: absolute;
+        height: 0.3rem;
+        width: 0.3rem;
+        border-radius: 50%;
+        background-color: var(--cm-colors-fg2);
+        top: .45rem;
+        left: -.9rem;
+      }
+    }
+  }
+
+  &.medium {
+    flex: 0 1 calc(33.3% - 1rem);
+
+    .startTime {
+      font-size: .7rem;
+    }
+
+    .title {
+      font-size: 1rem;
+      line-height: 1rem;
+    }
+
+    .detailItem {
+      font-size: .8rem;
+      margin-right: 1.4rem;
+
+      &:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        height: 0.3rem;
+        width: 0.3rem;
+        border-radius: 50%;
+        background-color: var(--cm-colors-fg2);
+        top: .5rem;
+        right: -0.9rem;
+      }
+    }
+  }
+
+  &.small {
+    flex: 0 1 calc(25% - 1rem);
+
+    .startTime {
+      font-size: .6rem;
+    }
+
+    .title {
+      font-size: .9rem;
+      line-height: 1rem;
+    }
+
+    .detailItem {
+      font-size: .7rem;
+      margin-right: 1.4rem;
+
+      &:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        height: 0.3rem;
+        width: 0.3rem;
+        border-radius: 50%;
+        background-color: var(--cm-colors-fg2);
+        top: .4rem;
+        right: -0.9rem;
+      }
+    }
+
+  }
+
+  &.medium, &.small {
+    display: block;
+
+
+    .infoContainer {
+      display: flex;
+      gap: .5rem;
+    }
+
+    .organizerContainer {
+      display: none;
+    }
+
+    .organizerImgAlternative {
+      height: 2.5rem;
+    }
+
+  }
+
+  &.big, &.medium, &.small {
+    .organizerDetail {
+      display: none;
+    }
+  }
+
+}
+
+.tournamentPictureContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.tournamentPicture {
+  width: 100%;
+  border-radius: .6rem;
+}
+
+.gameIcon {
+  position: absolute;
+  height: 2rem;
+  border-radius: .6rem;
+  top: 0;
+  left: 0;
+  margin: .8rem;
+}
+
+.info {
+}
+
+.startTime {
+  font-weight: 700;
+  font-size: .8rem;
+  color: var(--cm-colors-fg2);
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.details {
+  color: var(--cm-colors-fg2);
+}
+
+.detailItem {
+  position: relative;
+  display: inline-block;
+}
+
+.organizerContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.organizer {
+  height: fit-content;
+  color: var(--text-primary);
+}
+
+
+
+.organizerName {
+  font-weight: 700;
+}
+

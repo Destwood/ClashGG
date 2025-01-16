@@ -1,12 +1,19 @@
 .header {
-  height: fit-content;
+ height: 3rem;
   display: flex;
   justify-content: space-between;
   padding: 0.7rem 1rem;
-  background-color: #171c26;
-  box-shadow: 0px 3px 1px 0px #0000009d;
+  user-select: none;
+ z-index: 1
 }
 
 .logo {
   height: 2rem;
+}
+
+.authButtons {
+  display: flex;
+  height: 2rem;
+  gap: 1rem;
+  width: 12rem;
 }

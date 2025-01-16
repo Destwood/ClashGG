@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  row-gap: 10px;
+  column-gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.header {
+  display: contents;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.playerList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

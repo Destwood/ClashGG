@@ -1,25 +1,69 @@
-import React from "react";
-import "./App.scss";
-import Header from "./shared/modules/Header/Header";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useAppSelector } from "./shared/hooks/redux";
-import AuthModal from "./shared/modules/Modal/Modal";
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import { CssBaseline } from '@mui/material';
+import { Game } from 'pages/Game/Game';
+import { HomePage } from 'pages/Home/Home';
+import { Auth, UserService } from 'services';
+import Header from 'shared/modules/Header/Header';
+import Sidebar from 'shared/modules/Sidebar/Sidebar';
+import ThemeProvider from 'shared/theme/ThemeProvider';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { clearUser, selectUser, setUser } from 'store/User';
+import 'i18n';
+import 'services/firebase.services';
+import { PlayerData } from './pages/PlayerData/PlayerData';
+import { Profile } from './pages/Profile/Profile';
+import { tokenKey } from './utils/constants';
+import './App.scss';
 
-function App() {
-  const authModalState = useAppSelector((state) => state.authModal);
-  return (
-    <Router>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" element={""} />
-        </Routes>
-        {/* Modals */}
+const App = () => {
+	const userData = useAppSelector(selectUser);
+	const dispatch = useAppDispatch();
 
-        {authModalState.isOpen && <AuthModal />}
-      </div>
-    </Router>
-  );
-}
+	useEffect(() => {
+		const fetchUserProfile = async () => {
+			Auth.restoreSession(async (userData) => {
+				if (userData) {
+					const { token, uid } = userData;
+					localStorage.setItem(tokenKey, token);
+					UserService.listenUserProfile(uid, (data) => {
+						if (data) {
+							dispatch(setUser(data));
+						} else {
+							console.log('No user data found');
+						}
+					});
+				} else {
+					localStorage.removeItem(tokenKey);
+					dispatch(clearUser());
+				}
+			});
+		};
+
+		fetchUserProfile();
+	}, []);
+
+	return (
+		<ThemeProvider>
+			<CssBaseline />
+			<Router>
+				<div className="App">
+					<Header />
+					<main>
+						<Sidebar />
+						<div className="pageContainer">
+							<Routes>
+								<Route path="/" element={<HomePage />} />
+								<Route path="/game" element={<Game />} />
+								<Route path="/player" element={<PlayerData />} />
+								<Route path="/profile" element={userData.id ? <Profile /> : <Navigate to="/" />} />
+							</Routes>
+						</div>
+					</main>
+				</div>
+			</Router>
+		</ThemeProvider>
+	);
+};
 
 export default App;

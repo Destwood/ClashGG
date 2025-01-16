@@ -1,0 +1,41 @@
+.security {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.security h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.securityOptions {
+  margin-bottom: 20px;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.option label {
+  font-weight: bold;
+}
+
+.deleteAccount {
+  text-align: center;
+}
+
+.deleteButton {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.deleteButton:hover {
+  background-color: #ff0000;
+}
