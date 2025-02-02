@@ -5,20 +5,14 @@ import defaultPfp from 'assets/defaultPfp.webp';
 import defaultBanner from 'assets/leagueBanner.webp';
 import defaultGame from 'assets/leagueMainImg.webp';
 import { Button } from 'shared/components';
+import { Banner } from 'shared/components/Banner';
 import { selectActiveGame } from 'store/ActiveGame';
 import { useAppSelector } from 'store/hooks';
+import { gamePageData } from 'utils/mock';
 import { Overview } from './Tabs/Overview/Overview';
 import { Ranking } from './Tabs/Ranking/Ranking';
 import { Tournaments } from './Tabs/Tournaments/Tournaments';
 import style from './Game.module.scss';
-
-const gameData = {
-	gameName: 'League of Legends',
-	userName: 'Destwood',
-	profileAction: 'change profile',
-	buttonText: 'create',
-	tabs: ['Overview', 'Tournaments', 'Ranking'],
-};
 
 export const Game: React.FC = () => {
 	const theme = useTheme();
@@ -32,9 +26,7 @@ export const Game: React.FC = () => {
 	return (
 		<div className={style.container}>
 			<div className={style.mainInfo}>
-				<div className={style.bannerContainer}>
-					<img className={style.banner} src={defaultBanner} alt="" />
-				</div>
+				<Banner bannerImage={defaultBanner} />
 
 				<div className={style.content}>
 					<div className={style.gameInfo}>
@@ -43,19 +35,19 @@ export const Game: React.FC = () => {
 						</Link>
 						<div className={style.rightSideContainer}>
 							<div className={style.rightSide}>
-								<h3 className={style.gameName}>{gameData.gameName}</h3>
+								<h3 className={style.gameName}>{gamePageData.gameName}</h3>
 								<div className={style.profileInfo}>
 									<img className={style.pfp} src={defaultPfp} alt="" />
 									<div>
-										<p>{gameData.userName}</p>
-										<span className={style.changeProfile}>{gameData.profileAction}</span>
+										<p>{gamePageData.userName}</p>
+										<span className={style.changeProfile}>{gamePageData.profileAction}</span>
 									</div>
 								</div>
 							</div>
 
 							<div className={style.createButton}>
 								<Button color={theme.palette.info.main} type="contained">
-									{gameData.buttonText}
+									{gamePageData.buttonText}
 								</Button>
 							</div>
 						</div>
@@ -64,7 +56,7 @@ export const Game: React.FC = () => {
 					<div className={style.tabsList}>
 						<div className={style.bottomLine} />
 						<div className={style.tabsContainer}>
-							{gameData.tabs.map((tab, index) => (
+							{gamePageData.tabs.map((tab, index) => (
 								<div
 									key={index}
 									className={`${style.tabName} ${activeTab === index ? style.active : ''}`}

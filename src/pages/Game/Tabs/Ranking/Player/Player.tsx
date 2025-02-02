@@ -14,11 +14,14 @@ export const Player: React.FC<PlayerRowProps> = ({ number, icon, nickname, playe
 	return (
 		<div className={style.row}>
 			<span>{number}</span>
-			<img src={icon} alt={`${nickname} avatar`} className={style.icon} />
-			<span>{nickname}</span>
+			<div className={style.playerInfo}>
+				<img src={icon} alt={`${nickname} avatar`} className={style.icon} />
+				<p>{nickname}</p>
+			</div>
 			<span>{played}</span>
 			<span>{wins}</span>
 			<span>{rating}</span>
+			<span>{Math.floor((wins / played) * 100)}</span>
 		</div>
 	);
 };

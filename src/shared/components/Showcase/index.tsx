@@ -1,5 +1,5 @@
 import React from 'react';
-import { TournamentCard } from 'shared/components';
+import { TournamentCard } from 'shared/components/index';
 import { TournamentCardVariant } from 'utils/enums';
 import style from './Showcase.module.scss';
 
