@@ -7,6 +7,7 @@ export interface IRoom {
 	name: string;
 	type?: RoomType;
 	activeUsers?: IRoomUser[];
+	users?: IRoomUser[];
 	creator?: IUserInit;
 	allUsers?: IRoomUser[];
 	messages?: IMessage[];

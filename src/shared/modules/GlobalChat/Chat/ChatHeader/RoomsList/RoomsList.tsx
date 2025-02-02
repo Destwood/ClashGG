@@ -44,18 +44,14 @@ export const RoomsList: React.FC<roomsListData> = ({ roomsListData, listName }) 
 		<div className={style.roomsList}>
 			{roomsListData && roomsListData.length && (
 				<Dropdown listName={listName}>
-					{roomsListData.map((item: IRoom) => (
-						<MenuItem
-							key={item.id || null}
-							onClick={() => {
-								if (item !== handleJoinRoom) {
-									handleJoinRoom(item);
-								}
-							}}
-						>
-							<RoomItem roomObj={item} />
-						</MenuItem>
-					))}
+					{roomsListData
+						.filter((item: IRoom) => item.id === 'global' || (item.id && item.id.length === 36))
+						.map((item: IRoom) => (
+							<MenuItem key={item.id} onClick={() => handleJoinRoom(item)}>
+								<RoomItem roomObj={item} />
+							</MenuItem>
+						))}
+
 					<MenuItem
 						disableRipple
 						disableTouchRipple

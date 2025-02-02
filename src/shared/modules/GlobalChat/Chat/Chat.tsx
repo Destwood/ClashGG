@@ -23,10 +23,11 @@ export const Chat: React.FC = () => {
 
 	useEffect(() => {
 		ChatServices.connect(
-			'ws://localhost:5000',
+			'ws://localhost:8001',
 			userData,
 			activeRoom,
 			(message) => {
+				console.log(message);
 				switch (message.event) {
 					case ChatEvents.history:
 						if (message.messages) {
@@ -37,7 +38,7 @@ export const Chat: React.FC = () => {
 						if (message.rooms) {
 							const rooms: IRoom[] = Object.values(message.rooms);
 							const activeRoomData = rooms.find((room) => room.id === activeRoom);
-							dispatch(setUserList(activeRoomData?.allUsers || []));
+							dispatch(setUserList(activeRoomData?.users || []));
 							dispatch(setRoomList(rooms));
 						}
 						break;
