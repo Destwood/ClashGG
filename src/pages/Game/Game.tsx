@@ -23,6 +23,8 @@ export const Game: React.FC = () => {
 		setActiveTab(index);
 	};
 
+	// comment
+
 	return (
 		<div className={style.container}>
 			<div className={style.mainInfo}>
