@@ -24,7 +24,7 @@ const chatUser = createSlice({
 		setAllChatUsers(state, { payload }) {
 			return {
 				...state,
-				userList: payload,
+				allUsers: payload,
 			};
 		},
 	},

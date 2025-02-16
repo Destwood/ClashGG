@@ -34,6 +34,10 @@ export const ChatHeader: React.FC = memo(() => {
 		}
 	};
 
+	const handleRoomClick = ( roomName: string ) => {
+		setRoomName(roomName);
+	}
+
 	return (
 		<div className={style.chatHeader}>
 			<h1 className={style.roomTitle}>To: {roomName}</h1>
@@ -45,7 +49,7 @@ export const ChatHeader: React.FC = memo(() => {
 					<UserList listName="All" userListData={allUsersListData} handleUsernameClick={handleUsernameClick} />
 				</div>
 				<div className={style.RoomsContainer}>
-					<RoomsList listName="Rooms" roomsListData={chatRoomsList} />
+					<RoomsList listName="Rooms" roomsListData={chatRoomsList} handleRoomClick={handleRoomClick}/>
 				</div>
 			</div>
 		</div>

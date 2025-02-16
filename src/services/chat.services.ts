@@ -19,7 +19,7 @@ export class ChatServices {
 				this.socket.send(
 					JSON.stringify({
 						event: ChatEvents.joinRoom,
-						room: activeRoom,
+						roomId: activeRoom,
 						user: {
 							username: user.username,
 							id: user.id,
@@ -58,11 +58,11 @@ export class ChatServices {
 		}
 	}
 
-	static deleteRoom(roomName: string) {
+	static deleteRoom(roomId: string) {
 		if (this.socket) {
 			const deleteRoomData = {
 				event: ChatEvents.deletePrivateRoom,
-				room: roomName,
+				roomId,
 			};
 			this.socket.send(JSON.stringify(deleteRoomData));
 		}
@@ -73,7 +73,7 @@ export class ChatServices {
 			const addUserData = {
 				event: ChatEvents.addUserToPrivateRoom,
 				room,
-				userId,
+				user: { id: userId },
 			};
 			this.socket.send(JSON.stringify(addUserData));
 		}
@@ -83,7 +83,7 @@ export class ChatServices {
 		if (this.socket && this.socket.readyState === WebSocket.OPEN) {
 			const message = {
 				event: ChatEvents.joinRoom,
-				room: roomId,
+				roomId,
 				user,
 				user2,
 			};
@@ -103,6 +103,12 @@ export class ChatServices {
 	}
 
 	static close() {
+		if (this.socket && this.socket.readyState === WebSocket.OPEN) {
+			const message = {
+				event: ChatEvents.disconnect,
+			};
+			this.socket.send(JSON.stringify(message));
+		}
 		if (this.socket) {
 			this.socket.close();
 			this.socket = null;

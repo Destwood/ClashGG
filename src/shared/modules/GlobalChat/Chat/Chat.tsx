@@ -37,8 +37,6 @@ export const Chat: React.FC = () => {
 					case ChatEvents.updateRoomList:
 						if (message.rooms) {
 							const rooms: IRoom[] = Object.values(message.rooms);
-							const activeRoomData = rooms.find((room) => room.id === activeRoom);
-							dispatch(setUserList(activeRoomData?.users || []));
 							dispatch(setRoomList(rooms));
 						}
 						break;

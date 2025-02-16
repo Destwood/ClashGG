@@ -4,7 +4,7 @@ import { ChatServices } from 'services/chat.services';
 import { Button, Input } from 'shared/components';
 import { Dropdown } from 'shared/components/Dropdown';
 import { useAppDispatch, useAppSelector } from 'shared/hooks';
-import { setActiveRoom } from 'store/ChatActiveRoom';
+import { selectActiveRoom, setActiveRoom } from 'store/ChatActiveRoom';
 import { selectUser } from 'store/User';
 import { IRoom } from 'types';
 import { RoomItem } from './RoomItem/RoomItem';
@@ -13,13 +13,15 @@ import style from './RoomsList.module.scss';
 interface roomsListData {
 	roomsListData: IRoom[];
 	listName: string;
+	handleRoomClick: (roomName: string) => void;
 }
 
-export const RoomsList: React.FC<roomsListData> = ({ roomsListData, listName }) => {
+export const RoomsList: React.FC<roomsListData> = ({ roomsListData, listName, handleRoomClick }) => {
 	const dispatch = useAppDispatch();
 	const [creatingRoom, setCreatingRoom] = useState(false);
 	const [newRoomName, setNewRoomName] = useState('');
 	const userData = useAppSelector(selectUser);
+	const currentActiveRoom = useAppSelector(selectActiveRoom);
 
 	const handleCreateRoom = () => {
 		if (newRoomName.trim()) {
@@ -34,8 +36,9 @@ export const RoomsList: React.FC<roomsListData> = ({ roomsListData, listName }) 
 	};
 
 	const handleJoinRoom = (room: IRoom) => {
-		if (room.id) {
+		if (room.id && currentActiveRoom !== room.id) {
 			dispatch(setActiveRoom(room.id));
+			handleRoomClick(room.name);
 			ChatServices.joinRoom(room.id, userData);
 		}
 	};
