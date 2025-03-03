@@ -15,7 +15,7 @@ export class ToastService {
 	}
 
 	static error(message?: string) {
-		toast.success(message, {
+		toast.error(message, {
 			position: ToastPosition.topRight,
 			autoClose: 5000,
 			hideProgressBar: false,
