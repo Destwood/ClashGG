@@ -1,29 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { getAuth } from 'firebase/auth';
-import { useTheme } from 'shared/theme';
+import { Box } from '@mui/material';
+import bannerImg from 'assets/homepageBanner.webp';
+import { Compact } from 'shared/components';
+import { Banner } from 'shared/components/Banner';
+import {
+	D2TournamentSmallData,
+	leagueTournamentSmallData,
+	PUBGTournamentSmallData,
+	R6SiegeTournamentSmallData,
+	RLTournamentSmallData,
+	TFTTournamentSmallData,
+} from 'utils/mock/Tournaments';
 import style from './index.module.scss';
 
 export const HomePage: React.FC = () => {
-	//TODO - all styles and this page is temporary
-	const auth = getAuth();
-	const { currentTheme, toggleTheme } = useTheme();
-
 	return (
-		<div>
-			<h1>
-				Home Page, current theme: {currentTheme} {currentTheme === 'light' ? 'асуждаю' : ''}
-			</h1>
-			<p>{auth.currentUser?.uid !== undefined ? 'true' : 'false'}</p>
-			<p>
-				<Link className={style.link} to="/profile">
-					profile
-				</Link>
-				<Link className={style.link} to="/player">
-					Player Data
-				</Link>
-			</p>
-			<button onClick={toggleTheme}>Toggle Theme</button>
-		</div>
+		<Box className={style.wrapper}>
+			<Banner bannerImage={bannerImg} />
+			<Box className={style.content}>
+				<h1>Make your own legend</h1>
+				<Compact tournaments={leagueTournamentSmallData} title="Tournaments for you" />
+				<Compact tournaments={TFTTournamentSmallData} title="Teamfight tactics" />
+				<Compact tournaments={PUBGTournamentSmallData} title="PUBG" />
+				<Compact tournaments={R6SiegeTournamentSmallData} title="Raibow 6 Siege" />
+				<Compact tournaments={RLTournamentSmallData} title="Rocket league" />
+				<Compact tournaments={D2TournamentSmallData} title="Dota 2" />
+			</Box>
+		</Box>
 	);
 };
