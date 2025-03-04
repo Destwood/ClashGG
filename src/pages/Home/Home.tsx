@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box } from '@mui/material';
 import bannerImg from 'assets/homepageBanner.webp';
 import { Compact } from 'shared/components';
@@ -14,12 +15,14 @@ import {
 import style from './index.module.scss';
 
 export const HomePage: React.FC = () => {
+	const { t } = useTranslation();
+
 	return (
 		<Box className={style.wrapper}>
 			<Banner bannerImage={bannerImg} />
 			<Box className={style.content}>
-				<h1>Make your own legend</h1>
-				<Compact tournaments={leagueTournamentSmallData} title="Tournaments for you" />
+				<h1>{t('homePage.title')}</h1>
+				<Compact tournaments={leagueTournamentSmallData} title={t('homePage.tournamentsList')} />
 				<Compact tournaments={TFTTournamentSmallData} title="Teamfight tactics" />
 				<Compact tournaments={PUBGTournamentSmallData} title="PUBG" />
 				<Compact tournaments={R6SiegeTournamentSmallData} title="Raibow 6 Siege" />

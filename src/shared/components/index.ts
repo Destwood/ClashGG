@@ -1,6 +1,7 @@
 export * from './Button';
 export * from './Compact';
 export * from './Input';
+export * from './LanguageButton';
 export * from './League/Champion';
 export * from './League/Game';
 export * from './LogInForm';
