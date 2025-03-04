@@ -9,7 +9,7 @@ export interface IUserInit {
 	email: string;
 	firstName: string;
 	lastName: string;
-	profilePicture: File | null;
+	profilePicture: string | undefined;
 	games: IGame[];
 	settings: ISettings;
 	createdAt: string;
@@ -27,8 +27,4 @@ export interface ISettings {
 	theme: string;
 }
 
-export interface IUserSettings {
-	username: string;
-	lastName: string;
-	email: string;
-}
+export type IUserSettings = Partial<IUserInit>

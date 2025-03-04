@@ -1,3 +1,4 @@
+import defaultProfilePic from "assets/profile.svg";
 import { IUser } from 'types';
 import { Language, Themes } from 'utils/enums';
 
@@ -9,7 +10,7 @@ export const User: IUser = {
 		email: '',
 		firstName: '',
 		lastName: '',
-		profilePicture: null,
+		profilePicture: defaultProfilePic,
 		games: [
 			{ name: 'League of Legends', url: '' },
 			{ name: 'CS:GO', url: '' },
