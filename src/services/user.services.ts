@@ -23,10 +23,19 @@ export class UserService {
 		try {
 			const userDocRef = doc(firestore, 'users', auth.currentUser?.uid || '');
 
-			await updateDoc(userDocRef, {
-				username: values.username !== '' ? values.username : '',
+			const dataToUpdate: IUserSettings = {
 				updatedAt: new Date().toISOString(),
+			}
+
+			Object.keys(values).forEach((key) => {
+				const typedKey = key as keyof IUserSettings;
+				if (values[typedKey] !== undefined && values[typedKey] !== '') {
+					dataToUpdate[typedKey] = values[typedKey] as any;
+				}
 			});
+
+			await updateDoc(userDocRef, dataToUpdate);
+
 		} catch (error) {
 			console.error('Error updating profile:', error);
 		}

@@ -4,16 +4,20 @@
     "logout": "Вийти",
     "submit": "Надіслати",
     "cancel": "Скасувати",
-    "save": "Зберегти"
+    "save": "Зберегти",
+    "email": "Електронна пошта",
+    "password": "Пароль",
+    "username": "Ім'я користувача",
+    "confirmPassword": "Підтвердження пароля"
   },
   "auth": {
     "login": {
-      "title": "Вхід",
+      "title": "Увійти",
       "username": "Ім'я користувача",
-      "password": "Пароль",
       "rememberMe": "Запам'ятати мене",
       "forgotPassword": "Забули пароль?",
       "loginButton": "Увійти",
+      "alreadyHaveAccount": "Уже є акаунт?",
       "errorMessage": {
         "requiredUsername": "Ім'я користувача обов'язкове",
         "requiredPassword": "Пароль обов'язковий",
@@ -24,32 +28,109 @@
       "title": "Реєстрація",
       "firstName": "Ім'я",
       "lastName": "Прізвище",
-      "email": "Електронна пошта",
-      "password": "Пароль",
-      "confirmPassword": "Підтвердити пароль",
-      "signUpButton": "Зареєструватися"
+      "confirmPassword": "Підтвердження пароля",
+      "signUpButton": "Зареєструватися",
+      "dontHaveAccount": "Немає акаунту?"
+    },
+    "logout": {
+      "title": "Вийти",
+      "message": "Ви впевнені, що хочете вийти?"
     }
   },
   "dashboard": {
-    "title": "Панель керування",
+    "title": "Панель управління",
     "overview": "Огляд",
     "statistics": "Статистика",
     "recentActivities": "Останні активності",
     "viewAll": "Переглянути всі"
   },
+  "homePage": {
+    "title": "Створи власну легенду",
+    "tournamentsList": "Турніри для тебе"
+  },
   "profile": {
-    "title": "Профіль",
-    "editProfile": "Редагувати профіль",
+    "avatarAlt": "Аватар",
+    "viewProfile": "Переглянути профіль",
+    "addFunds": "Поповнити",
+    "withdraw": "Вивести",
+    "theme": "Тема",
+    "profile": "Профіль",
     "settings": "Налаштування",
+    "security": "Безпека",
+    "loading": "Завантаження...",
+    "userSettings": "Налаштування користувача",
+    "firstName": "Ім'я",
+    "lastName": "Призвище",
+    "email": "Електронна пошта",
+    "enterUsername": "Введіть нове ім'я користувача",
+    "enterFirstName": "Введіть своє ім'я",
+    "enterLastName": "Введіть своє прізвище",
+    "enterEmail": "Введіть свою електронну пошту",
+    "saveChanges": "Зберегти зміни",
+    "securitySettings": "Налаштування безпеки",
     "changePassword": "Змінити пароль",
-    "notifications": "Сповіщення",
-    "language": "Мова",
-    "theme": "Тема"
+    "newPassword": "Новий пароль",
+    "twoFactorAuth": "Двофакторна аутентифікація",
+    "deleteAccount": "Видалити акаунт",
+    "prevValue": "Зараз"
   },
   "errors": {
-    "pageNotFound": "Сторінку не знайдено",
+    "pageNotFound": "Сторінка не знайдена",
     "internalServerError": "Внутрішня помилка сервера",
     "accessDenied": "Доступ заборонено",
     "backToHome": "Повернутися на головну"
+  },
+  "languageButton": {
+    "switchToEnglish": "Англійська"
+  },
+  "search": "Пошук...",
+  "playerData": {
+    "summonerLevel": "Рівень",
+    "ladderRank": "Ранг у рейтингу",
+    "matchHistory": "Історія матчів",
+    "championStats": "Статистика чемпіонів",
+    "allRanked": "Всі рейтингові",
+    "rankedSolo": "Одиночний рейтинг",
+    "rankedFlex": "Гнучкий рейтинг",
+    "wins": "П",
+    "losses": "Пор",
+    "winRate": "Відсоток перемог"
+  },
+  "rankData": {
+    "ranked": "Рейтинг",
+    "LP": "ОЧК",
+    "winRate": "Відсоток перемог"
+  },
+  "gamePage": {
+    "gameName": "League of Legends",
+    "profileAction": "Редагувати профіль",
+    "buttonText": "Створити",
+    "tabs": {
+      "overview": "Огляд",
+      "tournaments": "Турніри",
+      "ranking": "Рейтинг"
+    },
+    "overview": {
+      "popular": "Популярні",
+      "upcoming": "Заплановані",
+      "completed": "Завершені",
+      "recommended": "Рекомендовані турніри"
+    },
+    "tournaments": {
+      "title": "Топ 100 рейтингу League of Legends",
+      "header": {
+        "rank": "#",
+        "nickname": "Нікнейм",
+        "gamesPlayed": "Матчів",
+        "wins": "Перемоги",
+        "rating": "Рейтинг",
+        "winRate": "Перемоги, %"
+      }
+    }
+  },
+  "tournamentCard": {
+    "hostedBy": "Організовано",
+    "gameIconAlt": "Іконка гри",
+    "organizerAlt": "Організатор"
   }
 }

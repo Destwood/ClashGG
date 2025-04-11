@@ -1,11 +1,10 @@
-import { array } from 'yup';
-
 export interface ButtonProps {
 	children: React.ReactNode | string;
 	color?: string;
 	textColor?: string;
 	type: 'contained' | 'filled' | 'outlined';
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+	isSubmit?: boolean;
 	onBlur?: (e: React.FocusEvent<HTMLElement>) => void;
 }
 

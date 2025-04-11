@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { Box, Divider } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import leave from "assets/leave.svg";
 import logo from 'assets/logo.webp';
 import { getAuth, signOut } from 'firebase/auth';
 import { Auth, UserService } from 'services';
@@ -93,26 +94,32 @@ const Header = () => {
 				</Link>
 			</div>
 			<div className="">
-				<Input value={searchValue} onChange={handleChange} placeholder="Search..." type="outlined" />
+				<Input value={searchValue} onChange={handleChange} placeholder={`${t('search')}`}type="outlined" />
 			</div>
-			<div className="">
-				<div className={style.authButtons}>
-					{userData.id ? (
+			<div className={style.authButtons}>
+				{userData.id ? (
+					<div className={style.authButton}>
 						<Button type="outlined" onClick={handleLogout}>
-							{t('auth.logout.title')}
+							<img src={leave} alt="" className={style.icon}/>
 						</Button>
-					) : (
-						<>
-							<Button type="contained" onClick={() => handleAuthClick(true)}>
-								{t('auth.login.title')}
-							</Button>
-							<Button type="contained" onClick={() => handleAuthClick(false)}>
-								{t('auth.signUp.title')}
-							</Button>
-						</>
-					)}
-				</div>
-				<ToastContainer />
+					</div>
+				) : (
+					<>
+						<Button type="contained" onClick={() => handleAuthClick(true)}>
+							{t('auth.login.title')}
+						</Button>
+						<Button type="contained" onClick={() => handleAuthClick(false)}>
+							{t('auth.signUp.title')}
+						</Button>
+					</>
+				)}
+				{userData.id &&
+					<div className={style.profileLink}>
+						<Link to="/profile">
+								<img src={userData.profilePicture} alt="" className={style.profileIcon}/>
+						</Link>
+						</div>
+				}
 			</div>
 
 			<Modal

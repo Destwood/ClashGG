@@ -71,7 +71,7 @@ export const RoomsList: React.FC<roomsListData> = ({ roomsListData, listName, ha
 					>
 						{!creatingRoom ? (
 							<Button
-								onClick={(e) => {
+								onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
 									e.preventDefault();
 									e.stopPropagation();
 									setCreatingRoom(true);

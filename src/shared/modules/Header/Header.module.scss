@@ -13,7 +13,21 @@
 
 .authButtons {
   display: flex;
+  align-content: center;
   height: 2rem;
   gap: 1rem;
-  width: 12rem;
+}
+
+.authButton {
+  display: flex;
+}
+
+.icon {
+  height: 1.5rem !important;
+}
+
+.profileIcon {
+  aspect-ratio: 1/1;
+  height: 100%;
+  border-radius: 50%;
 }

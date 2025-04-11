@@ -44,14 +44,35 @@
     "recentActivities": "Recent Activities",
     "viewAll": "View all"
   },
+  "homePage": {
+    "title": "Make your own legend",
+    "tournamentsList": "Tournaments for you"
+  },
   "profile": {
-    "title": "Profile",
-    "editProfile": "Edit Profile",
+    "avatarAlt": "Avatar",
+    "viewProfile": "View Profile",
+    "addFunds": "Add funds",
+    "withdraw": "Withdraw",
+    "theme": "Theme",
+    "profile": "Profile",
     "settings": "Settings",
+    "security": "Security",
+    "loading": "Loading...",
+    "userSettings": "User Settings",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "enterUsername": "Enter new username",
+    "enterFirstName": "Enter your first name",
+    "enterLastName": "Enter your last name",
+    "enterEmail": "Enter your email",
+    "saveChanges": "Save Changes",
+    "securitySettings": "Security Settings",
     "changePassword": "Change Password",
-    "notifications": "Notifications",
-    "language": "Language",
-    "theme": "Theme"
+    "newPassword": "New password",
+    "twoFactorAuth": "Two-Factor Authentication",
+    "deleteAccount": "Delete Account",
+    "prevValue": "Current"
   },
   "errors": {
     "pageNotFound": "Page Not Found",
@@ -59,6 +80,10 @@
     "accessDenied": "Access Denied",
     "backToHome": "Back to Home"
   },
+  "languageButton": {
+    "switchToUkrainian": "Ukrainian"
+  },
+  "search": "Search...",
   "playerData": {
     "summonerLevel": "Level",
     "ladderRank": "Ladder rank is",
@@ -75,5 +100,37 @@
     "ranked": "Ranked",
     "LP": "LP",
     "winRate": "Win Rate"
+  },
+  "gamePage": {
+    "gameName": "League of Legends",
+    "profileAction": "Edit Profile",
+    "buttonText": "Create",
+    "tabs": {
+      "overview": "Overview",
+      "tournaments": "Tournaments",
+      "ranking": "Ranking"
+    },
+    "overview": {
+      "popular": "Popular",
+      "upcoming": "Upcoming",
+      "completed": "Completed",
+      "recommended": "Recommended tournaments"
+    },
+    "tournaments": {
+      "title": "League of Legends Top 100 Ranking",
+      "header": {
+        "rank": "#",
+        "nickname": "Nickname",
+        "gamesPlayed": "Games Played",
+        "wins": "Wins",
+        "rating": "Rating",
+        "winRate": "WinRate, %"
+      }
+    }
+  },
+  "tournamentCard": {
+    "hostedBy": "Hosted by",
+    "gameIconAlt": "Game icon",
+    "organizerAlt": "Organizer"
   }
 }

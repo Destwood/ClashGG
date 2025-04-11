@@ -17,6 +17,12 @@
   display: flex;
 }
 
+.playerInfo {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
 .playerIcon {
   border-radius: 50%;
   height: 2rem;

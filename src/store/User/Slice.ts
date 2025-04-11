@@ -8,7 +8,7 @@ const initialState: IUserInit = {
 	email: '',
 	firstName: '',
 	lastName: '',
-	profilePicture: null,
+	profilePicture: undefined,
 	games: [
 		{ name: 'League of Legends', url: '' },
 		{ name: 'CS:GO', url: '' },
