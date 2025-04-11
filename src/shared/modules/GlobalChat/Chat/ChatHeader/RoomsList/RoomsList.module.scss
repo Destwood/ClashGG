@@ -1,0 +1,37 @@
+@import 'shared/theme/variables';
+
+.chatHeader {
+}
+
+.tabs {
+  display: flex;
+  gap: .5rem;
+  height: 2rem;
+}
+
+.listContainer {
+  position: relative;
+}
+
+.list {
+  width: fit-content;
+  padding: 1rem;
+  left: 0rem;
+  top: 0rem;
+  position: absolute;
+  background-color: var(--background-paper);
+  border-radius: 1rem;
+}
+
+.createROomButtons {
+  display: flex;
+  marg-top: .5rem;
+}
+
+.createRoomButton {
+  width: 100%;
+}
+
+.closeCreateRoomButton {
+  width: 100%;
+}

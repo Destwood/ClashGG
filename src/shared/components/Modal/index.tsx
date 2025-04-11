@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Button as MUIButton, Dialog, IconButton, Typography } from '@mui/material';
 import { Form, Formik, FormikHelpers } from 'formik';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { useAppDispatch, useAppSelector } from 'shared/hooks';
 import { selectIsModalOpen, togglePopup } from 'store/Modal';
 import { AnyObject, Schema } from 'yup';
 

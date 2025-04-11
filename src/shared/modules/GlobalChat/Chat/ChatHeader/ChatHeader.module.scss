@@ -1,0 +1,65 @@
+@import 'shared/theme/variables';
+
+.tabs {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: .5rem;
+  width: 100%;
+}
+
+.usersContainer,
+.allContainer,
+.RoomsContainer {
+  flex: 1;
+}
+
+.listContainer {
+  position: relative;
+}
+
+.listPositionContainer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 1rem;
+}
+
+.list {
+  width: 17rem;
+  margin: auto;
+  padding: 1rem;
+  background-color: var(--background-paper);
+  border-radius: 1rem;
+}
+
+.roomTitle {
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin-bottom: .5rem;
+}
+
+//temporary, to delete
+.itemContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.copyButton {
+  color: var(--text-primary);
+  border: none;
+  background: none;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+
+  &:active {
+    color: var(--me);
+  }
+}
+
+.copyIcon {
+  height: 1rem;
+}

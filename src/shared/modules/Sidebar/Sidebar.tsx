@@ -5,9 +5,9 @@ import { useTheme } from '@mui/material/styles';
 import LoL from 'assets/temp/LoL.svg';
 import RocketLeague from 'assets/temp/RocketLeague.svg';
 import tft from 'assets/temp/tft.webp';
+import { useAppDispatch } from 'shared/hooks';
 import { sidebarStyle } from 'shared/theme/components/Sidebar';
 import { setActiveGame } from 'store/ActiveGame/Slice';
-import { useAppDispatch } from 'store/hooks';
 import style from './Sidebar.module.scss';
 
 // TODO
@@ -23,11 +23,9 @@ const Sidebar: React.FC<Props> = () => {
 	const sidebarStyles = sidebarStyle(theme);
 	const dispatch = useAppDispatch();
 
-	const handleGameClick =
-		(game: string) =>
-		(event: React.MouseEvent<HTMLDivElement>): void => {
-			dispatch(setActiveGame(game));
-		};
+	const handleGameClick = (game: string) => (): void => {
+		dispatch(setActiveGame(game));
+	};
 
 	// TODO
 	// const API_URL = 'https://api.challengermode.com/graphql'; // Replace with actual API URL

@@ -4,7 +4,7 @@ import { getAuth } from 'firebase/auth';
 import { Field, Form, Formik } from 'formik';
 import { UserService } from 'services';
 import { Button } from 'shared/components';
-import { useAppSelector } from "store/hooks";
+import { useAppSelector } from "shared/hooks";
 import { selectUser } from "store/User";
 import { IUserSettings } from 'types';
 import { userScheme } from 'utils/schemas/profile';

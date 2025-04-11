@@ -4,10 +4,11 @@ import { CssBaseline } from '@mui/material';
 import { Game } from 'pages/Game/Game';
 import { HomePage } from 'pages/Home/Home';
 import { Auth, UserService } from 'services';
+import { useAppDispatch, useAppSelector } from 'shared/hooks';
+import GlobalChat from 'shared/modules/GlobalChat/GlobalChat';
 import Header from 'shared/modules/Header/Header';
 import Sidebar from 'shared/modules/Sidebar/Sidebar';
 import ThemeProvider from 'shared/theme/ThemeProvider';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { clearUser, selectUser, setUser } from 'store/User';
 import 'i18n';
 import 'services/firebase.services';
@@ -51,6 +52,7 @@ const App = () => {
 					<Header />
 					<main>
 						<Sidebar />
+						<GlobalChat />
 						<div className="pageContainer">
 							<Routes>
 								<Route path="/" element={<HomePage />} />

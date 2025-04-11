@@ -1,0 +1,32 @@
+@import 'shared/theme/variables';
+
+.itemContainer {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.copyButton {
+  color: var(--text-primary);
+  border: none;
+  background: none;
+
+  &:hover {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  &:active {
+    color: var(--me);
+  }
+}
+
+.copyIcon {
+  height: 1rem;
+}
+
+.me {
+  color: var(--me);
+  font-weight: 700;
+}

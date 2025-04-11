@@ -1,0 +1,58 @@
+@import 'shared/theme/variables';
+
+.chatButton {
+
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+  user-select: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--cm-colors-fg3);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.chatIcon {
+  height: 2rem;
+}
+
+.msgList {
+  height: 15rem;
+  overflow-y: scroll;
+
+  scrollbar-width: thin; /* Для Firefox */
+  scrollbar-color: var(--cm-colors-fg3) var(--cm-colors-bg2); /* Колір треку і повзунка */
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--cm-colors-bg2);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--cm-colors-fg3);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--cm-colors-fg2);
+  }
+}
+
+.hideChat {
+  visibility: hidden;
+  opacity: 0;
+}

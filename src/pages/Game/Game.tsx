@@ -6,7 +6,7 @@ import defaultPfp from 'assets/defaultPfp.webp';
 import defaultBanner from 'assets/leagueBanner.webp';
 import defaultGame from 'assets/leagueMainImg.webp';
 import { Button } from 'shared/components';
-import { Banner } from 'shared/components/Banner';
+import { Banner } from '../../shared/components/Banner';
 import { Overview } from './Tabs/Overview/Overview';
 import { Ranking } from './Tabs/Ranking/Ranking';
 import { Tournaments } from './Tabs/Tournaments/Tournaments';

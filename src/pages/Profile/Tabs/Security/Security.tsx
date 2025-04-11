@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { getAuth } from 'firebase/auth';
 import { doc } from 'firebase/firestore';
 import { firestore, UserService } from 'services';
-import { useAppSelector } from 'store/hooks';
+import { useAppSelector } from 'shared/hooks/store';
 import { selectUser } from 'store/User';
 import { User } from 'utils/constants';
 import styles from './index.module.scss';
